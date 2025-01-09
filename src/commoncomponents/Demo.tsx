@@ -7,5 +7,3 @@ const Demo = (props: Props) => {
     <div>Demo</div>
   )
 }
-
-export default Demo
