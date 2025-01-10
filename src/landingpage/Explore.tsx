@@ -29,7 +29,7 @@ const Dashboard = () => {
 </h1>
 
         <p className="text-[#5F5E5E] font-sans mb-8">
-          Our platform offers a centralized hub for managing your <br /> modules. Explore, access, and update them with ease.
+          Our platform offers a centralized hub for managing your <br /> modules. Explore, access, and update them with ease."
         </p>
       </div>
       <div className="grid grid-cols-4 gap-4  rounded-md ">
