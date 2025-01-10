@@ -1,21 +1,23 @@
+import { Suspense, lazy } from "react";
 import "./App.css";
-import Footer from "./components/Footer";
-import Cards from "./cards/Cards";
-import Dashboard from "./landingpage/Explore";
-import SliderSection from "./landingpage/SliderSection";
-import Header from "./components/Header";
-import ErpFunctionality from "./ErpFunctionality";
+
+const Footer = lazy(() => import("./components/Footer"));
+const Cards = lazy(() => import("./cards/Cards"));
+const Dashboard = lazy(() => import("./landingpage/Explore"));
+const SliderSection = lazy(() => import("./landingpage/SliderSection"));
+const Header = lazy(() => import("./components/Header"));
+const ErpFunctionality = lazy(() => import("./ErpFunctionality"));
 
 function App() {
   return (
-    <>
-    <Header/>
-    <SliderSection/>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Header />
+      <SliderSection />
       <Dashboard />
       <Cards />
-      <ErpFunctionality/>
+      <ErpFunctionality />
       <Footer />
-    </>
+    </Suspense>
   );
 }
 
