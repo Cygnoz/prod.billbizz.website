@@ -4,6 +4,7 @@ import Cards from "./cards/Cards";
 import Dashboard from "./landingpage/Explore";
 import SliderSection from "./landingpage/SliderSection";
 import Header from "./components/Header";
+import ErpFunctionality from "./ErpFunctionality";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
     <SliderSection/>
       <Dashboard />
       <Cards />
+      <ErpFunctionality/>
       <Footer />
     </>
   );

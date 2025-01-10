@@ -4,9 +4,10 @@ import card2img from "../assets/images/Group 2499.svg"
 import search from "../assets/icons/search.svg"
 import CheckCircleIcon from "../commoncomponents/CheckCircleIcon"
 import card3img from "../assets/images/Frame 630359.svg"
-import card4icon from '../assets/icons/Group.svg'
-import fourthcardicon from '../assets/icons/Vector (1).svg'
+import card4icon from "../assets/icons/Group.svg"
+import fourthcardicon from "../assets/icons/Vector (1).svg"
 import ActionRequired from "../components/ActionRequired"
+import GridCards from "../components/GridCards"
 
 function Cards() {
   return (
@@ -57,7 +58,9 @@ function Cards() {
                 OCR For Advance Text Extraction
               </span>
             </div>
-            <h2 className="text-4xl font-bold text-[#413E3E] mt-4">OCR Technology for Effortless Text <br /> Extraction.</h2>
+            <h2 className="text-4xl font-bold text-[#413E3E] mt-4">
+              OCR Technology for Effortless Text <br /> Extraction.
+            </h2>
             <ul className="mt-4 text-[#2E2D2D] font-medium space-y-2">
               <li className="flex gap-1 items-center">
                 <CheckCircleIcon size={14} color="#BF0C0B" /> Seamless Text Extraction: Streamlined process for easy data retrieval.
@@ -85,7 +88,6 @@ function Cards() {
       {/* third card */}
 
       <div className="flex flex-col md:flex-row items-center justify-center bg-[radial-gradient(circle,_#FEFEFF_0%,_#FDF6E3_100%)] p-8 rounded-xl m-12 h-full">
-
         <img src={card3img} alt="Billie Chatbot" className="w-3/4 md:w-full max-w-sm -mb-8" />
         <div className="w-full md:w-1/2 mt-6 md:mt-0 md:ml-8">
           <div className="text-center md:text-left ">
@@ -95,7 +97,7 @@ function Cards() {
                 <h1 className="text-[#413E3E] ">E-commerce Integration</h1>
               </span>
             </div>
-            <h2 className="text-4xl font-bold text-[#413E3E] mt-4">Unlock New Potential with Dynamic  E-commerce Integration Solutions</h2>
+            <h2 className="text-4xl font-bold text-[#413E3E] mt-4">Unlock New Potential with Dynamic E-commerce Integration Solutions</h2>
             <ul className="mt-4 text-[#2E2D2D] font-medium gap-2 space-y-2">
               <li className="flex gap-1 items-center">
                 <CheckCircleIcon size={14} color="#EEC45A" /> Seamless Connectivity: Connect all sales channels effortlessly.
@@ -116,7 +118,6 @@ function Cards() {
           </div>
         </div>
       </div>
-
 
       {/* fourth card */}
 
@@ -143,18 +144,14 @@ function Cards() {
               <li className="flex gap-1 items-center">
                 <CheckCircleIcon size={14} color="#387EA2" /> Proactive protection for your business
               </li>
-
             </ul>
           </div>
         </div>
         <div className="w-full md:w-1/2 mt-6 flex justify-center items-center">
           {/* <img src={card2img} alt="Billie Chatbot" className="w-3/4 md:w-full max-w-sm -mb-8" /> */}
-          <ActionRequired  message="Action Required: Please verify this transaction or contact support"/>
+          <ActionRequired message="Action Required: Please verify this transaction or contact support" />
         </div>
       </div>
-
-
-
 
 
     </div>
