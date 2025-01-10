@@ -99,7 +99,7 @@ function Footer() {
                 </h6>
                 <p className="text-[#BEBEBE] font-sans text-lg leading-relaxed">
                   <a
-                    href="mailto:notify@cygnonex.cm"
+                    href="mailto:notify@cygnonex.com"
                     className="text-[#BEBEBE] hover:text-[#FFFFFF] flex items-center gap-2 "
                   >
                     <img
@@ -226,28 +226,28 @@ function Footer() {
       <div className="bg-red-950 flex justify-between h-[38px]">
         <div className="flex  gap-[14px] pt-[7px] ps-[40px]">
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/cygnotechlabs/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img src={fb} alt="Facebook" className="w-[11px] h-[20px]" />
           </a>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/cygnoz_/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img src={insta} alt="Instagram" className="w-[20px] h-[20px]" />
           </a>
           <a
-            href="mailto:example@example.com"
+            href="mailto:notify@cygnonex.com"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img src={maill} alt="Email" className="w-[20px] h-[16px]" />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/company/cygnoz/posts/?feedView=all"
             target="_blank"
             rel="noopener noreferrer"
           >
