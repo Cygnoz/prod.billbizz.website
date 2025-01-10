@@ -43,7 +43,7 @@ function Footer() {
         {/* Content */}
         <div className="flex justify-between relative z-10 p-10">
           <div className="w-[597px]">
-            <h1 className="text-[48px] font-[410] leading-[56.64px] text-left  decoration-skip-ink-none font-sans">
+            <h1 className="text-[48px] font-[410] leading-[56.64px] text-left  decoration-skip-ink-none font-sans font-semibold">
               <span className="text-[#C71B1A]">Transform</span> your business,
               <br />
               one solution at a time.
