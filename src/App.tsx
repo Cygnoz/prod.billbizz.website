@@ -1,20 +1,20 @@
-import { Route, Routes } from 'react-router-dom'
-import './App.css'
-import Footer from './components/Footer'
-import Cards from './cards/Cards'
+import "./App.css";
+import Footer from "./components/Footer";
+import Cards from "./cards/Cards";
+import Dashboard from "./landingpage/Explore";
+import SliderSection from "./landingpage/SliderSection";
+import Header from "./components/Header";
 
 function App() {
-
-
   return (
     <>
-    <Cards/>
-     <Routes>
-    <Route />     
-     </Routes>
-     <Footer/>
+    <Header/>
+    <SliderSection/>
+      <Dashboard />
+      <Cards />
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

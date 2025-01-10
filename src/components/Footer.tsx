@@ -11,8 +11,27 @@ import phone from "../assets/images/footer/phhone.png";
 import linkedin from "../assets/images/footer/social/Vector-3.png";
 import line from "../assets/images/footer/Line 18.png";
 import address from "../assets/images/footer/Frame 1156.png";
+import ReusableModal from "../commoncomponents/SignUpModal";
+import { useState } from "react";
 
 function Footer() {
+
+    const [modalOpen, setModalOpen] = useState(false); // State to manage modal visibility
+
+  const handleOpenModal = () => {
+    setModalOpen(true); // Open modal
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false); // Close modal
+  };
+
+  const handleAction = () => {
+    console.log("Action button clicked!");
+    handleCloseModal(); // Close the modal after the action
+  };
+
+
   return (
     <>
       <div className="relative bg-black text-white p-8 h-[359px]">
@@ -20,7 +39,7 @@ function Footer() {
         <img
           src={backgredient}
           alt="Background Gradient"
-          className="absolute inset-0 w-full h-full object-cover z-0 opacity-40"
+          className="absolute inset-0 w-full h-full object-cover z-0 opacity-50"
         />
 
         {/* Content */}
@@ -33,6 +52,7 @@ function Footer() {
             </h1>
 
             <button
+             onClick={handleOpenModal}
   className="mt-6 px-6 py-3 text-white rounded-md focus:outline-none"
   style={{
     fontFamily: "sans-serif",
@@ -64,7 +84,7 @@ function Footer() {
 
       <div className="relative bg-[#5E0101] text-white p-8 h-[510px]">
         <div className="flex justify-between">
-          <div className="sm:w-1/6 mb-8 mt-10 me-[70px]">
+          <div className=" sm:w-1/6 mb-8 mt-10 me-[70px]">
             <h2 className="flex text-3xl font-extralight">
               <img
                 src={billbizz}
@@ -73,45 +93,52 @@ function Footer() {
               />
               BillBizz
             </h2>
-            <div className="w-[300px]">
-              {" "}
+            <div className="flex w-[500px]">
+            
               <img src={address} alt="" className="mt-5 w-full h-[150px] " />
+              <div>
+  <h6 className="text-[#FFFFFF] font-sans mt-6 mb-4 text-2xl">
+    Contact
+  </h6>
+  <p className="text-[#BEBEBE] font-sans text-lg leading-relaxed">
+    <a
+      href="mailto:notify@cygnonex.cm"
+      className="text-[#BEBEBE] hover:text-[#FFFFFF] flex items-center gap-2 "
+    >
+      <img src={mail2} alt="Email" className="w-[20px] h-[16px]" />
+      notify@cygnonex.com
+    </a>
+
+    <a
+      href="tel:+919544431166"
+      className="text-[#BEBEBE] hover:text-[#FFFFFF] flex items-center gap-2 "
+    >
+      <img src={phone} alt="Phone" className="w-[20px] h-[16px]" />
+      +91 9544431166
+    </a>
+  </p>
+</div>
+
+
             </div>
 
-            <h6 className="text-[#FFFFFF] font-sans mt-6 mb-4 text-2xl">
-              Contact
-            </h6>
-            <p className="text-[#BEBEBE] font-sans text-lg leading-relaxed">
-              <a
-                href="mailto:notify@cygnonex.cm"
-                className="text-[#BEBEBE] hover:text-[#FFFFFF] flex items-center gap-2 "
-              >
-                <img src={mail2} alt="Email" className="w-[20px] h-[16px]" />{" "}
-                notify@cygnonex.cm
-              </a>
-
-              <a
-                href="tel:+919544431166"
-                className="text-[#BEBEBE] hover:text-[#FFFFFF] flex items-center gap-2 "
-              >
-                <img src={phone} alt="" className="w-[20px] h-[16px]" /> +91
-                9544431166
-              </a>
-            </p>
-          </div>
-
-          <div>
-            <img src={line} alt="" className="h-[360px]" />
-          </div>
-          <div className="w-full sm:w-1/5 mb-8 mt-10">
+            <div className="flex w-full mb-8 mt-10 gap-5">
             <img
               src={keralastartup}
               alt="Kerala Startup Mission"
               className="mb-4 "
             />
             <img src={awsstartup} alt="AWS Startups" className="mb-4 " />
-            <img src={msstartup} alt="Microsoft for Startups" />
+            <img src={msstartup} alt="Microsoft for Startups" className="w-[127px] h-[53px]" />
           </div>
+          </div>
+          
+          
+
+          <div>
+            <img src={line} alt="" className="h-[420px] ms-[200px]" />
+          </div>
+          
           <div className="w-full sm:w-1/6 mb-8 mt-[100px]">
             <h3 className="font-sans mb-5 text-2xl">Quick Links</h3>
             <ul className="text-[#BEBEBE] text-xl">
@@ -228,6 +255,13 @@ function Footer() {
           </p>
         </div>
       </div>
+
+      <ReusableModal
+        open={modalOpen}
+        onClose={handleCloseModal}
+       
+        onAction={handleAction}
+      />
     </>
   );
 }
