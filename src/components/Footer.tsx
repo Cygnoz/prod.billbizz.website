@@ -15,8 +15,7 @@ import ReusableModal from "../commoncomponents/SignUpModal";
 import { useState } from "react";
 
 function Footer() {
-
-    const [modalOpen, setModalOpen] = useState(false); // State to manage modal visibility
+  const [modalOpen, setModalOpen] = useState(false); // State to manage modal visibility
 
   const handleOpenModal = () => {
     setModalOpen(true); // Open modal
@@ -30,7 +29,6 @@ function Footer() {
     console.log("Action button clicked!");
     handleCloseModal(); // Close the modal after the action
   };
-
 
   return (
     <>
@@ -52,24 +50,24 @@ function Footer() {
             </h1>
 
             <button
-             onClick={handleOpenModal}
-  className="mt-6 px-6 py-3 text-white rounded-md focus:outline-none"
-  style={{
-    fontFamily: "sans-serif",
-    fontSize: "20px",
-    fontWeight: "410",
-    lineHeight: "23.6px",
-    textAlign: "left",
-    textDecoration: "none",
-    textUnderlinePosition: "from-font",
-    textDecorationSkipInk: "none",
-    borderRadius: "16px",
-    background: "linear-gradient(272.11deg, #CC1111 4.31%, #8F0100 92.61%)"
-  }}
->
-  Schedule Demo
-</button>
-
+              onClick={handleOpenModal}
+              className="mt-6 px-6 py-3 text-white rounded-md focus:outline-none"
+              style={{
+                fontFamily: "sans-serif",
+                fontSize: "20px",
+                fontWeight: "410",
+                lineHeight: "23.6px",
+                textAlign: "left",
+                textDecoration: "none",
+                textUnderlinePosition: "from-font",
+                textDecorationSkipInk: "none",
+                borderRadius: "16px",
+                background:
+                  "linear-gradient(272.11deg, #CC1111 4.31%, #8F0100 92.61%)",
+              }}
+            >
+              Schedule Demo
+            </button>
           </div>
 
           <p className="mt-4 text-[20px] font-[410] leading-[23.6px] text-left font-sans  decoration-skip-ink-none text-[#BEBEBE]">
@@ -94,51 +92,58 @@ function Footer() {
               BillBizz
             </h2>
             <div className="flex w-[500px]">
-            
               <img src={address} alt="" className="mt-5 w-full h-[150px] " />
               <div>
-  <h6 className="text-[#FFFFFF] font-sans mt-6 mb-4 text-2xl">
-    Contact
-  </h6>
-  <p className="text-[#BEBEBE] font-sans text-lg leading-relaxed">
-    <a
-      href="mailto:notify@cygnonex.cm"
-      className="text-[#BEBEBE] hover:text-[#FFFFFF] flex items-center gap-2 "
-    >
-      <img src={mail2} alt="Email" className="w-[20px] h-[16px]" />
-      notify@cygnonex.com
-    </a>
+                <h6 className="text-[#FFFFFF] font-sans mt-6 mb-4 text-2xl">
+                  Contact
+                </h6>
+                <p className="text-[#BEBEBE] font-sans text-lg leading-relaxed">
+                  <a
+                    href="mailto:notify@cygnonex.cm"
+                    className="text-[#BEBEBE] hover:text-[#FFFFFF] flex items-center gap-2 "
+                  >
+                    <img
+                      src={mail2}
+                      alt="Email"
+                      className="w-[20px] h-[16px]"
+                    />
+                    notify@cygnonex.com
+                  </a>
 
-    <a
-      href="tel:+919544431166"
-      className="text-[#BEBEBE] hover:text-[#FFFFFF] flex items-center gap-2 "
-    >
-      <img src={phone} alt="Phone" className="w-[20px] h-[16px]" />
-      +91 9544431166
-    </a>
-  </p>
-</div>
-
-
+                  <a
+                    href="tel:+919544431166"
+                    className="text-[#BEBEBE] hover:text-[#FFFFFF] flex items-center gap-2 "
+                  >
+                    <img
+                      src={phone}
+                      alt="Phone"
+                      className="w-[20px] h-[16px]"
+                    />
+                    +91 9544431166
+                  </a>
+                </p>
+              </div>
             </div>
 
             <div className="flex w-full mb-8 mt-10 gap-5">
-            <img
-              src={keralastartup}
-              alt="Kerala Startup Mission"
-              className="mb-4 "
-            />
-            <img src={awsstartup} alt="AWS Startups" className="mb-4 " />
-            <img src={msstartup} alt="Microsoft for Startups" className="w-[127px] h-[53px]" />
+              <img
+                src={keralastartup}
+                alt="Kerala Startup Mission"
+                className="mb-4 "
+              />
+              <img src={awsstartup} alt="AWS Startups" className="mb-4 " />
+              <img
+                src={msstartup}
+                alt="Microsoft for Startups"
+                className="w-[127px] h-[53px]"
+              />
+            </div>
           </div>
-          </div>
-          
-          
 
           <div>
             <img src={line} alt="" className="h-[420px] ms-[200px]" />
           </div>
-          
+
           <div className="w-full sm:w-1/6 mb-8 mt-[100px]">
             <h3 className="font-sans mb-5 text-2xl">Quick Links</h3>
             <ul className="text-[#BEBEBE] text-xl">
@@ -259,7 +264,6 @@ function Footer() {
       <ReusableModal
         open={modalOpen}
         onClose={handleCloseModal}
-       
         onAction={handleAction}
       />
     </>
