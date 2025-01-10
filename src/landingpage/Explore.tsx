@@ -8,6 +8,12 @@ import quotes from '../assets/icons/explore/quotes.png';
 import sales from '../assets/icons/explore/sales.png';
 import pos from '../assets/icons/explore/pos.png';
 
+interface ModuleCardProps {
+  icons: string; // Or a specific type depending on what 'icons' represents
+  title: string;
+  color: string; // You might want to specify a set of possible colors, or use a more specific type
+}
+
 const Dashboard = () => {
   return (
     <div
@@ -40,7 +46,8 @@ const Dashboard = () => {
   );
 };
 
-const ModuleCard = ({ icons, title, color }) => {
+
+const ModuleCard: React.FC<ModuleCardProps> = ({ icons, title, color }) => {
     return (
       <div
         className={`flex items-center justify-center p-[10px] rounded-[16px_16px_16px_0px] shadow-md ${color}`}

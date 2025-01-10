@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import headerbg from "../assets/images/headerbg.png";
 import billbizz from "../assets/icons/Billbizz-Logo_White 1.png";
 import arrow from "../assets/icons/arrow-right.png";

@@ -7,7 +7,7 @@ import card3img from "../assets/images/Frame 630359.svg"
 import card4icon from "../assets/icons/Group.svg"
 import fourthcardicon from "../assets/icons/Vector (1).svg"
 import ActionRequired from "../components/ActionRequired"
-import GridCards from "../components/GridCards"
+
 
 function Cards() {
   return (

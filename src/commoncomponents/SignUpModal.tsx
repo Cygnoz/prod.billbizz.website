@@ -14,7 +14,7 @@ interface ReusableModalProps {
 const ReusableModal: React.FC<ReusableModalProps> = ({
   open,
   onClose,
-  onAction,
+ 
 }) => {
   return (
     <Modal open={open} onClose={onClose} closeAfterTransition>
