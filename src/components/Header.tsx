@@ -34,16 +34,16 @@ function Header() {
             </a>
 
             <div className="flex space-x-8 mx-auto">
-              <a href="#product" className="text-gray-900 hover:scale-125 transition-transform duration-200">
+              <a  className="text-gray-900 hover:scale-125 transition-transform duration-200">
                 Product
               </a>
-              <a href="#overview" className="text-gray-900 hover:scale-125 transition-transform duration-200">
+              <a  className="text-gray-900 hover:scale-125 transition-transform duration-200">
                 Overview
               </a>
-              <a href="#pricing" className="text-gray-900 hover:scale-125 transition-transform duration-200">
+              <a  className="text-gray-900 hover:scale-125 transition-transform duration-200">
                 Pricing
               </a>
-              <a href="#contact" className="text-gray-900 hover:scale-125 transition-transform duration-200">
+              <a  className="text-gray-900 hover:scale-125 transition-transform duration-200">
                 Contact Us
               </a>
             </div>
