@@ -30,8 +30,8 @@ const KnowledgeBase = ({}: Props) => {
               </div>
               <div className="ml-auto flex items-center justify-center">
                 {" "}
-                <div className="bg-black rounded-full w-[39px] h-[37px] flex items-center justify-center">
-                  <ArrowrightUp />
+                <div className="bg-black rounded-full w-[39px] h-[37px] flex items-center justify-center" onClick={()=>navigate("/knowledge-base/crm")} >
+                  <ArrowrightUp color="white" size={22} />
                 </div>
               </div>
             </div>
@@ -55,7 +55,7 @@ const KnowledgeBase = ({}: Props) => {
               <div className="ml-auto flex items-center justify-center">
                 {" "}
                 <div className="bg-black rounded-full w-[39px] h-[37px] flex items-center justify-center">
-                  <ArrowrightUp />
+                  <ArrowrightUp  color="white" size={22}  />
                 </div>
               </div>
             </div>
@@ -77,7 +77,7 @@ const KnowledgeBase = ({}: Props) => {
               <div className="ml-auto flex items-center justify-center">
                 {" "}
                 <div className="bg-black rounded-full w-[39px] h-[37px] flex items-center justify-center" onClick={()=>(navigate("/knowledge-base/crm"))}>
-                  <ArrowrightUp />
+                  <ArrowrightUp  color="white" size={22}  />
                 </div>
               </div>
             </div>

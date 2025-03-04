@@ -14,7 +14,7 @@ const CRM = ({}: Props) => {
 
       <div className="p-14">
         <p className="text-xl font-bold text-[#303F58] flex items-center ">
-          <span className="text-[#820000]  "  onClick={()=>(navigate("/knowledge-base"))}>Knowledge Base</span>{" "}
+          <span className="text-[#820000]  cursor-pointer "  onClick={()=>(navigate("/knowledge-base"))}>Knowledge Base</span>{" "}
           <ChevronRight color="#4B5C79" /> CRM
         </p>
 

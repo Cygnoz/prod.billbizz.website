@@ -21,7 +21,7 @@ function GettingStarted({}: Props) {
           </div>
         </div>
 
-        <div className="bg-white p-4 mt-4 flex  gap-4" onClick={()=>(navigate("/knowledge-base/crm/getting-started/introduction"))}>
+        <div className="bg-white p-4 mt-4 flex  gap-4 rounded-md" onClick={()=>(navigate("/knowledge-base/crm/getting-started/introduction"))}>
           <div className="rounded-full  bg-[#CCCCCC] flex items-center justify-center w-[60px] h-[60px]">
             <CopyIcon />
           </div>

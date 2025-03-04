@@ -12,18 +12,34 @@ import { useNavigate } from "react-router-dom";
 type Props = {};
 
 function IntroductionToCRM({}: Props) {
-  const navigate =useNavigate()
+  const navigate = useNavigate();
   return (
     <div className="bg-[#f6f6f6]">
       <LandingComponent />
       <div className="p-14 ">
         <div className="flex ">
           <div className="text-xl font-bold text-[#303F58] flex items-center">
-          <button className="text-[#820000]  cursor-pointer"onClick={()=>(navigate("/knowledge-base"))}>Knowledge Base </button>
+            <button
+              className="text-[#820000]  cursor-pointer"
+              onClick={() => navigate("/knowledge-base")}
+            >
+              Knowledge Base{" "}
+            </button>
             <ChevronRight color="#4B5C79" />
-            <button className="text-[#820000] cursor-pointer "onClick={()=>(navigate("/knowledge-base/crm"))}> CRM </button>{" "}
+            <button
+              className="text-[#820000] cursor-pointer "
+              onClick={() => navigate("/knowledge-base/crm")}
+            >
+              {" "}
+              CRM{" "}
+            </button>{" "}
             <ChevronRight color="#4B5C79" />
-            <p className="text-[#820000] cursor-pointer " onClick={()=>(navigate("/knowledge-base/crm/getting-started"))}>Getting Started</p>
+            <p
+              className="text-[#820000] cursor-pointer "
+              onClick={() => navigate("/knowledge-base/crm/getting-started")}
+            >
+              Getting Started
+            </p>
             <ChevronRight color="#4B5C79" />
             <p>Introduction to CRM</p>
           </div>
@@ -39,7 +55,7 @@ function IntroductionToCRM({}: Props) {
                 <FileDown />
                 PDF
               </button>
-              <button className="border p-2 bg-[#870000] text-white text-sm rounded-lg  flex items-center justify-center gap-1">
+              <button className="border p-2 bg-[#870000] text-white text-xs rounded-lg  flex items-center justify-center gap-1">
                 <PrinterIcon color={"white"} height={16} width={16} />
                 Print
               </button>
@@ -61,22 +77,24 @@ function IntroductionToCRM({}: Props) {
             </p>
 
             <div className="grid grid-cols-2 gap-4 text-[#303F58] text-sm space-y-2">
-             
-            <div>
+              <div>
                 <div className="flex items-center gap-2">
                   <TwoArrow />
                   <p className="font-medium ">Seamless access</p>
                 </div>{" "}
                 <p>
-                Secure cloud storage enables real-time customer connections for lasting relationships.                </p>
+                  Secure cloud storage enables real-time customer connections
+                  for lasting relationships.{" "}
+                </p>
               </div>
               <div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 -mt-2">
                   <ClockIcon />
                   <p className="font-medium ">Optimize workflows</p>
                 </div>{" "}
                 <p>
-                CRM boosts sales, marketing, and support efficiency for better deal closures.
+                  CRM boosts sales, marketing, and support efficiency for better
+                  deal closures.
                 </p>
               </div>
               <div>
@@ -85,7 +103,8 @@ function IntroductionToCRM({}: Props) {
                   <p className="font-medium ">Engage proactively</p>
                 </div>{" "}
                 <p>
-                CRM sets milestones, offers insights, and enhances sales strategies for retention.
+                  CRM sets milestones, offers insights, and enhances sales
+                  strategies for retention.
                 </p>
               </div>
               <div>
@@ -94,7 +113,8 @@ function IntroductionToCRM({}: Props) {
                   <p className="font-medium ">Simplify operations</p>
                 </div>{" "}
                 <p>
-                CRM enhances sales, marketing, and support for faster deals, leads, and resolutions.
+                  CRM enhances sales, marketing, and support for faster deals,
+                  leads, and resolutions.
                 </p>
               </div>
             </div>
