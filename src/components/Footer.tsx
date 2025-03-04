@@ -165,6 +165,11 @@ function Footer() {
               <li className="mb-2">
                 <a href="#">Find Services</a>
               </li>
+              <li className="mb-2">
+                <a href="/knowledge-base" target="_blank" rel="noopener noreferrer">
+                  Knowledge Base
+                </a>
+              </li>
             </ul>
           </div>
 
