@@ -1,9 +1,9 @@
 import  { useState } from "react";
 import headerbg from "../assets/images/headerbg.png";
-import billbizz from "../assets/icons/Billbizz-Logo_White 1.png";
 import arrow from "../assets/icons/arrow-right.png";
 import bannerimg from "../assets/images/bannerimg.png";
 import ReusableModal from "../commoncomponents/SignUpModal";
+import NavBar from "./NavBar";
 
 function Header() {
   const [modalOpen, setModalOpen] = useState(false); // State to manage modal visibility
@@ -27,35 +27,7 @@ function Header() {
         style={{ backgroundImage: `url(${headerbg})`, backgroundSize: "cover" }}
         className="h-[782px]"
       >
-        <nav className="bg-[#5D5D5D1A] bg-opacity-60 shadow m-7">
-          <div className="px-4 py-3 flex justify-between items-center">
-            <a className="text-xl font-semibold text-gray-900">
-              <img src={billbizz} alt="Logo" className="w-[38px] h-[38px]" />
-            </a>
-
-            <div className="flex space-x-8 mx-auto">
-              <a  className="text-gray-900 hover:scale-125 transition-transform duration-200">
-                Product
-              </a>
-              <a  className="text-gray-900 hover:scale-125 transition-transform duration-200">
-                Overview
-              </a>
-              <a  className="text-gray-900 hover:scale-125 transition-transform duration-200">
-                Pricing
-              </a>
-              <a  className="text-gray-900 hover:scale-125 transition-transform duration-200">
-                Contact Us
-              </a>
-            </div>
-
-            <button
-              onClick={handleOpenModal}
-              className="ml-2 bg-transparent border border-red-800 text-red-800 px-10 py-2 rounded-full hover:border-red-500 hover:text-red-500 focus:outline-none"
-            >
-              Sign Up
-            </button>
-          </div>
-        </nav>
+       <NavBar/>
 
         <div className="flex justify-between items-center">
           <div className="md:w-1/2 text-left p-10">

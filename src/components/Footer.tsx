@@ -2,7 +2,6 @@ import awsstartup from "../assets/images/footer/aws.svg";
 import msstartup from "../assets/images/footer/ms.svg";
 import keralastartup from "../assets/images/footer/image (20) 1.svg";
 import billbizz from "../assets/icons/Billbizz-Logo_White 1.png";
-import backgredient from "../assets/images/footer/Left (1).png";
 import fb from "../assets/images/footer/social/Vector.png";
 import insta from "../assets/images/footer/social/Vector-1.png";
 import maill from "../assets/images/footer/social/Vector-2.png";
@@ -11,72 +10,12 @@ import phone from "../assets/images/footer/phhone.png";
 import linkedin from "../assets/images/footer/social/Vector-3.png";
 import line from "../assets/images/footer/Line 18.png";
 import address from "../assets/images/footer/Frame 1156.png";
-import ReusableModal from "../commoncomponents/SignUpModal";
-import { useState } from "react";
 
 function Footer() {
-  const [modalOpen, setModalOpen] = useState(false); // State to manage modal visibility
-
-  const handleOpenModal = () => {
-    setModalOpen(true); // Open modal
-  };
-
-  const handleCloseModal = () => {
-    setModalOpen(false); // Close modal
-  };
-
-  const handleAction = () => {
-    console.log("Action button clicked!");
-    handleCloseModal(); // Close the modal after the action
-  };
 
   return (
     <>
-      <div className="relative bg-black text-white p-8 h-[359px]">
-        {/* Background Image */}
-        <img
-          src={backgredient}
-          alt="Background Gradient"
-          className="absolute inset-0 w-full h-full object-cover z-0 opacity-50"
-        />
-
-        {/* Content */}
-        <div className="flex justify-between relative z-10 p-10">
-          <div className="w-[597px]">
-            <h1 className="text-[48px] leading-[56.64px] text-left  decoration-skip-ink-none font-sans font-semibold">
-              <span className="text-[#C71B1A]">Transform</span> your business,
-              <br />
-              one solution at a time.
-            </h1>
-
-            <button
-              onClick={handleOpenModal}
-              className="mt-6 px-6 py-3 text-white rounded-md focus:outline-none"
-              style={{
-                fontFamily: "sans-serif",
-                fontSize: "20px",
-                fontWeight: "410",
-                lineHeight: "23.6px",
-                textAlign: "left",
-                textDecoration: "none",
-                textUnderlinePosition: "from-font",
-                textDecorationSkipInk: "none",
-                borderRadius: "16px",
-                background:
-                  "linear-gradient(272.11deg, #CC1111 4.31%, #8F0100 92.61%)",
-              }}
-            >
-              Schedule Demo
-            </button>
-          </div>
-
-          <p className="mt-4 text-[20px] font-[410] leading-[23.6px] text-left font-sans  decoration-skip-ink-none text-[#BEBEBE]">
-            Schedule a Demo <br /> for a personalized, no-commitment
-            consultation. Discover how Billbizz can <br /> address your unique
-            challenges and boost your business efficiency.
-          </p>
-        </div>
-      </div>
+     
 
       {/* footer section */}
 
@@ -148,22 +87,19 @@ function Footer() {
             <h3 className="font-sans mb-5 text-2xl">Quick Links</h3>
             <ul className="text-[#BEBEBE] text-xl">
               <li className="mb-2">
-                <a href="#">Billbizz Trust Center</a>
+                <a href="#">About Us</a>
               </li>
               <li className="mb-2">
-                <a href="#">Find a Solution</a>
+                <a href="#">Contact Us</a>
               </li>
               <li className="mb-2">
-                <a href="#">Industries</a>
+                <a href="/blog">Blog</a>
               </li>
               <li className="mb-2">
-                <a href="#">Find a Partner</a>
+                <a href="/customer-stories">Customer Stories</a>
               </li>
               <li className="mb-2">
-                <a href="#">Trials and Demos</a>
-              </li>
-              <li className="mb-2">
-                <a href="#">Find Services</a>
+                <a href="/news-and-events">News And Events</a>
               </li>
               <li className="mb-2">
                 <a href="/knowledge-base" target="_blank" rel="noopener noreferrer">
@@ -174,58 +110,21 @@ function Footer() {
           </div>
 
           <div className="w-full sm:w-1/6 mb-8 mt-[100px]">
-            <h3 className="font-sans mb-5 text-2xl">About Billbizz</h3>
             <ul className="text-[#BEBEBE] text-xl">
               <li className="mb-2">
-                <a href="#">Company Information</a>
+                <a href="/privacy-policy">Legal Privacy</a>
               </li>
               <li className="mb-2">
-                <a href="#">Worldwide Directory</a>
+                <a href="/security">Security</a>
               </li>
               <li className="mb-2">
-                <a href="#">Investor Relations</a>
+                <a href="/terms-and-conditions">Terms & Services</a>
               </li>
-              <li className="mb-2">
-                <a href="#">Careers</a>
-              </li>
-              <li className="mb-2">
-                <a href="#">News and Press</a>
-              </li>
-              <li className="mb-2">
-                <a href="#">Events</a>
-              </li>
-              <li className="mb-2">
-                <a href="#">Customer Stories</a>
-              </li>
-              <li className="mb-2">
-                <a href="#">Newsletter</a>
-              </li>
+             
             </ul>
           </div>
 
-          <div className="w-full sm:w-1/6 mt-[100px]">
-            <h3 className="font-sans mb-5 text-2xl">Site Information</h3>
-            <ul className="text-[#BEBEBE] text-xl">
-              <li className="mb-2">
-                <a href="#">Privacy</a>
-              </li>
-              <li className="mb-2">
-                <a href="#">Terms of Use</a>
-              </li>
-              <li className="mb-2">
-                <a href="#">Legal Disclosure</a>
-              </li>
-              <li className="mb-2">
-                <a href="#">Copyright</a>
-              </li>
-              <li className="mb-2">
-                <a href="#">Trademark</a>
-              </li>
-              <li className="mb-2">
-                <a href="#">Cookie Preference</a>
-              </li>
-            </ul>
-          </div>
+         
         </div>
       </div>
       <div className="bg-red-950 flex justify-between h-[38px]">
@@ -266,11 +165,7 @@ function Footer() {
         </div>
       </div>
 
-      <ReusableModal
-        open={modalOpen}
-        onClose={handleCloseModal}
-        onAction={handleAction}
-      />
+     
     </>
   );
 }
