@@ -1,40 +1,67 @@
+import { formatDistanceToNow } from "date-fns";
 import Calendar from "../../assets/icons/Calendar";
 import Clock from "../../assets/icons/Clock";
-import img3 from "../../assets/images/Rectangle 2977.png";
 import img from "../../assets/images/Ellipse 322.png";
+import DOMPurify from "dompurify";
 
-type Props = {}
+type Props = { blogData: any };
 
-function RecentlyUploaded({}: Props) {
+function RecentlyUploaded({ blogData }: Props) {
   return (
     <div>
-        <div className=" flex">
-              <img src={img3} className="w-[266px] h-[180px] rounded-[5px]" />
-              <div className="ps-4">
+      {blogData &&
+        blogData.map((item: any, index: number) => {
+          const formattedDate = item.createdAt
+            ? new Date(item.createdAt).toLocaleDateString("en-CA")
+            : "Unknown Date";
+          const timeAgo = formatDistanceToNow(new Date(item.createdAt), {
+            addSuffix: true,
+          });
+
+          return (
+            <div key={index} className="grid grid-cols-12 my-4">
+              <div className="col-span-3 flex">
+                <img
+                  src={item?.image[0]}
+                  className="w-full h-[180px] rounded-[5px]"
+                  alt=""
+                />
+              </div>
+              <div className="ps-4 col-span-9">
                 <span className="h-5 px-2 py-1 bg-[#f3e6e6] rounded-[3px] text-xs font-normal capitalize leading-3 text-[#666666]">
-                  CRM
+                  {item?.category?.categoryName || "Uncategorized"}
                 </span>
                 <p className="w-[642px] text-[27px] font-semibold capitalize leading-[37.80px] text-[#222222]">
-                  How Bill Bizz Simplifies Inventory Management
+                  {item?.title || "Untitled"}
                 </p>
                 <div className="flex items-center gap-2 text-xs text-[#777777] mt-2">
                   <img
                     src={img}
-                    alt=""
+                    alt="User"
                     className="h-[18px] w-[18px] rounded-full"
                   />
-                  <span>Jenny kiaa</span> |
-                  <Calendar /> <span>02 December 2022</span> |
-                  <Clock /> <span>3 Min. to Read</span>
+                  <span>{item?.createdBy?.userName || "Anonymous"}</span> |
+                  <Calendar /> <span>{formattedDate}</span> |
+                  <Clock /> <span>{timeAgo} </span>
                 </div>
-                <p className="w-[401px] mt-4 text-[15px] text-[#555555] leading-snug">
-                  Expense tracking isn’t just about recording numbers; it’s
-                  about making informed financial decisions.
-                </p>
+                {item?.content ? (
+                  <p
+                    className="mt-4 text-[15px] text-[#555555] leading-snug"
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(item.content),
+                    }}
+                  />
+                ) : (
+                  <p className="mt-4 text-[15px] text-[#555555] leading-snug">
+                    No content available
+                  </p>
+                )}
               </div>
             </div>
+          );
+        })}
     </div>
-  )
+  );
 }
 
-export default RecentlyUploaded
+export default RecentlyUploaded;

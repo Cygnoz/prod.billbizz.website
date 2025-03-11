@@ -17,10 +17,9 @@ function Footer() {
     <>
      
 
-      {/* footer section */}
 
       <div className="relative bg-[#5E0101] text-white p-8 h-[510px]">
-        <div className="flex justify-between">
+        <div className="flex gap-52">
           <div className=" sm:w-1/6 mb-8 mt-10 me-[70px]">
             <h2 className="flex text-3xl font-extralight">
               <img
@@ -83,46 +82,64 @@ function Footer() {
             <img src={line} alt="" className="h-[420px] ms-[200px]" />
           </div>
 
-          <div className="w-full sm:w-1/6 mb-8 mt-[100px]">
-            <h3 className="font-sans mb-5 text-2xl">Quick Links</h3>
-            <ul className="text-[#BEBEBE] text-xl">
+         
+<div className="flex items-center justify-center">
+  
+            <div className="grid grid-cols-3 gap-16">
+              <div>
+              <h3 className="font-sans mb-5 text-2xl">Site Info</h3>
+              <ul className="text-[#BEBEBE] text-xl">
+                <li className="mb-2">
+                  <a href="/privacy-policy">Legal Privacy</a>
+                </li>
+                <li className="mb-2">
+                  <a href="/security">Security</a>
+                </li>
+                <li className="mb-2">
+                  <a href="/terms-and-conditions">Terms & Services</a>
+                </li>
+               
+              </ul>
+              </div>
+              <div>
+              <h3 className="font-sans mb-5 text-2xl"> About BillBizz</h3>
+              <ul className="text-[#BEBEBE] text-xl">
               <li className="mb-2">
-                <a href="#">About Us</a>
-              </li>
-              <li className="mb-2">
-                <a href="#">Contact Us</a>
-              </li>
-              <li className="mb-2">
-                <a href="/blog">Blog</a>
-              </li>
-              <li className="mb-2">
-                <a href="/customer-stories">Customer Stories</a>
-              </li>
-              <li className="mb-2">
-                <a href="/news-and-events">News And Events</a>
-              </li>
-              <li className="mb-2">
-                <a href="/knowledge-base" target="_blank" rel="noopener noreferrer">
-                  Knowledge Base
-                </a>
-              </li>
-            </ul>
-          </div>
+                  <a href="/about-us">About Us</a>
+                </li>
+                <li className="mb-2">
+                  <a href="/contact-us">Contact Us</a>
+                </li>
+                <li className="mb-2">
+                  <a href="/customer-stories">Customer Stories</a>
+                </li>
+              </ul>
+              </div>
+              <div>
+              <h3 className="font-sans mb-5 text-2xl"> Learn</h3>
+              <ul className="text-[#BEBEBE] text-xl">
+               
+                <li className="mb-2">
+                  <a href="/blog">Blog</a>
+                </li>
+                <li className="mb-2">
+                  <a href="/knowledge-base" target="_blank" rel="noopener noreferrer">
+                    Knowledge Base
+                  </a>
+                </li>
+               
+                <li className="mb-2">
+                  <a href="/news-and-events">News And Events</a>
+                </li>
+               
+              </ul>
+              </div>
+            </div>
+         
+</div>
+        
 
-          <div className="w-full sm:w-1/6 mb-8 mt-[100px]">
-            <ul className="text-[#BEBEBE] text-xl">
-              <li className="mb-2">
-                <a href="/privacy-policy">Legal Privacy</a>
-              </li>
-              <li className="mb-2">
-                <a href="/security">Security</a>
-              </li>
-              <li className="mb-2">
-                <a href="/terms-and-conditions">Terms & Services</a>
-              </li>
-             
-            </ul>
-          </div>
+         
 
          
         </div>

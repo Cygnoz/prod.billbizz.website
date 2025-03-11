@@ -7,12 +7,13 @@ import Footer from "./components/Footer";
 import Security from "./Pages/Security";
 import Privacy from "./Pages/Privacy";
 import NewsAndEvents from "./Pages/NewsAndEvents/NewsAndEvents";
-import NavBar from "./components/NavBar";
 import ViewAll from "./Pages/NewsAndEvents/ViewAll";
 import ViewEvent from "./Pages/NewsAndEvents/ViewEvent";
 import Blog from "./Pages/Blog/Blog";
 import ViewBlog from "./Pages/Blog/ViewBlog";
 import CustomerStories from "./Pages/CustomerStories/CustomerStories";
+import AboutUs from "./Pages/AboutUs";
+import ContactUs from "./Pages/ContactUs";
 
 const Dashboard = lazy(() => import("./landingpage/Explore"));
 const SliderSection = lazy(() => import("./landingpage/SliderSection"));
@@ -74,67 +75,81 @@ const AppRoutes = () => {
         <Route
           path="/news-and-events"
           element={
-            <>
-              <NavBar />
+            <Layout>
               <NewsAndEvents />
-            </>
+            </Layout>
           }
         />
         <Route
           path="/news-and-events/view-all"
           element={
-            <>
-              <NavBar />
+            <Layout>
               <ViewAll />
-            </>
+            </Layout>
           }
         />
-         <Route
+        <Route
           path="/news-and-events/view-all/view-event"
           element={
-            <>
-              <NavBar />
+            <Layout>
               <ViewEvent />
-            </>
+            </Layout>
           }
         />
-         <Route
+        <Route
           path="/blog"
           element={
             <Layout>
-            <Blog />
-            <DemoComponent />
-          </Layout>
+              <Blog />
+              <DemoComponent />
+            </Layout>
           }
         />
 
-<Route
+        <Route
           path="/blog/view"
           element={
             <Layout>
-            <ViewBlog />
-          </Layout>
+              <ViewBlog />
+            </Layout>
           }
-        /> 
+        />
         <Route
           path="/customer-stories"
           element={
             <Layout>
-            <CustomerStories />
-            <DemoComponent />
-          </Layout>
+              <CustomerStories />
+              <DemoComponent />
+            </Layout>
+          }
+        />
+          <Route
+          path="/about-us"
+          element={
+            <>
+             <AboutUs/>
+             <Footer/>
+            </>
           }
         />
 
-        {/* Knowledge Base Pages - No Layout */}
+<Route
+          path="/contact-us"
+          element={
+            <Layout>
+             <ContactUs/>
+            </Layout>
+          }
+        />
+
         <Route path="/knowledge-base" element={<KnowledgeBase />} />
-        <Route path="/knowledge-base/crm" element={<CRM />} />
+        <Route path="/knowledge-base/:id" element={<CRM />} />
         <Route
-          path="/knowledge-base/crm/getting-started"
+          path="/knowledge-base/:categoryName/:id"
           element={<GettingStarted />}
         />
         <Route
-          path="/knowledge-base/crm/getting-started/introduction"
+          path="/knowledge-base/:categoryName/:subcategory/:id"
           element={<IntroductionToCRM />}
         />
       </Routes>

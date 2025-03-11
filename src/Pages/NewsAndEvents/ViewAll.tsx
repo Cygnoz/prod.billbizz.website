@@ -2,12 +2,38 @@ import { useNavigate } from "react-router-dom";
 import Calendar from "../../assets/icons/Calendar";
 import Clock from "../../assets/icons/Clock";
 // import SearchIcon from "../../assets/icons/SearchIcon";
-import img from "../../assets/images/Frame 1618873150.png";
+import { useEffect, useState } from "react";
+import { endpoints } from "../../Services/ApiEndpoints";
+import useApi from "../../Hooks/useApi";
+import DOMPurify from "dompurify";
 
 type Props = {};
 
 const ViewAll = ({}: Props) => {
     const navigate=useNavigate()
+
+    const [newsData, setnewsData] = useState([]);
+    const { request: getData } = useApi("get", 3001);
+  
+    const handleGetnewsData = async () => {
+      try {
+        const url = `${endpoints.GET_BLOGS}/?postType=Events`;
+        const { response, error } = await getData(url);
+  
+        if (!error && response) {
+          const allPosts = response.data.data;     
+  
+          setnewsData(allPosts);
+        }
+      } catch (error) {
+        console.log("Error", error);
+      }
+    };
+  
+    useEffect(() => {
+      handleGetnewsData();
+    }, []);
+  
 
   return (
     <div className="p-6">
@@ -27,15 +53,14 @@ const ViewAll = ({}: Props) => {
       </div>
 
       {/* Event Card */}
-      <div className="mx-3 my-4 border-b pb-4">
+   {   newsData? newsData.map((item:any)=>( <div className="mx-3 my-4 border-b pb-4">
         <div className="grid grid-cols-12  gap-5 " onClick={()=>navigate("/news-and-events/view-all/view-event")}>
-          {/* Image Section */}
           <div className="col-span-2 flex items-center justify-center">
-            <img src={img} alt="Event" className=" h-[124px] w-full " />
+            <img src={item?.image} alt="Event" className=" h-[124px] w-full " />
           </div>
 
           <div className="col-span-10">
-            <h2 className="text-xl font-semibold my-3">Bill Bizz Annual Business Summit 2025</h2>
+            <h2 className="text-xl font-semibold my-3">{item?.title}</h2>
             <div className="flex items-center text-gray-500 text-sm mt-1 space-x-3">
               <div className="flex items-center gap-2 me-2">
               <Calendar  />
@@ -51,13 +76,16 @@ const ViewAll = ({}: Props) => {
               </div>
             </div>
             <p className="text-gray-600 text-sm mt-3 ">
-              Join industry leaders, business owners, and financial experts at the Bill Bizz Annual Business
-              Summit 2025. This event will cover the latest trends in billing and financial management, product
-              updates, and networking opportunities.
+            <p
+                  className="text-lg font-semibold whitespace-pre-wrap text-black mt-2"
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(item.content),
+                  }}
+                />
             </p>
           </div>
         </div>
-      </div>
+      </div>)):<p className="text-[red] items-center flex justify-center my-2">No Data Available !</p>}
     </div>
   );
 };

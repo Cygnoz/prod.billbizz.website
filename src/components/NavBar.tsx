@@ -27,16 +27,16 @@ function NavBar({}: Props) {
       </a>
 
       <div className="flex space-x-8 mx-auto">
-        <a  className="text-gray-900 hover:scale-125 transition-transform duration-200">
-          Product
+        <a href="/"  className="text-gray-900 hover:scale-125 transition-transform duration-200">
+          Home
         </a>
-        <a  className="text-gray-900 hover:scale-125 transition-transform duration-200">
-          Overview
+        <a href="/about-us"  className="text-gray-900 hover:scale-125 transition-transform duration-200">
+          About Us
         </a>
-        <a  className="text-gray-900 hover:scale-125 transition-transform duration-200">
-          Pricing
+        <a href="/blog" className="text-gray-900 hover:scale-125 transition-transform duration-200">
+          Features
         </a>
-        <a  className="text-gray-900 hover:scale-125 transition-transform duration-200">
+        <a href="/contact-us"  className="text-gray-900 hover:scale-125 transition-transform duration-200">
           Contact Us
         </a>
       </div>
