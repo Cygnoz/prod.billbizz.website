@@ -19,25 +19,30 @@ const DemoComponent = ({}: Props) => {
         handleCloseModal(); // Close the modal after the action
       };
   return (
-    <div> <div className="relative bg-black text-white p-8 h-[359px]">
-    <img
-      src={backgredient}
-      alt="Background Gradient"
-      className="absolute inset-0 w-full h-full object-cover z-0 opacity-50"
-    />
+    <div>
+  <div className="relative bg-black text-white p-8 min-h-[359px]">
+  <img
+    src={backgredient}
+    alt="Background Gradient"
+    className="absolute inset-0 w-full h-full object-cover z-0 opacity-50"
+  />
 
-    {/* Content */}
-    <div className="flex justify-between relative z-10 p-10">
-      <div className="w-[597px]">
-        <h1 className="text-[48px] leading-[56.64px] text-left  decoration-skip-ink-none font-sans font-semibold">
-          <span className="text-[#C71B1A]">Transform</span> your business,
-          <br />
-          one solution at a time.
-        </h1>
+  {/* Content */}
+  <div className="relative z-10 p-6 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+    
+    {/* Left Section: Heading + Button */}
+    <div className="w-full md:w-1/2 space-y-6">
+      <h1 className="text-[36px] md:text-[48px] leading-[42px] md:leading-[56.64px] text-left font-sans font-semibold">
+        <span className="text-[#C71B1A]">Transform</span> your business,
+        <br className="hidden md:block" />
+        one solution at a time.
+      </h1>
 
+      {/* Button (Mobile at bottom, Desktop beside content) */}
+      <div className="flex md:mt-6">
         <button
           onClick={handleOpenModal}
-          className="mt-6 px-6 py-3 text-white rounded-md focus:outline-none"
+          className="w-full md:w-auto px-6 py-3 text-white rounded-md focus:outline-none"
           style={{
             fontFamily: "sans-serif",
             fontSize: "20px",
@@ -55,19 +60,26 @@ const DemoComponent = ({}: Props) => {
           Schedule Demo
         </button>
       </div>
-
-      <p className="mt-4 text-[20px] font-[410] leading-[23.6px] text-left font-sans  decoration-skip-ink-none text-[#BEBEBE]">
-        Schedule a Demo <br /> for a personalized, no-commitment
-        consultation. Discover how Billbizz can <br /> address your unique
-        challenges and boost your business efficiency.
-      </p>
     </div>
-    <ReusableModal
-        open={modalOpen}
-        onClose={handleCloseModal}
-        onAction={handleAction}
-      />
-  </div></div>
+
+    {/* Right Section: Paragraph */}
+    <p className="w-full md:w-1/2 text-[18px] md:text-[20px] font-[410] leading-[28px] md:leading-[23.6px] text-left text-[#BEBEBE]">
+      Schedule a Demo <br className="hidden md:block" />
+      for a personalized, no-commitment consultation.  
+      Discover how Billbizz can <br className="hidden md:block" />
+      address your unique challenges and boost your business efficiency.
+    </p>
+  </div>
+
+  {/* Modal */}
+  <ReusableModal
+    open={modalOpen}
+    onClose={handleCloseModal}
+    onAction={handleAction}
+  />
+</div>
+
+  </div>
   )
 }
 
