@@ -8,83 +8,81 @@ import card6img from "../assets/images/col33.jpg";
 
 function ErpFunctionality() {
   return (
-    <div>
- 
+   <div>
+  <div>
+    <div className="flex flex-col items-center">
+      <h1 className="text-4xl md:text-5xl text-[#CC1111] font-sans font-bold mb-4">
+        Exploring ERP Functionality
+      </h1>
+      <p className="text-base md:text-lg font-sans text-[#636363] mt-2 text-center">
+        Customization options allow businesses to tailor ERP systems to
+        their <br className="hidden md:block" />
+        unique workflows and industry-specific requirements.
+      </p>
+    </div>
+  </div>
 
-      <div>
-        <div className="flex flex-col items-center">
-          <h1 className="text-5xl text-[#CC1111] font-sans font-bold mb-4">
-            Exploring ERP Functionality
-          </h1>
-          <p className="text-lg font-sans text-[#636363] mt-2 text-center ">
-            Customization options allow businesses to tailor ERP systems to
-            their <br />
-            unique workflows and industry-specific requirements.
-          </p>
+  {/* Cards Section */}
+  <div className="flex justify-center items-center py-8 px-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+      
+      {/* Column 1 */}
+      <div className="flex flex-col gap-4">
+        <div>
+          <img
+            src={cardimg1}
+            className="cursor-pointer h-auto w-full md:h-[331px] md:w-[402px] transform transition duration-300 ease-in-out hover:scale-105"
+            alt="Customer Management"
+          />
+        </div>
+        <div>
+          <img
+            src={cardimg3}
+            className="cursor-pointer h-auto w-full md:h-[232px] md:w-[402px] transform transition duration-300 ease-in-out hover:scale-105"
+            alt="Financial Accounting"
+          />
         </div>
       </div>
 
-      {/* cards */}
-      <div className="flex justify-center items-center py-8">
-        <div className="">
-          <div className="flex gap-4">
-            {/* Column 1 */}
-            <div className="flex flex-col gap-4">
-              <div className="">
-                <img
-                  src={cardimg1}
-                  className="cursor-pointer h-[331px] w-[402px] transform transition duration-300 ease-in-out hover:scale-105"
-                  alt="Customer Management"
-                />
-              </div>
-              <div className="">
-                <img
-                  src={cardimg3}
-                  className="cursor-pointer h-[232px] w-[402px] transform transition duration-300 ease-in-out hover:scale-105"
-                  alt="Financial Accounting"
-                />
-              </div>
-            </div>
+      {/* Column 2 */}
+      <div className="flex flex-col gap-4">
+        <div>
+          <img
+            src={card2img}
+            className="cursor-pointer h-auto w-full md:h-[247px] md:w-[402px] transform transition duration-300 ease-in-out hover:scale-105"
+            alt="Recurring Billing"
+          />
+        </div>
+        <div>
+          <img
+            src={card5img}
+            className="cursor-pointer h-auto w-full md:h-[313px] md:w-[402px] transform transition duration-300 ease-in-out hover:scale-105"
+            alt="Ecommerce Integration"
+          />
+        </div>
+      </div>
 
-            {/* Column 2 */}
-            <div className="flex flex-col gap-2">
-              <div className="">
-                <img
-                  src={card2img}
-                  className="cursor-pointer h-[247px] w-[402px] transform transition duration-300 ease-in-out hover:scale-105"
-                  alt="Recurring Billing"
-                />
-              </div>
-              <div className="">
-                <img
-                  src={card5img}
-                  className="cursor-pointer mt-3 h-[313px] w-[402px] transform transition duration-300 ease-in-out hover:scale-105"
-                  alt="Ecommerce Integration"
-                />
-              </div>
-            </div>
-
-            {/* Column 3 */}
-            <div className="flex flex-col gap-5">
-              <div className="">
-                <img
-                  src={card3img}
-                  className="cursor-pointer h-[158px] w-[479px] transform transition duration-300 ease-in-out hover:scale-105"
-                  alt="Payroll Management"
-                />
-              </div>
-              <div className="">
-                <img
-                  src={card6img}
-                  className="cursor-pointer h-[399px] w-[479px] transform transition duration-300 ease-in-out hover:scale-105"
-                  alt="Inventory Management"
-                />
-              </div>
-            </div>
-          </div>
+      {/* Column 3 */}
+      <div className="flex flex-col gap-4">
+        <div>
+          <img
+            src={card3img}
+            className="cursor-pointer h-auto w-full md:h-[158px] md:w-[479px] transform transition duration-300 ease-in-out hover:scale-105"
+            alt="Payroll Management"
+          />
+        </div>
+        <div>
+          <img
+            src={card6img}
+            className="cursor-pointer h-auto w-full md:h-[399px] md:w-[479px] transform transition duration-300 ease-in-out hover:scale-105"
+            alt="Inventory Management"
+          />
         </div>
       </div>
     </div>
+  </div>
+</div>
+
   );
 }
 

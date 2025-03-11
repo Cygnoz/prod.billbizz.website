@@ -23,31 +23,62 @@ function Header() {
 
   return (
     <>
-      <div
-        style={{ backgroundImage: `url(${headerbg})`, backgroundSize: "cover" }}
-        className="h-[782px]"
-      >
-       <NavBar/>
+<div
+  style={{ backgroundImage: `url(${headerbg})`, backgroundSize: "cover" }}
+  className="h-auto min-h-screen"
+>
+  <NavBar />
 
-        <div className="flex justify-between items-center">
-          <div className="md:w-1/2 text-left p-10">
-            <h1 className="ms-6 text-6xl font-sans text-[#000000] font-semibold leading-[75.52px]">
-              Future-Proof Cloud <br /> Tools For Your <br /> Evolving Needs
-            </h1>
-            <p className="ms-6 mt-4 text-[#5F5E5E]">
-              Embarking on the ERP journey: Discover accounting and ERP solutions tailored to your needs and budget.
-            </p>
-            <button
-             onClick={handleOpenModal}
-            className="ms-6 flex items-center gap-5 font-bold mt-6 px-6 py-2 bg-black text-white rounded-full">
-              Get early access <img src={arrow} alt="arrow" className="w-[37px] h-[37px]" />
-            </button>
-          </div>
-          <div>
-            <img src={bannerimg} alt="Sample" className="w-[726px] h-[626px]" />
-          </div>
-        </div>
+  {/* Web Layout: Two Columns */}
+  <div className="flex flex-col md:flex-row justify-between items-center">
+    
+    {/* Left Column (Text + Button in Web View) */}
+    <div className="w-full md:w-1/2 p-10">
+      <h1 className="text-4xl md:text-6xl font-sans text-[#000000] font-semibold leading-[45px] md:leading-[75.52px]">
+        Future-Proof Cloud <br className="hidden md:block" />
+        Tools For Your <br className="hidden md:block" />
+        Evolving Needs
+      </h1>
+      <p className="mt-4 text-[#5F5E5E] text-base md:text-lg">
+        Embarking on the ERP journey: Discover accounting and ERP solutions tailored to your needs and budget.
+      </p>
+
+      {/* Button included in the Left Column for Web */}
+      <div className="hidden md:flex mt-6">
+        <button
+          onClick={handleOpenModal}
+          className="flex items-center gap-5 font-bold px-6 py-2 bg-black text-white rounded-full"
+        >
+          Get early access <img src={arrow} alt="arrow" className="w-[37px] h-[37px]" />
+        </button>
       </div>
+    </div>
+
+    {/* Right Column (Image) */}
+    <div className="w-full md:w-1/2 flex justify-center p-10">
+      <img
+        src={bannerimg}
+        alt="Sample"
+        className="w-full md:w-[726px] h-auto md:h-[626px]"
+      />
+    </div>
+
+    {/* Button for Mobile View (Separate Row) */}
+    <div className="w-full flex md:hidden justify-center p-10">
+      <button
+        onClick={handleOpenModal}
+        className="flex items-center gap-5 font-bold px-6 py-2 bg-black text-white rounded-full"
+      >
+        Get early access <img src={arrow} alt="arrow" className="w-[37px] h-[37px]" />
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 
       <ReusableModal open={modalOpen} onClose={handleCloseModal} onAction={handleAction} />
     </>
