@@ -37,15 +37,12 @@ function ViewEvent({}: Props) {
       <div className="mt-8 px-10 flex items-center justify-between w-full relative">
         {timelineData.map((event, index) => (
           <div key={index} className="flex flex-col items-center relative">
-            {/* Connector Line */}
             {index !== 0 && (
               <div className="absolute -left-full top-2.5 w-full h-[1px] bg-gray-300 -px-20 "></div>
             )}
 
-            {/* Dot */}
             <div className={`w-4 h-4 rounded-full ${event.color}`}></div>
 
-            {/* Event Details */}
             <p className="mt-2 text-center font-semibold">{event.title}</p>
             <p className="text-gray-500 text-sm">{event.time}</p>
           </div>

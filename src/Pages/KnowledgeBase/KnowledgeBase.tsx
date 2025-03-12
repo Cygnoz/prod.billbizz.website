@@ -31,7 +31,7 @@ const KnowledgeBase = ({}: Props) => {
   const navigate = useNavigate();
   return (
     <div className="bg-[#f6f6f6] ">
-      <LandingComponent />
+      <LandingComponent data={data} setData={setData} />
 
       <div className=" p-14">
         <p
@@ -55,7 +55,7 @@ const KnowledgeBase = ({}: Props) => {
                 <hr />
                 <div className="flex items-center px-3 py-3 ">
                   <div>
-                    <p className="font-bold text-[#303F58]">912 Article</p>
+                    <p className="font-bold text-[#303F58]">{item?.articleCount} Article</p>
                   </div>
                   <div className="ml-auto flex items-center justify-center">
                     {" "}
@@ -74,7 +74,7 @@ const KnowledgeBase = ({}: Props) => {
               </div>
             ))
           ) : (
-            <></>
+            <div className="text-red-700 flex items-center justify-center my-5">No Categories Avilable !</div>
           )}
         </div>
       </div>

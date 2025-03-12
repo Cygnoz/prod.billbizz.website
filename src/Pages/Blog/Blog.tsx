@@ -63,7 +63,7 @@ function Blog({}: Props) {
             <span className="text-[#222222]"> This month</span>
           </h2>
 
-          <div className="grid grid-cols-2 gap-6 mt-5">
+        { thisMonth.length>0? <div className="grid grid-cols-2 gap-6 mt-5">
             {loading
               ? [...Array(4)].map((_, index) => <CardSkeleton key={index} />)
               : thisMonth.map((post: any, index: number) => {
@@ -114,7 +114,7 @@ function Blog({}: Props) {
                     </div>
                   );
                 })}
-          </div>
+          </div>:<div className="flex items-center justify-center text-red-500 mt-28">No Blogs Available !</div>}
         </div>
       </div>
 

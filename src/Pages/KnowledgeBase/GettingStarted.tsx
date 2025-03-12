@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import ChevronRight from "../../assets/icons/ChevronRight";
 import CopyIcon from "../../assets/icons/explore/CopyIcon";
 import LandingComponent from "./LandingComponent";
@@ -13,10 +13,11 @@ function GettingStarted({}: Props) {
   const { request: getData } = useApi("get", 3001);
   const location =useLocation()
   console.log(location.state)
+  const {id}=useParams()
 
   const handleGetData = async () => {
     try {
-      const url = `${endpoints.GET_ARTICLE}`;
+      const url = `${endpoints.GET_ARTICLE}?subCategoryId=${id}`;
       const { response, error } = await getData(url);
 
       if (!error && response) {
@@ -35,7 +36,7 @@ function GettingStarted({}: Props) {
   const navigate=useNavigate()
   return (
     <div className="bg-[#f6f6f6]">
-      <LandingComponent />
+      <LandingComponent data={data} setData={setData} />
       <div className="p-14 ">
         <div className="flex ">
           <div className="text-xl font-bold text-[#303F58] flex items-center">
@@ -47,7 +48,7 @@ function GettingStarted({}: Props) {
           </div>
         </div>
 
-       { data.map((item:any)=>( <div className="bg-white p-4 mt-4 flex  gap-4 rounded-md" onClick={()=>(navigate(`/knowledge-base/${data[0]?.category?.categoryName}/${data[0]?.subCategory?.subCategoryName}/${item._id}`))}>
+       {data.length>0? data.map((item:any)=>( <div className="bg-white p-4 mt-4 flex  gap-4 rounded-md" onClick={()=>(navigate(`/knowledge-base/${data[0]?.category?.categoryName}/${data[0]?.subCategory?.subCategoryName}/${item._id}`))}>
           <div className="rounded-full  bg-[#CCCCCC] flex items-center justify-center w-[60px] h-[60px] cursor-pointer">
             <CopyIcon />
           </div>
@@ -57,7 +58,7 @@ function GettingStarted({}: Props) {
              
             </div>
           </div>
-        </div>))}
+        </div>)):<div className="text-red-700 flex items-center justify-center my-5">No Articles Avilable !</div>}
       </div>
     </div>
   );

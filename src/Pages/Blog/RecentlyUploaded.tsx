@@ -9,7 +9,7 @@ type Props = { blogData: any };
 function RecentlyUploaded({ blogData }: Props) {
   return (
     <div>
-      {blogData &&
+      {blogData.lengthh>0?
         blogData.map((item: any, index: number) => {
           const formattedDate = item.createdAt
             ? new Date(item.createdAt).toLocaleDateString("en-CA")
@@ -59,7 +59,7 @@ function RecentlyUploaded({ blogData }: Props) {
               </div>
             </div>
           );
-        })}
+        }):<div className="flex items-center  text-red-500 my-11">No Blogs Available !</div>}
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Calendar from "../../assets/icons/Calendar";
 import Clock from "../../assets/icons/Clock";
-// import SearchIcon from "../../assets/icons/SearchIcon";
 import { useEffect, useState } from "react";
 import { endpoints } from "../../Services/ApiEndpoints";
 import useApi from "../../Hooks/useApi";
@@ -17,7 +16,7 @@ const ViewAll = ({}: Props) => {
   
     const handleGetnewsData = async () => {
       try {
-        const url = `${endpoints.GET_BLOGS}/?postType=Events`;
+        const url = `${endpoints.GET_BLOGS}?postType=Events`;
         const { response, error } = await getData(url);
   
         if (!error && response) {
@@ -35,9 +34,14 @@ const ViewAll = ({}: Props) => {
     }, []);
   
 
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredNewsData = newsData.filter((item: any) =>
+    item.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="p-6">
-      {/* Header Section */}
       <div className="flex items-center justify-between">
         <p className="text-2xl font-bold text-black">
           <span className="text-[#870000]">Popular</span> Event's
@@ -47,14 +51,14 @@ const ViewAll = ({}: Props) => {
             type="text"
             placeholder="Search"
             className="w-full outline-none bg-transparent pl-2"
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
-{/* <SearchIcon/> */}
         </div>
       </div>
 
       {/* Event Card */}
-   {   newsData? newsData.map((item:any)=>( <div className="mx-3 my-4 border-b pb-4">
-        <div className="grid grid-cols-12  gap-5 " onClick={()=>navigate("/news-and-events/view-all/view-event")}>
+   {   newsData? filteredNewsData.map((item:any)=>( <div className="mx-3 my-4 border-b pb-4">
+        <div className="grid grid-cols-12  gap-5 ">
           <div className="col-span-2 flex items-center justify-center">
             <img src={item?.image} alt="Event" className=" h-[124px] w-full " />
           </div>
@@ -64,15 +68,15 @@ const ViewAll = ({}: Props) => {
             <div className="flex items-center text-gray-500 text-sm mt-1 space-x-3">
               <div className="flex items-center gap-2 me-2">
               <Calendar  />
-              <span>Grand Hyatt, Dubai </span>
+              <span>{item.meetingType==="Online"? "Online":item.venueName} </span>
               </div> |
               <div className="flex items-center gap-2 me-2">
                 <Calendar  />
-                <span>02 December 2022</span>
+                <span>{item.meetingDate}</span>
               </div>|
               <div className="flex items-center gap-2">
                 <Clock />
-                <span>10:00 am to 12:00 pm</span>
+                <span>{item.startTime} to {item.endTime}</span>
               </div>
             </div>
             <p className="text-gray-600 text-sm mt-3 ">

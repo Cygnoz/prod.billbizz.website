@@ -35,7 +35,7 @@ const CRM = ({}: Props) => {
   const navigate = useNavigate();
   return (
     <div className="bg-[#f6f6f6]">
-      <LandingComponent />
+      <LandingComponent data={data} setData={setData} />
 
       <div className="p-14">
         <p className="text-xl font-bold text-[#303F58] flex items-center ">
@@ -47,8 +47,8 @@ const CRM = ({}: Props) => {
           </span>{" "}
           <ChevronRight color="#4B5C79" /> {data[0]?.categoryName?.categoryName}
         </p>
-        <div className="grid grid-cols-2 gap-4 my-4">
-          {data ?
+      {data.length>0 ?  <div className="grid grid-cols-2 gap-4 my-4">
+          {
             data.map((item: any, index:number) => (
               <div className="flex bg-white p-2 gap-5 rounded-2xl" key={index}>
                 <img src={item.categoryName.image} alt="" className="rounded-2xl h-24 w-44" />
@@ -71,8 +71,8 @@ const CRM = ({}: Props) => {
                   </button>
                 </div>
               </div>
-            )):<div className="flex items-center justify-center text-rose-400">No Sub Category Available !</div>}{" "}
-        </div>
+            ))}{" "}
+        </div>:<div className="flex items-center justify-center text-rose-400 w-full my-10">No Sub Categories Available !</div>}
       </div>
     </div>
   );

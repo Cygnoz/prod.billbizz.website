@@ -11,7 +11,7 @@ const RecentNews = ({ data }: Props) => {
           <span className="text-[#8c1216]">Recent </span>  News
         </h3>
         <div className="flex  gap-4 overflow-x-auto scrollbar-hidden whitespace-nowrap">
-          {Array.isArray(data) &&
+          {data.length>0 ?
             data.length > 0 && data.reverse().map((item: any, index: number) => (
               <div
                 key={index}
@@ -34,7 +34,7 @@ const RecentNews = ({ data }: Props) => {
                   }}
                 />
               </div>
-            ))}
+            )):<div className="text-red-600 flex items-center justify-center my-5">No News Available !</div>}
         </div>
       </div>
     </div>
