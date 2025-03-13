@@ -1,15 +1,27 @@
 import DOMPurify from "dompurify";
 import img from "../../assets/images/Frame 1618873045.png";
+import { useNavigate } from "react-router-dom";
 
 type Props = { data?: any };
 
 const RecentNews = ({ data }: Props) => {
+  const navigate = useNavigate();
   return (
     <div className="bg-[rgb(246,246,246)]">
       <div className="p-5">
-        <h3 className="font-bold text-xl text-black">
-          <span className="text-[#8c1216]">Recent </span>  News
-        </h3>
+      <div className="flex">
+          <h3 className="font-bold text-xl text-black">
+             Recent News
+          </h3>
+          <div className="ml-auto">
+            <button
+              className="text-[#820000] text-sm"
+               onClick={() => navigate("/news-and-events/view-all-news")}
+            >
+              View all
+            </button>
+          </div>
+        </div>
         <div className="flex  gap-4 overflow-x-auto scrollbar-hidden whitespace-nowrap">
           {data.length>0 ?
             data.length > 0 && data.reverse().map((item: any, index: number) => (

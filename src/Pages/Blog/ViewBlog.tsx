@@ -1,9 +1,9 @@
 import Calendar from "../../assets/icons/Calendar";
 import Clock from "../../assets/icons/Clock";
 import img from "../../assets/images/Frame 1618873045.png";
-import Authors from "./Authors";
+// import Authors from "./Authors";
 import Categories from "./Categories";
-import InstaPost from "./InstaPost";
+// import InstaPost from "./InstaPost";
 
 const relatedPosts = [
   {
@@ -96,11 +96,11 @@ const ViewBlog = () => {
           Small businesses often struggle with managing invoices, tracking expenses, and ensuring timely payments. A smart billing system like Bill Bizz simplifies these processes by automating invoicing, reducing errors, and providing real-time financial insights...
         </p>
         <div className="relative justify-start my-5">
-          <span className="text-[#ee3fd8] text-[21px] font-semibold font-['Inter'] capitalize leading-[29.40px]">
+          <span className="text-[#CC1111] text-[21px] font-semibold font-['Inter'] capitalize leading-[29.40px]">
             Related
           </span>
-          <span className="text-[#222222] text-[21px] font-semibold font-['Inter'] capitalize leading-[29.40px]">
-            Post
+          <span className="text-[#222222] text-[21px] font-semibold font-['Inter'] ms-1 capitalize leading-[29.40px]">
+             Post
           </span>
         </div>
         <div className="overflow-x-auto scrollbar-hidden">
@@ -134,20 +134,20 @@ const ViewBlog = () => {
       </div>
       <div className="col-span-4 flex flex-col px-6 ms-6">
         <Categories />
-        <InstaPost />
+        {/* <InstaPost /> */}
         <div className="mt-5">
         <div className="flex items-center justify-between my-4">
        
-        <div className="flex items-center w-full max-w-sm rounded-[20px] border px-4 py-2">
+        {/* <div className="flex items-center w-full max-w-sm rounded-[20px] border px-4 py-2">
           <input
             type="text"
             placeholder="Search"
             className="w-full outline-none bg-transparent pl-2"
           />
-{/* <SearchIcon/> */}
-        </div>
+<SearchIcon/>
+        </div> */}
       </div>  
-          <Authors />
+          {/* <Authors /> */}
         </div>
       </div>
     </div>

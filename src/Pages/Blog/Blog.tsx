@@ -1,7 +1,7 @@
 import Calendar from "../../assets/icons/Calendar";
 import Clock from "../../assets/icons/Clock";
 import RecentlyUploaded from "./RecentlyUploaded";
-import Authors from "./Authors";
+// import Authors from "./Authors";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useApi from "../../Hooks/useApi";
@@ -9,10 +9,11 @@ import { endpoints } from "../../Services/ApiEndpoints";
 import DOMPurify from "dompurify";
 import { formatDistanceToNow } from "date-fns";
 import CardSkeleton from "../../cards/CardSkeltone";
+import Categories from "./Categories";
 
 type Props = {};
 
-function Blog({}: Props) {
+function Blog({ }: Props) {
   const [blogData, setBlogData] = useState<any>([]);
   const [thisMonth, setThisMonth] = useState<any>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -56,79 +57,78 @@ function Blog({}: Props) {
 
   return (
     <div className="mx-10 my-9 grid grid-cols-12">
-      <div className="col-span-8 h-[450px] overflow-y-auto custom-scrollbar">
+      <div className="col-span-12 h-[450px] overflow-y-auto custom-scrollbar">
         <div>
           <h2 className="text-[26px] font-semibold capitalize">
             <span className="text-[#cc1111]">Featured</span>
             <span className="text-[#222222]"> This month</span>
           </h2>
 
-        { thisMonth.length>0? <div className="grid grid-cols-2 gap-6 mt-5">
+          {thisMonth.length > 0 ? <div className="grid grid-cols-2 gap-6 mt-5">
             {loading
               ? [...Array(4)].map((_, index) => <CardSkeleton key={index} />)
               : thisMonth.map((post: any, index: number) => {
-                  const formattedDate = new Date(
-                    post.createdAt
-                  ).toLocaleDateString("en-CA");
-                  const timeAgo = formatDistanceToNow(
-                    new Date(post.createdAt),
-                    { addSuffix: true }
-                  );
+                const formattedDate = new Date(
+                  post.createdAt
+                ).toLocaleDateString("en-CA");
+                const timeAgo = formatDistanceToNow(
+                  new Date(post.createdAt),
+                  { addSuffix: true }
+                );
 
-                  return (
-                    <div key={index} onClick={() => navigate("/blog/view")}>
-                      <span
-                        className={`h-5 px-2 py-1 rounded-[3px] inline-flex text-xs font-normal capitalize leading-3 ${
-                          Math.random() < 0.5
-                            ? "bg-[#f5cf4a] text-[#666666]"
-                            : "bg-gradient-to-l from-[#cc1111] to-[#8f0100] text-white"
+                return (
+                  <div key={index} onClick={() => navigate("/blog/view")}>
+                    <span
+                      className={`h-5 px-2 py-1 rounded-[3px] inline-flex text-xs font-normal capitalize leading-3 ${Math.random() < 0.5
+                          ? "bg-[#f5cf4a] text-[#666666]"
+                          : "bg-gradient-to-l from-[#cc1111] to-[#8f0100] text-white"
                         }`}
-                      >
-                        {post?.category?.categoryName}
-                      </span>
+                    >
+                      {post?.category?.categoryName}
+                    </span>
 
-                      <p className="w-[401px] text-[26px] font-semibold capitalize leading-9 my-4 text-[#222222]">
-                        {post.title}
-                      </p>
+                    <p className="w-[401px] text-[26px] font-semibold capitalize leading-9 my-4 text-[#222222]">
+                      {post.title}
+                    </p>
+                    <img
+                      src={post.image[0]}
+                      alt=""
+                      className="w-[401px] h-[229px] rounded-[7px]"
+                    />
+                    <div className="flex items-center gap-2 text-xs text-[#777777] mt-4">
                       <img
-                        src={post.image[0]}
+                        src={post.createdBy.userImage}
                         alt=""
-                        className="w-[401px] h-[229px] rounded-[7px]"
+                        className="h-[18px] w-[18px] rounded-full"
                       />
-                      <div className="flex items-center gap-2 text-xs text-[#777777] mt-4">
-                        <img
-                          src={post.createdBy.userImage}
-                          alt=""
-                          className="h-[18px] w-[18px] rounded-full"
-                        />
-                        <span>{post.createdBy.userName}</span> | <Calendar />{" "}
-                        <span>{formattedDate}</span> | <Clock />{" "}
-                        <span>{timeAgo}</span>
-                      </div>
-                      <p
-                        className="mt-4 text-[15px] text-[#555555] leading-snug"
-                        dangerouslySetInnerHTML={{
-                          __html: DOMPurify.sanitize(post.content),
-                        }}
-                      />
+                      <span>{post.createdBy.userName}</span> | <Calendar />{" "}
+                      <span>{formattedDate}</span> | <Clock />{" "}
+                      <span>{timeAgo}</span>
                     </div>
-                  );
-                })}
-          </div>:<div className="flex items-center justify-center text-red-500 mt-28">No Blogs Available !</div>}
+                    <p
+                      className="mt-4 text-[15px] text-[#555555] leading-snug"
+                      dangerouslySetInnerHTML={{
+                        __html: DOMPurify.sanitize(post.content),
+                      }}
+                    />
+                  </div>
+                );
+              })}
+          </div> : <div className="flex items-center justify-center text-red-500 mt-28">No Blogs Available !</div>}
         </div>
       </div>
 
-      <div className="col-span-4 flex ps-24">
+      {/* <div className="col-span-4 flex ps-24">
         <Authors />
-      </div>
+      </div> */}
 
-      <div className="col-span-12 bg-[#f6f6f5] -mx-10 -mb-10 mt-8 px-6 py-10">
+      <div className="col-span-8 bg-[#f6f6f5] -mx-10 -mb-10 mt-8 px-6 py-10">
         <div>
           <h3 className="text-[24px] font-semibold capitalize mb-8">
-            <span className="text-transparent bg-clip-text bg-gradient-to-tr from-[#EE3FD8] to-[#FFDD65]">
-              All
+            <span className="text-transparent bg-clip-text bg-[#CC1111]">
+              Recently
             </span>
-            <span className="text-[#222222]"> Post</span>
+            <span className="text-[#222222]"> Posted</span>
           </h3>
           <div className="ps-5">
             {loading ? (
@@ -138,6 +138,9 @@ function Blog({}: Props) {
             )}
           </div>
         </div>
+      </div>
+      <div className="col-span-4 ps-24">
+        <Categories />
       </div>
     </div>
   );

@@ -1,15 +1,17 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import Calendar from "../../assets/icons/Calendar";
 import Clock from "../../assets/icons/Clock";
 import { useEffect, useState } from "react";
 import { endpoints } from "../../Services/ApiEndpoints";
 import useApi from "../../Hooks/useApi";
 import DOMPurify from "dompurify";
+import ChevronLeft from "../../assets/icons/ChevronLeft";
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
 const ViewAll = ({}: Props) => {
-    const navigate=useNavigate()
+    // const navigate=useNavigate()
 
     const [newsData, setnewsData] = useState([]);
     const { request: getData } = useApi("get", 3001);
@@ -39,13 +41,18 @@ const ViewAll = ({}: Props) => {
   const filteredNewsData = newsData.filter((item: any) =>
     item.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
+  const navigate=useNavigate()
   return (
     <div className="p-6">
       <div className="flex items-center justify-between">
+        <div className="flex gap-4 items-center">
+        <div onClick={() => navigate("/news-and-events")} className="bg-[#5D5D5D1A] cursor-pointer w-12 h-12 rounded-full border-2 border-[#FFFFFFA6] items-center flex justify-center">
+<ChevronLeft size={20}/>
+        </div>
         <p className="text-2xl font-bold text-black">
-          <span className="text-[#870000]">Popular</span> Event's
+          Events
         </p>
+        </div>
         <div className="flex items-center w-full max-w-sm rounded-[20px] border px-4 py-2">
           <input
             type="text"
@@ -57,7 +64,8 @@ const ViewAll = ({}: Props) => {
       </div>
 
       {/* Event Card */}
-   {   newsData? filteredNewsData.map((item:any)=>( <div className="mx-3 my-4 border-b pb-4">
+   {   newsData? filteredNewsData.map((item:any)=>( 
+    <div className="mx-3 my-4 border-b pb-4">
         <div className="grid grid-cols-12  gap-5 ">
           <div className="col-span-2 flex items-center justify-center">
             <img src={item?.image} alt="Event" className=" h-[124px] w-full " />

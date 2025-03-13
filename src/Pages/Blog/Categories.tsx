@@ -28,7 +28,7 @@ const Categories = ({}: Props) => {
      }, []);
   return (
   <>
-  <p className="text-[21px] mt-10 font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#EE3FD8] via-[#FF9F45] to-[#FFDD65] ">
+  <p className="text-[21px] mt-10 font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#CC1111] to-[#8F0100] ">
              Categories
            </p>
         { data?.map((item:any)=>( <div>

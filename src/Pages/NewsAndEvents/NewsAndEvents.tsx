@@ -160,7 +160,7 @@ const NewsAndEvents = ({}: Props) => {
       <div className="col-span-4 m-3 pe-4 pt-5">
         <div className="flex">
           <h3 className="font-bold text-xl text-black">
-            <span className="text-[#8c1216]">Events</span> This Month
+             Recent Events
           </h3>
           <div className="ml-auto">
             <button

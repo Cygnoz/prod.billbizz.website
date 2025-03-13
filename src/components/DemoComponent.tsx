@@ -1,15 +1,19 @@
 import { useState } from "react";
 import backgredient from "../assets/images/footer/Left (1).png";
 import ReusableModal from "../commoncomponents/SignUpModal";
+import Facebook from "../assets/icons/Facebook";
+import Instagram from "../assets/icons/Instagram";
+import MailIcon from "../assets/icons/MailIcon";
+import YoutubeIcon from "../assets/icons/YoutubeIcon";
 
 type Props = {}
 
 const DemoComponent = ({}: Props) => {
     const [modalOpen, setModalOpen] = useState(false);
 
-    const handleOpenModal = () => {
-        setModalOpen(true); 
-      };
+    // const handleOpenModal = () => {
+    //     setModalOpen(true); 
+    //   };
       const handleCloseModal = () => {
         setModalOpen(false); // Close modal
       };
@@ -32,15 +36,15 @@ const DemoComponent = ({}: Props) => {
     
     {/* Left Section: Heading + Button */}
     <div className="w-full md:w-1/2 space-y-6">
-      <h1 className="text-[36px] md:text-[48px] leading-[42px] md:leading-[56.64px] text-left font-sans font-semibold">
-        <span className="text-[#C71B1A]">Transform</span> your business,
-        <br className="hidden md:block" />
-        one solution at a time.
+      <h1 className="text-[48px] font-medium text-[#FFFFFF]">
+        Let's Stay
+        <span className="text-[#C71B1A]"> Connected</span>
       </h1>
+      <p className="text-[#FFFFFF] text-2xl font-medium">Stay Updated with our latest projects and company <br />news by following us on social media</p>
 
       {/* Button (Mobile at bottom, Desktop beside content) */}
       <div className="flex md:mt-6">
-        <button
+        {/* <button
           onClick={handleOpenModal}
           className="w-full md:w-auto px-6 py-3 text-white rounded-md focus:outline-none"
           style={{
@@ -58,17 +62,22 @@ const DemoComponent = ({}: Props) => {
           }}
         >
           Schedule Demo
-        </button>
+        </button> */}
       </div>
     </div>
 
     {/* Right Section: Paragraph */}
-    <p className="w-full md:w-1/2 text-[18px] md:text-[20px] font-[410] leading-[28px] md:leading-[23.6px] text-left text-[#BEBEBE]">
-      Schedule a Demo <br className="hidden md:block" />
-      for a personalized, no-commitment consultation.  
-      Discover how Billbizz can <br className="hidden md:block" />
-      address your unique challenges and boost your business efficiency.
+   <div>
+   <p className="w-full text-[42px] justify-end font-medium text-[#FFFFFF] -mt-6">
+      Get in touch
     </p>
+    <div className="flex gap-4 my-4 items-center justify-center">
+          <Facebook size={28}/>
+          <Instagram size={28}/>
+          <MailIcon size={28}/>
+          <YoutubeIcon size={28}/>
+    </div>
+   </div>
   </div>
 
   {/* Modal */}

@@ -2,12 +2,12 @@ import awsstartup from "../assets/images/footer/aws.svg";
 import msstartup from "../assets/images/footer/ms.svg";
 import keralastartup from "../assets/images/footer/image (20) 1.svg";
 import billbizz from "../assets/icons/Billbizz-Logo_White 1.png";
-import fb from "../assets/images/footer/social/Vector.png";
-import insta from "../assets/images/footer/social/Vector-1.png";
-import maill from "../assets/images/footer/social/Vector-2.png";
+// import fb from "../assets/images/footer/social/Vector.png";
+// import insta from "../assets/images/footer/social/Vector-1.png";
+// import maill from "../assets/images/footer/social/Vector-2.png";
 import mail2 from "../assets/images/footer/email2.png";
 import phone from "../assets/images/footer/phhone.png";
-import linkedin from "../assets/images/footer/social/Vector-3.png";
+// import linkedin from "../assets/images/footer/social/Vector-3.png";
 import line from "../assets/images/footer/Line 18.png";
 import address from "../assets/images/footer/Frame 1156.png";
 
@@ -111,7 +111,7 @@ function Footer() {
   </div>
 
   {/* Footer Bottom Bar */}
-  <div className="bg-red-950 flex flex-col md:flex-row justify-between text-center md:text-left h-auto md:h-[38px] p-2">
+  {/* <div className="bg-red-950 flex flex-col md:flex-row justify-between text-center md:text-left h-auto md:h-[38px] p-2">
     <div className="flex gap-[14px] pt-[7px] ps-[40px]">
       <img src={fb} alt="Facebook" className="w-[11px] h-[20px]" />
       <img src={insta} alt="Instagram" className="w-[20px] h-[20px]" />
@@ -121,7 +121,7 @@ function Footer() {
     <div className="pt-[10px] pe-[40px]">
       <p className="text-[#FFFFFF] text-sm">Billbizz 2024 | All Rights Reserved</p>
     </div>
-  </div>
+  </div> */}
 </div>
 
     </>

@@ -14,6 +14,8 @@ import ViewBlog from "./Pages/Blog/ViewBlog";
 import CustomerStories from "./Pages/CustomerStories/CustomerStories";
 import AboutUs from "./Pages/AboutUs";
 import ContactUs from "./Pages/ContactUs";
+import ViewAllNews from "./Pages/NewsAndEvents/ViewAllNews";
+import ViewANews from "./Pages/NewsAndEvents/ViewANews";
 
 const Dashboard = lazy(() => import("./landingpage/Explore"));
 const SliderSection = lazy(() => import("./landingpage/SliderSection"));
@@ -93,6 +95,22 @@ const AppRoutes = () => {
           element={
             <Layout>
               <ViewEvent />
+            </Layout>
+          }
+        />
+        <Route
+          path="/news-and-events/view-all-news"
+          element={
+            <Layout>
+              <ViewAllNews />
+            </Layout>
+          }
+        />
+        <Route
+          path="/news-and-events/view-all-news/view-news"
+          element={
+            <Layout>
+              <ViewANews />
             </Layout>
           }
         />
