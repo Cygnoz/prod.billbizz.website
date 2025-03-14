@@ -11,10 +11,11 @@ import { useEffect, useState } from "react";
 import RecentNews from "./RecentNews";
 import DOMPurify from "dompurify";
 import { formatDistanceToNow } from "date-fns";
+import defaultImage from '../../assets/images/image (9).png'
 
 type Props = {};
 
-const NewsAndEvents = ({}: Props) => {
+const NewsAndEvents = ({ }: Props) => {
   const [blogData, setBlogData] = useState([]);
   const [thisMonth, setThisMonth] = useState<any>([]);
   const [latestNews, setLatestNews] = useState<any>(null);
@@ -24,8 +25,13 @@ const NewsAndEvents = ({}: Props) => {
 
   const handleGetBlogData = async () => {
     try {
-      const url = `${endpoints.GET_BLOGS}/?postType=News`;
+      const url = `${endpoints.GET_BLOGS}?postType=News&project=BillBizz`;
+
       const { response, error } = await getData(url);
+      console.log('url', url);
+      console.log('res', response);
+      console.log('err', error);
+
 
       if (!error && response) {
         const allPosts = response.data.data;
@@ -60,8 +66,12 @@ const NewsAndEvents = ({}: Props) => {
 
   const handlegetEvent = async () => {
     try {
-      const url = `${endpoints.GET_BLOGS}/?postType=Events`;
+      const url = `${endpoints.GET_BLOGS}?postType=Events&project=BillBizz`;
+
       const { response, error } = await getData(url);
+      console.log('ur', url);
+      console.log('response', response);
+      console.log('error', error);
 
       if (!error && response) {
         const allPosts = response.data.data;
@@ -160,7 +170,7 @@ const NewsAndEvents = ({}: Props) => {
       <div className="col-span-4 m-3 pe-4 pt-5">
         <div className="flex">
           <h3 className="font-bold text-xl text-black">
-             Recent Events
+            Recent Events
           </h3>
           <div className="ml-auto">
             <button
@@ -181,15 +191,17 @@ const NewsAndEvents = ({}: Props) => {
         >
           <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#3D0505] to-transparent mx-3">
             <div className="absolute bottom-0 left-0 p-3 text-white pt-5">
-              <div className="flex items-center gap-2">
-                <p className="font-semibold text-[10px] text-white">
+              <div className="items-center gap-2">
+                <p className="font-semibold text-base text-[#FFFFFF]">
                   {latestEvent?.category.categoryName || "News"}
                 </p>
-                <DotIcon color="white" />
-                <p className="text-white text-[10px]">4 hours ago</p>
+                <div className="bg-[#820000] rounded-3xl my-2 w-44 h-7 flex gap-3 items-center px-4">
+                  <DotIcon color="#FFFFFF" />
+                  <p className="text-[#FFFFFF] font-normal text-[10px]">4 hours ago</p>
+                </div>
               </div>
               <p
-                className="text-xs text-black"
+                className="text-sm text-[#FFFFFF] font-normal"
                 dangerouslySetInnerHTML={{
                   __html: DOMPurify.sanitize(latestEvent?.content),
                 }}
@@ -210,15 +222,19 @@ const NewsAndEvents = ({}: Props) => {
                   <div className="grid grid-cols-12 pb-4 mt-4">
                     <div className="col-span-9 flex items-center">
                       <div>
-                        <div className="flex items-center gap-2">
-                          <p className="font-semibold text-[10px] text-[#3D0505]">
+                        <div className="items-center gap-2">
+                          <p className="font-semibold text-sm text-[#393939]">
                             {item.title}
                           </p>
-                          <DotIcon color="black" />
-                          <p className="text-black text-[10px]">{timeAgo}</p>
+                          <div className="bg-[#EAD1D1] rounded-3xl my-4 w-44 h-7 flex gap-3 items-center px-4">
+                            <DotIcon color="black" />
+                            <p className="text-[#393939] font-normal text-[10px]">{timeAgo}</p>
+                          </div>
+                          {/* <DotIcon color="black" />
+                          <p className="text-black text-[10px]">{timeAgo}</p> */}
                         </div>
                         <p
-                          className="text-xs text-black"
+                          className="text-xs text-[#5F5E5E] font-normal"
                           dangerouslySetInnerHTML={{
                             __html: DOMPurify.sanitize(item.content),
                           }}
@@ -226,7 +242,12 @@ const NewsAndEvents = ({}: Props) => {
                       </div>
                     </div>
                     <div className="col-span-3">
-                      <img src={item.image[0]} alt="Event" />
+                      {item?.image && item?.image > 50 ? (
+                        <img src={item?.image[0]} className="rounded-lg w-28 h-[118px]" alt="Event" />
+                      )
+                        :
+                        (<img src={defaultImage} className="rounded-lg w-28 h-28" alt="Event" />)}
+                      {/* <img src={item.image[0]} alt="Event" /> */}
                     </div>
                   </div>
                   <hr />

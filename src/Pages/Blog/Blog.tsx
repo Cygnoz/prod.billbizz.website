@@ -23,10 +23,15 @@ function Blog({ }: Props) {
   const handleGetBlogData = async () => {
     try {
       setLoading(true);
-      const url = `${endpoints.GET_BLOGS}?postType=Blogs`;
+      const url = `${endpoints.GET_BLOGS}?postType=Blogs&project=BillBizz`;
       const { response, error } = await getData(url);
-
+      console.log('url',url);
+      console.log('res',response);
+      console.log('err',error);
+      
       if (!error && response) {
+        console.log(response.data);
+        
         const allPosts = response.data.data;
 
         const currentMonth = new Date().getMonth();

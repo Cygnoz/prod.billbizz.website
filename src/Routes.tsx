@@ -91,7 +91,7 @@ const AppRoutes = () => {
           }
         />
         <Route
-          path="/news-and-events/view-all/view-event"
+          path="/news-and-events/view-all/view-event/:id"
           element={
             <Layout>
               <ViewEvent />
@@ -107,7 +107,7 @@ const AppRoutes = () => {
           }
         />
         <Route
-          path="/news-and-events/view-all-news/view-news"
+          path="/news-and-events/view-all-news/view-news/:id"
           element={
             <Layout>
               <ViewANews />

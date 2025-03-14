@@ -10,11 +10,16 @@ function Privacy({}: Props) {
 
   const handleGetData = async () => {
     try {
-      const url = `${endpoints.GET_LEGAL_PRIVACY_AND_SECURITY}?legalAndSecurityType=Legal`;
+      const url = `${endpoints.GET_TERMS}?type=LegalAndPrivacy&project=BillBizz`;
       const { response, error } = await getData(url);
-
+      console.log('url',url);
+      console.log('res',response);
+      console.log('err',error);
+      
       if (!error && response) {
-        setData(response.data.data);
+        console.log(response.data);
+        
+        setData(response.data.terms);
       }
     } catch (error) {
       console.log("Error", error);
@@ -34,10 +39,10 @@ function Privacy({}: Props) {
         {data.map((item:any, index) => (
         <>
             <p className="font-bold" key={item._id}>
-              {index + 1}. {item.title} 
+              {index + 1}. {item.termTitle} 
              
             </p>
-            <p> {item.description}</p>
+            <p> {item.termDescription}</p>
         </>
         ))}
       </div>

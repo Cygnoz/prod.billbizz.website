@@ -15,10 +15,14 @@ const CRM = ({}: Props) => {
 
   const handleGetData = async () => {
     try {
-      const url = `${endpoints.GET_SUBCATEGORY}?categoryName=${id}`;
+      const url = `${endpoints.GET_SUBCATEGORY}?categoryName=${id}&project=BillBizz`;
       const { response, error } = await getData(url);
-
+      console.log('url',url);
+      console.log('res',response);
+      console.log('err',error);
+      
       if (!error && response) {
+        console.log(response.data);      
         setData(response.data.data);
       }
     } catch (error) {

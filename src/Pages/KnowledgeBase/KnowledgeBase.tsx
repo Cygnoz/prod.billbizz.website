@@ -13,7 +13,7 @@ const KnowledgeBase = ({}: Props) => {
 
   const handleGetData = async () => {
     try {
-      const url = `${endpoints.GET_CATEGORIES}?categoryType=Knowledge Base`;
+      const url = `${endpoints.GET_CATEGORIES}?categoryType=Knowledge Base&project=BillBizz`;
       const { response, error } = await getData(url);
 
       if (!error && response) {

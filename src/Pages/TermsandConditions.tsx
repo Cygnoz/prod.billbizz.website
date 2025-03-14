@@ -10,9 +10,12 @@ function TermsandConditions({}: Props) {
 
   const handleGetData = async () => {
     try {
-      const url = `${endpoints.GET_TERMS_AND_CONDITIONS}`;
+      const url = `${endpoints.GET_TERMS}?type=TermsAndConditions&project=BillBizz`;
       const { response, error } = await getData(url);
-
+      console.log('url',url);
+      console.log('res',response);
+      console.log('err',error);
+      
       if (!error && response) {
         setData(response.data.terms);
       }

@@ -10,11 +10,18 @@ const Categories = ({}: Props) => {
    
      const handleGetData = async () => {
        try {
-         const url = `${endpoints.GET_CATEGORIES}/?categoryType=Blogs`;
+         const url = `${endpoints.GET_CATEGORIES}?categoryType=Blogs&project=BillBizz`;
          const { response, error } = await getData(url);
-   
+          console.log('url',url);
+          console.log('res',response);
+          console.log('err',error);
+          
          if (!error && response) {
            setData(response.data.data);
+         }
+         else{
+          console.log('else error',error.response.data.message);
+          
          }
        } catch (error) {
          console.log("Error", error);
@@ -31,7 +38,7 @@ const Categories = ({}: Props) => {
   <p className="text-[21px] mt-10 font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#CC1111] to-[#8F0100] ">
              Categories
            </p>
-        { data?.map((item:any)=>( <div>
+        {data.length>0 ? data?.map((item:any)=>( <div>
            
      
            <div className="flex w-full mt-">
@@ -44,7 +51,10 @@ const Categories = ({}: Props) => {
            </div>
            <div className="w-[360px] h-[0px] relative border-dashed border mt-2 border-[#d1e7e5]"></div>
            
-         </div>))}
+         </div>))
+         :(
+          <p className="text-[red] flex items-center justify-center p-10">No Categories Found</p>
+         )}
   </>
   );
 };

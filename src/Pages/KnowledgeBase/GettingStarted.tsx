@@ -17,7 +17,7 @@ function GettingStarted({}: Props) {
 
   const handleGetData = async () => {
     try {
-      const url = `${endpoints.GET_ARTICLE}?subCategoryId=${id}`;
+      const url = `${endpoints.GET_ARTICLE}?subCategoryId=${id}&project=BillBizz`;
       const { response, error } = await getData(url);
 
       if (!error && response) {

@@ -10,11 +10,19 @@ const Security = ({}: Props) => {
   
     const handleGetData = async () => {
       try {
-        const url = `${endpoints.GET_LEGAL_PRIVACY_AND_SECURITY}?legalAndSecurityType=Security`;
+        const url = `${endpoints.GET_TERMS}?type=Security&project=BillBizz`;
         const { response, error } = await getData(url);
-  
+        console.log('url',url);
+        console.log('response',response);
+        console.log('err',error);
+        
         if (!error && response) {
-          setData(response.data.data);
+          console.log(response.data);
+          setData(response.data.terms);
+        }
+        else{
+          console.log(error.response.data.message);
+          
         }
       } catch (error) {
         console.log("Error", error);
@@ -36,12 +44,12 @@ const Security = ({}: Props) => {
         {data.length > 0 ? (
             data.map((item:any, index:number) => (
               <div key={item._id}>
-                <p className="font-bold">{index + 1}. {item.title}</p>
-                <p>{item.description}</p>
+                <p className="font-bold">{index + 1}. {item.termTitle}</p>
+                <p>{item.termDescription}</p>
               </div>
             ))
           ) : (
-            <p>No security terms available.</p>
+            <p className="text-[]">No security terms available.</p>
           )}
       </div>
     </div>

@@ -5,6 +5,8 @@ export const endpoints={
     GET_LEGAL_PRIVACY_AND_SECURITY:`/legalSecurity`,
     KNOWLEDGE_BASE:"/article",
     AUTHORS:`authors`,
-    GET_SUBCATEGORY:`subCategory`,
+    GET_SUBCATEGORY:`/subCategory`,
     GET_ARTICLE:`/article`,
+    GET_TERMS:'/terms',
+    GET_POSTS:'/posts'
 }

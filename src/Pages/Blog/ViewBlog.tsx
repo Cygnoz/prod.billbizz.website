@@ -1,8 +1,11 @@
+import { useEffect, useState } from "react";
 import Calendar from "../../assets/icons/Calendar";
 import Clock from "../../assets/icons/Clock";
 import img from "../../assets/images/Frame 1618873045.png";
 // import Authors from "./Authors";
 import Categories from "./Categories";
+import useApi from "../../Hooks/useApi";
+import { endpoints } from "../../Services/ApiEndpoints";
 // import InstaPost from "./InstaPost";
 
 const relatedPosts = [
@@ -62,6 +65,36 @@ const relatedPosts = [
 ];
 
 const ViewBlog = () => {
+
+  const [viewBlog, setViewBlog]=useState([])
+  const {request: getABlog}=useApi('get',3001)
+
+  const handleViewBlog = async()=>{
+    try{
+      const url = `${endpoints.GET_POSTS}`
+      const {response, error}=await getABlog(url)
+      console.log('uu',url);
+      console.log('rr',response);
+      console.log('ee',error);
+      if(response && !error){
+        console.log(response.data);
+        setViewBlog(response.data)
+      }
+      else{
+        console.log(error.response.data.message);
+        
+      }
+    }
+    catch(err){
+      console.log('error occured',err);
+      
+    }
+  }
+  useEffect(()=>{
+    handleViewBlog()
+  },[])
+  console.log('aa',viewBlog);
+  
   return (
     <div className="grid grid-cols-12 gap-4 m-7">
       <div className="col-span-8">
@@ -135,20 +168,20 @@ const ViewBlog = () => {
       <div className="col-span-4 flex flex-col px-6 ms-6">
         <Categories />
         {/* <InstaPost /> */}
-        <div className="mt-5">
+        {/* <div className="mt-5">
         <div className="flex items-center justify-between my-4">
        
-        {/* <div className="flex items-center w-full max-w-sm rounded-[20px] border px-4 py-2">
+        <div className="flex items-center w-full max-w-sm rounded-[20px] border px-4 py-2">
           <input
             type="text"
             placeholder="Search"
             className="w-full outline-none bg-transparent pl-2"
           />
 <SearchIcon/>
-        </div> */}
-      </div>  
-          {/* <Authors /> */}
         </div>
+      </div>  
+          <Authors />
+        </div> */}
       </div>
     </div>
   );
