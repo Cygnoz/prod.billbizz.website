@@ -14,7 +14,7 @@ export default function ActionRequired({
       <img
         src={frame}
         alt=""
-        className="w-full"
+        className="w-full h-[500px] mt-28"
       />
       
       {/* Content Overlay */}

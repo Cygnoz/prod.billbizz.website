@@ -35,7 +35,7 @@ function Footer() {
       {/* Address and Contact Section */}
       <div className="flex flex-col md:flex-row w-full items-center md:items-start">
         <img src={address} alt="" className="mt-5 w-[100%] md:w-full h-auto" />
-        <div className="mt-5 text-center md:text-left">
+        <div className="mt-5 text-center md:text-left ms-16">
           <h6 className="text-[#FFFFFF] font-sans mb-4 text-2xl">Contact</h6>
           <p className="text-[#BEBEBE] text-lg">
             <a
@@ -66,12 +66,12 @@ function Footer() {
 
     {/* Divider Line (hidden on mobile) */}
     <div className="hidden md:block">
-      <img src={line} alt="" className="h-[420px] ms-[200px]" />
+      <img src={line} alt="" className="h-[400px] ms-[100px]" />
     </div>
 
     {/* Right Section - Links */}
     <div className="flex items-center justify-center">
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-16 text-center md:text-left">
+      <div className="grid grid-cols-3 gap-8 -mt-8">
         
         {/* Site Info */}
         <div>
@@ -79,7 +79,7 @@ function Footer() {
           <ul className="text-[#BEBEBE] text-xl space-y-2">
             <li><a href="/privacy-policy">Legal Privacy</a></li>
             <li><a href="/security">Security</a></li>
-            <li><a href="/terms-and-conditions">Terms & Services</a></li>
+            <li><a href="/terms-and-conditions">Terms & Conditions</a></li>
           </ul>
         </div>
 

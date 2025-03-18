@@ -46,18 +46,23 @@ function TermsandConditions({}: Props) {
         with these Terms, you should discontinue using the platform immediately.
       </p>
 
-   {  data.map((item: any) => (
-     <div className="" key={item.id}>
-        <p className="text-2xl   font-semibold  poppins-semibold">
-         {item.termTitle}
-        </p>
-  
-        <p className="text-[#646464]">
+      {data.length > 0 ? (
+  data.map((item: any) => (
+    <div className="" key={item.id}>
+      <p className="text-2xl font-semibold poppins-semibold">
+        {item.termTitle}
+      </p>
+      <p className="text-[#646464]">
         {item.termDescription}
-        </p>
-     </div>
-   ))
-}
+      </p>
+    </div>
+  ))
+) : (
+  <p className="flex items-center justify-center py-5 text-red-500">
+    No terms and conditions available.
+  </p>
+)}
+
    
     </div>
   );

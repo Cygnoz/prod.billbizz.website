@@ -4,7 +4,7 @@ import { endpoints } from "../Services/ApiEndpoints";
 
 type Props = {};
 
-function Privacy({}: Props) {
+function Privacy({ }: Props) {
   const [data, setData] = useState([]);
   const { request: getData } = useApi("get", 3001);
 
@@ -12,13 +12,13 @@ function Privacy({}: Props) {
     try {
       const url = `${endpoints.GET_TERMS}?type=LegalAndPrivacy&project=BillBizz`;
       const { response, error } = await getData(url);
-      console.log('url',url);
-      console.log('res',response);
-      console.log('err',error);
-      
+      console.log('url', url);
+      console.log('res', response);
+      console.log('err', error);
+
       if (!error && response) {
         console.log(response.data);
-        
+
         setData(response.data.terms);
       }
     } catch (error) {
@@ -36,15 +36,21 @@ function Privacy({}: Props) {
       <p className="text-lg font-semibold py-3">Effective Date: [Insert Date]</p>
 
       <div className="text-2xl text-[#6d6d6d] space-y-6">
-        {data.map((item:any, index) => (
-        <>
-            <p className="font-bold" key={item._id}>
-              {index + 1}. {item.termTitle} 
-             
-            </p>
-            <p> {item.termDescription}</p>
-        </>
-        ))}
+        {data.length > 0 ? (
+          data.map((item: any, index) => (
+            <div key={item._id}>
+              <p className="font-bold">
+                {index + 1}. {item.termTitle}
+              </p>
+              <p>{item.termDescription}</p>
+            </div>
+          ))
+        ) : (
+          <p className="flex items-center justify-center py-5 text-red-500">
+            No privacy terms available.
+          </p>
+        )}
+
       </div>
     </div>
   );

@@ -69,7 +69,7 @@ function Blog({ }: Props) {
             <span className="text-[#222222]"> This month</span>
           </h2>
 
-          {thisMonth.length > 0 ? <div className="grid grid-cols-2 gap-6 mt-5">
+          {thisMonth.length > 0 ? <div className="flex gap-6 mt-5">
             {loading
               ? [...Array(4)].map((_, index) => <CardSkeleton key={index} />)
               : thisMonth.map((post: any, index: number) => {
@@ -82,7 +82,7 @@ function Blog({ }: Props) {
                 );
 
                 return (
-                  <div key={index} onClick={() => navigate("/blog/view")}>
+                  <div key={index} onClick={() => navigate(`/blog/view/${post._id}`, { state: { blog: blogData } })}  className="cursor-pointer">
                     <span
                       className={`h-5 px-2 py-1 rounded-[3px] inline-flex text-xs font-normal capitalize leading-3 ${Math.random() < 0.5
                           ? "bg-[#f5cf4a] text-[#666666]"

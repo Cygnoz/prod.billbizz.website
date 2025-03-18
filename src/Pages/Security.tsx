@@ -49,7 +49,7 @@ const Security = ({}: Props) => {
               </div>
             ))
           ) : (
-            <p className="text-[]">No security terms available.</p>
+            <p className="flex items-center justify-center py-5 text-red-500">No security terms available.</p>
           )}
       </div>
     </div>

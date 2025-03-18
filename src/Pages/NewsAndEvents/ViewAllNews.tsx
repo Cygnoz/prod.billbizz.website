@@ -8,6 +8,7 @@ import FilterIcon from "../../assets/icons/FilterIcon";
 import useApi from "../../Hooks/useApi";
 import { endpoints } from "../../Services/ApiEndpoints";
 // import DOMPurify from "dompurify";
+import defaultImage from '../../assets/images/noImage.png'
 
 type Props = {}
 
@@ -91,7 +92,11 @@ const ViewAllNews = ({ }: Props) => {
                 <div onClick={() => navigate(`/news-and-events/view-all-news/view-news/${item._id}`)} className="cursor-pointer">
                         <div className="grid grid-cols-12  gap-5 border-b mx-3 my-4 pb-4">
                             <div className="col-span-2 flex items-center justify-center">
+                                {item?.image && item?.image >50 ? (
                                 <img src={item?.image} alt="News" className=" h-[124px] w-full " />
+                                ): (
+                                    <img src={defaultImage} alt="News" className=" h-[124px] w-full " />
+                                )}
                             </div>
                             <div className="col-span-10">
                                 <h2 className="text-xl font-semibold my-3">{item?.title}</h2>

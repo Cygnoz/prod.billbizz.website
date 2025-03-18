@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import RecentNews from "./RecentNews";
 import DOMPurify from "dompurify";
 import { formatDistanceToNow } from "date-fns";
-import defaultImage from '../../assets/images/image (9).png'
+import defaultImage from '../../assets/images/noImage.png'
 
 type Props = {};
 
@@ -114,7 +114,7 @@ const NewsAndEvents = ({ }: Props) => {
   const navigate = useNavigate();
   return (
     <div className="grid grid-cols-12">
-      <div className="col-span-8">
+      <div className="col-span-8 mt-6 p-6">
         {latestNews ? (
           <div
             key={latestNews._id}

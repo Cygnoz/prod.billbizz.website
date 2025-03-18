@@ -125,7 +125,7 @@ const AppRoutes = () => {
         />
 
         <Route
-          path="/blog/view"
+          path="/blog/view/:id"
           element={
             <Layout>
               <ViewBlog />

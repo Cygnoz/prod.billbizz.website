@@ -7,6 +7,7 @@ import useApi from "../../Hooks/useApi";
 import DOMPurify from "dompurify";
 import ChevronLeft from "../../assets/icons/ChevronLeft";
 import { useNavigate } from "react-router-dom";
+import defaultImage from '../../assets/images/noImage.png'
 
 type Props = {};
 
@@ -73,7 +74,11 @@ const ViewAll = ({ }: Props) => {
         <div onClick={() => navigate(`/news-and-events/view-all/view-event/${item._id}`)} className="mx-3 my-4 border-b pb-4 cursor-pointer">
           <div className="grid grid-cols-12  gap-5 ">
             <div className="col-span-2 flex items-center justify-center">
+              {item?.image && item?.image>50 ? (
               <img src={item?.image} alt="Event" className=" h-[124px] w-full " />
+              ):(
+                <img src={defaultImage} alt="Event" className=" h-[124px] w-full " />
+              )}
             </div>
 
             <div className="col-span-10">

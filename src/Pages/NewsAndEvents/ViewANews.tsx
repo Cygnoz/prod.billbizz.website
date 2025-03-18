@@ -7,6 +7,7 @@ import image2 from '../../assets/images/ViewNewsFooter.png'
 import useApi from "../../Hooks/useApi"
 import { useEffect, useState } from "react"
 import { endpoints } from "../../Services/ApiEndpoints"
+import defaultImage from '../../assets/images/noImage.png'
 
 type Props = {}
 
@@ -14,31 +15,26 @@ const ViewANews = ({ }: Props) => {
 
     const navigate = useNavigate()
     const { id } = useParams()
-    const [aNews, setANews] = useState([])
+    const [aNews, setANews] = useState<any[]>([]);
     const { request: getNews } = useApi('get', 3001)
 
     const handleAGetNews = async () => {
         try {
-            const url = `${endpoints.GET_POSTS}/${id}`
-            console.log('id', id);
-
-            const { response, error } = await getNews(url)
-            console.log('url', url);
-            console.log('res', response);
-            console.log('err', error);
+            const url = `${endpoints.GET_POSTS}/${id}`;
+            const { response, error } = await getNews(url);
+    
             if (response && !error) {
-                console.log(response.data?.data);
-                setANews(response.data?.data)
-            }
-            else {
+                const data = response.data?.data;
+                console.log(data);
+                // Ensure data is always treated as an array
+                setANews(Array.isArray(data) ? data : [data]);
+            } else {
                 console.log(error.response.data.message);
             }
+        } catch (error) {
+            console.log("error occurred", error);
         }
-        catch (error) {
-            console.log('error occured', error);
-
-        }
-    }
+    };
 
     useEffect(() => {
         handleAGetNews()
@@ -93,7 +89,13 @@ const ViewANews = ({ }: Props) => {
                         </div>
 
                         <div className="my-6 px-4 py-4">
-                            <img className="h-[540px]" src={item.image[0]} alt="" />
+                            {item?.image && item?.image >50 ? (
+                            <img className="h-[540px]" src={item.image} alt="" />
+                            ):(
+                                <div className="flex justify-center items-center">
+                                <img className="h-[540px]" src={defaultImage} alt="" />
+                              </div>
+                               )}
                             <p className="my-6">
                                 {item.content}
                             </p>
