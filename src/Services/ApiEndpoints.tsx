@@ -8,5 +8,9 @@ export const endpoints={
     GET_SUBCATEGORY:`/subCategory`,
     GET_ARTICLE:`/article`,
     GET_TERMS:'/terms',
-    GET_POSTS:'/posts'
+    GET_POSTS:'/posts',
+
+    // Lead
+    GET_REGION_AREA: "/areaAndRegion",
+    ADD_WEBSITE_LEAD: "/websiteLead",
 }
