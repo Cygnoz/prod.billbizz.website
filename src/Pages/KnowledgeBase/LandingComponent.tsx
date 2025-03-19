@@ -27,18 +27,25 @@ const LandingComponent = ({ data,setData }: Props) => {
 
   return (
     <div>
-      <div className="bg-[#620000] h-[457px] grid grid-cols-2">
-        <div className="p-8">
-          <div className="flex gap-2 items-center">
-            <img src={logo} alt="BillBizz Logo" className="h-[28px] w-[22px]" />
-            <p className="text-[#F7E7CE] font-medium">BILLBIZZ</p>
-          </div>
-          <div className="text-[#F7E7CE] p-10 space-y-4">
-            <p className="text-lg flex items-center">
-              <Rectangle /> <span className="ms-3"> FIND ANSWERS, FASTER.</span>
-            </p>
-            <p className="font-bold text-[34px]">Empower Your Support with Knowledge Base</p>
-            { data && <div className="flex ">
+    <div className="bg-[#620000] min-h-[457px] grid grid-cols-1 lg:grid-cols-2">
+      {/* Left Content */}
+      <div className="p-8 flex flex-col justify-center">
+        <div className="flex gap-2 items-center">
+          <img src={logo} alt="BillBizz Logo" className="h-7 w-6" />
+          <p className="text-[#F7E7CE] font-medium">BILLBIZZ</p>
+        </div>
+
+        <div className="text-[#F7E7CE] p-4 md:p-10 space-y-4">
+          <p className="text-lg flex items-center">
+            <Rectangle />
+            <span className="ml-3">FIND ANSWERS, FASTER.</span>
+          </p>
+
+          <p className="font-bold text-2xl md:text-[34px] leading-tight">
+            Empower Your Support with Knowledge Base
+          </p>
+
+          { data && <div className="flex w-full max-w-xl">
               <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -46,17 +53,18 @@ const LandingComponent = ({ data,setData }: Props) => {
                 placeholder="Serach your queries here"
                 className=" opacity-25 h-[50px] rounded-l-[50px] text-white p-5 border-collapse w-80 "
               />{" "}
-              <button className="bg-white h-[50px] px-7 rounded-r-[50px] text-[#620000] "   onClick={handleSearch}>
+              <button className="bg-white h-[50px] lg:px-7 rounded-r-[50px] text-[#620000] "   onClick={handleSearch}>
                 Search
               </button>
             </div>}
-          </div>
-        
-        </div>
-        <div className="flex justify-end">
-          <img src={bgimg} alt="Background" className="h-full w-auto" />
         </div>
       </div>
+
+      {/* Right Image */}
+      <div className="hidden lg:flex justify-end items-center">
+        <img src={bgimg} alt="Background" className="h-full w-auto object-cover" />
+      </div>
+    </div>
     </div>
   );
 };

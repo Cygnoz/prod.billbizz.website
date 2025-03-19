@@ -1,16 +1,17 @@
 import img from "../../assets/images/Component 9.png";
-import img1 from "../../assets/images/happy customer browsing phone and smiling.png";
+import img1 from "../../assets/images/customerStoriesBg111.jpg";
 import img2 from "../../assets/images/Frame.png";
 import img3 from "../../assets/images/Frame 1618873203.png";
 import img4 from "../../assets/images/f56e79d8cf761b8b2ba6e1225f28cd7f 4.png";
 import img5 from "../../assets/images/Image (8).png";
 import img6 from "../../assets/images/Star 1.png";
+import SearchIcon from "../../assets/icons/SearchIcon";
 
 type Props = {};
 
 function CustomerStories({}: Props) {
   return (
-    <div className="mt-5 ">
+    <div className="mt-5">
       {/* Profile Images Section */}
       <div className="flex items-center justify-center">
         <div className="flex items-center border rounded-full p-2 bg-white">
@@ -45,177 +46,164 @@ function CustomerStories({}: Props) {
 
       {/* Heading Section */}
       <div className="relative text-center justify-start items-center mt-5">
-        <span className="text-[#222222] text-5xl font-['Sequel_Sans']">
-          Empowering businesses with
+        <span className="text-[#000000] text-5xl font-['Sequel_Sans']">
+        Empowering businesses  
         </span>
-        <span className="text-[#820000] text-5xl font-['Sequel_Sans']">
+        <span className="text-[#000000] text-5xl font-['Sequel_Sans']">
           {" "}
-          50+ satisfied{" "}
+          with a growing base of 
         </span>
-        <span className="text-[#222222] text-5xl font-['Sequel_Sans']">
-          customers!
+        <span className="text-[#000000] text-5xl font-['Sequel_Sans']">
+       <br /> satisfied customers!
         </span>
       </div>
 
       {/* Customer Stories Section */}
-      <div className="flex items-center justify-center my-5">
-        <div
-          className="relative h-[452px] w-[80%] flex items-center mx-auto"
-          style={{
-            backgroundImage: `url(${img1})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          {/* Left Floating Card */}
-          <div className="absolute left-[-50px] top-1/2 transform -translate-y-1/2 w-[172px] h-[176px] bg-white shadow-2xl rounded-xl p-4">
-            <img src={img2} alt="" />
-            <div className="text-[#222222] text-base font-bold leading-normal">
-              Free Customer Trial
+      <div className="flex items-center justify-center mt-5">
+            <div
+                className="relative h-[614px] w-full max-w-[1206px] flex items-center"
+                style={{
+                    backgroundImage: `url(${img1})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                }}
+            >
+
+                {/* Left Floating Card */}
+                <div className="absolute top-10 left-4 sm:top-20 sm:left-10 bg-[#00000033] border border-[#4E4E4E] bg-opacity-50 text-white p-5 rounded-xl w-full max-w-xs">
+                    <h2 className="text-lg font-normal text-[#FFFFFF]">Driving Your Growth</h2>
+                    <p className="text-sm mt-2 text-[#EEEEEE] font-['YDGothic 100 Pro'] font-normal">
+                        Our expertise delivers measurable impact—efficiency, scalability, and
+                        innovation combined into success.
+                    </p>
+                    <div className="mt-3">
+                        <div className="relative h-2 bg-gray-700 rounded-full">
+                            <div className="absolute top-0 left-0 h-2 bg-[#7F5303] rounded-full" style={{ width: "95%" }}></div>
+                        </div>
+                        <p className="text-right text-sm mt-1">95%</p>
+                    </div>
+                    <p className="text-xs">Customer Success Rate</p>
+                </div>
+
+                {/* Right Floating Card */}
+                <div className="absolute top-10 right-4 sm:top-20 sm:right-10 bg-[#5E5E5E1A] border border-[#4E4E4E] bg-opacity-50 text-white p-5 rounded-xl w-full max-w-xs">
+                    <h2 className="text-lg text-[#FFFFFF] font-normal font-['YDGothic 100 Pro']">Innovative Solutions</h2>
+                    <p className="text-sm mt-2 text-[#EDEDED] font-normal font-['YDGothic 100 Pro']">
+                        Empowering businesses with cutting-edge technology and creative
+                        strategies to stay ahead in the digital age.
+                    </p>
+                </div>
+
+                {/* Bottom Left Card */}
+                <div className="absolute bottom-6 left-4 sm:bottom-8 sm:left-6 w-52 h-48 bg-[#00000040] border border-[#FFFFFFB5] shadow-2xl rounded-xl p-4">
+                    <img className='w-11 h-11 mt-2' src={img2} alt="" />
+                    <div className="text-[#FFFFFF] text-base font-bold my-2 pe-10">
+                        Free Customer Trial
+                    </div>
+                    <div className="text-[#FFFFFFA3] text-[8px] font-normal">
+                        Lorem ipsum dolor sit Lorem ipsum dolor sit ametLorem ipsum dolor
+                        sit Lorem ipsum dolor sit ametA
+                    </div>
+                </div>
+
+                {/* Search Bar */}
+                <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex items-center border border-[#FFFFFFB5] bg-[#00000040] rounded-full px-4 py-2 shadow-lg w-[80%] max-w-md">
+                    <span className="text-[#FFFFFF85] text-sm font-normal">
+                        <SearchIcon />
+                    </span>
+                    <input
+                        type="text"
+                        placeholder="Why is Sewnex The Best"
+                        className="ml-2 outline-none bg-transparent text-[#FFFFFF85] text-sm font-normal w-full"
+                    />
+                </div>
+
             </div>
-            <div className="text-black/60 text-[8px] leading-3">
-              Lorem ipsum dolor sit Lorem ipsum dolor sit ametLorem ipsum dolor
-              sit Lorem ipsum dolor sit ametA
-            </div>
+        </div>
+
+   
+        <div className="flex items-center justify-center lg:px-4 md:px-8">
+      <div
+        className="w-full max-w-[1700px] h-auto p-4 md:p-6 rounded-2xl flex flex-col justify-start items-start gap-4"
+        style={{
+          backgroundImage: `url(${img3})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="flex flex-col md:flex-row justify-between items-center w-full gap-8">
+          {/* Left Content */}
+          <div className="flex flex-col justify-start items-start gap-2 text-center md:text-left">
+            <h2 className="text-[#212121] text-3xl md:text-[42px] font-['Sequel_Sans'] leading-snug">
+              What we’re doing
+            </h2>
+            <p className="text-[#212121] text-lg md:text-xl font-['Sequel_Sans'] leading-relaxed max-w-md">
+              Streamlining finances, simplifying business operations.
+            </p>
           </div>
 
-          {/* Right Floating Card */}
-          <div className="w-[172px] h-[176px] bg-white shadow-2xl rounded-xl p-4 ml-auto mr-[-50px]">
-            <div className="h-[11px] relative justify-start text-black/60 text-[8px] font-medium font-['Inter'] leading-3">
-              Customer
-            </div>
-            <div className="h-[47px] relative justify-start text-[#222222] text-base font-bold font-['Inter'] leading-normal">
-              Fifty Plus Happy
-              <br />
-              Customers
-            </div>
-            <div className="flex -space-x-4 items-center">
-              <img
-                src={img}
-                alt=""
-                className="w-10 h-10 rounded-full border-2 border-white"
-              />
-              <img
-                src={img}
-                alt=""
-                className="w-10 h-10 rounded-full border-2 border-white"
-              />
-              <img
-                src={img}
-                alt=""
-                className="w-10 h-10 rounded-full border-2 border-white"
-              />
-              <div className="w-10 h-10 flex items-center justify-center bg-blue-200 text-black text-sm font-medium rounded-full border-2 border-white">
-                +50
+          {/* Stats Section */}
+          <div className="flex justify-between items-start gap-8 md:gap-12 flex-wrap">
+            {[
+              { number: "900+", label: "Ongoing\nManagement projects" },
+              { number: "50", label: "Efficient\nBill Bizz Employees" },
+              { number: "20", label: "Projects under Management" },
+            ].map((stat, index) => (
+              <div key={index} className="text-center md:text-left">
+                <div className="text-[#212121] text-3xl md:text-[32px] font-['Sequel_Sans'] leading-snug">
+                  {stat.number}
+                </div>
+                <p className="text-[#212121] text-base leading-tight whitespace-pre-line">
+                  {stat.label}
+                </p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
-
-      {/* Book a Demo Button */}
-      <div className="flex items-center justify-center">
-        <button
-          data-property1="medium"
-          className="h-[49px] px-12 py-4 bg-gradient-to-l from-[#cc1111] to-[#8f0100] rounded-lg inline-flex justify-center items-center gap-2 cursor-pointer text-[#fefdf9] text-sm font-bold"
-        >
-          Book a Demo
-        </button>
-      </div>
-      <div className="flex items-center justify-center">
-        <div
-          className="w-[1363px] h-[165px] p-2.5 inline-flex flex-col justify-start items-start gap-2.5"
-          style={{
-            backgroundImage: `url(${img3})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div className="h-[145px] inline-flex justify-center items-center gap-[184px] ">
-            <div className="h-[90px] inline-flex flex-col justify-start items-start gap-2">
-              <div className="relative justify-start text-[#212121] text-[42px] font-['Sequel_Sans'] leading-[50.40px]">
-                What we’re doing
-              </div>
-              <div className="w-[581px] relative justify-start text-[#212121] text-xl font-['Sequel_Sans'] leading-loose">
-                Streamlining finances, simplifying business operations.
-              </div>
-            </div>
-            <div className="h-[94px] flex justify-start items-start gap-12">
-              <div className="w-[174px] h-[94px] relative">
-                <div className="relative justify-start text-[#212121] text-[32px] font-['Sequel_Sans'] leading-[38.40px]">
-                  900+
-                </div>
-                <div className="w-[174px] relative justify-start text-[#212121] text-base font-['Sequel_Sans'] leading-tight">
-                  Ongoing
-                  <br />
-                  Management projects
-                </div>
-              </div>
-              <div className="w-[147px] h-[94px] relative">
-                <div className="relative justify-start text-[#212121] text-[32px] font-['Sequel_Sans'] leading-[38.40px]">
-                  50
-                </div>
-                <div className="relative justify-start text-[#212121] text-base font-['Sequel_Sans'] leading-tight">
-                  Efficient
-                  <br />
-                  Bill Bizz Employees
-                </div>
-              </div>
-              <div className="w-32 h-[94px] relative">
-                <div className="relative justify-start text-[#212121] text-[32px] font-['Sequel_Sans'] leading-[38.40px]">
-                  20
-                </div>
-                <div className="w-32 relative justify-start text-[#212121] text-base font-['Sequel_Sans'] leading-tight">
-                  Projects under Management
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="flex">
+    </div>
+    
+      <div className="flex flex-col md:flex-row ">
         {/* Left Image */}
-        <div className="bg-[black] w-56 flex-shrink-0">
+        <div className="bg-black w-full md:w-56 flex-shrink-0">
           <img src={img4} alt="" className="w-full" />
         </div>
 
         {/* Center Image */}
-        <div className="flex items-center -ms-10 flex-shrink-0">
+        <div className="flex items-center -ms-0 md:-ms-10 flex-shrink-0 my-4 md:my-0">
           <img src={img5} alt="" />
         </div>
 
         {/* Text Content */}
-        <div className="flex items-center mx-4 ">
-          <div className="h-[217px] flex flex-col justify-center items-start gap-4">
-            {/* Name */}
-            <div className="w-full text-[#202020] text-[64px] font-['Sequel_Sans'] leading-[74px]">
-              Daisy Welch
-            </div>
-
-            {/* Role */}
-            <div className="text-[#202020] text-base font-normal font-['Sequel_Sans']">
-              Chief Branding Producer
-            </div>
-
-            {/* Stars */}
-            <div className="flex items-center -mt-5">
-              <img src={img6} alt="" />
-              <img src={img6} alt="" />
-              <img src={img6} alt="" />
-            </div>
-
-            {/* Testimonial Text */}
-            <div className=" w-[50%] max-w-full">
-              <p className="text-[#202020] text-xl overflow-hidden break-words">
-                Iusto quia perspiciatis inventore tempora. Velit vitae tempora
-                et laborum id soluta est ut laboriosam. Eveniet possimus autem
-                ratione aliquid in sunt tempora. Amet rerum suscipit distinctio
-                voluptas. In quis voluptas necessitatibus et aut dolor ut quod.
-                Sapiente et adipisci tenetur voluptatibus qui.
-              </p>
-            </div>
+        <div className="flex items-center lg:mx-4 w-full">
+        <div className="h-auto md:h-[217px] flex flex-col justify-center items-start gap-4">
+          {/* Name */}
+          <div className="w-full text-[#202020] text-6xl font-semibold md:text-[64px] font-['Sequel_Sans'] leading-tight md:leading-[74px]">
+            Daisy <br /> Welch
           </div>
+
+          {/* Role */}
+          <div className="text-[#202020] text-sm md:text-base ms-4 font-normal font-['Sequel_Sans']">
+            Chief Branding Producer
+          </div>
+
+          {/* Stars */}
+          <div className="flex items-center ms-4 ">
+            <img src={img6} alt="" />
+            <img src={img6} alt="" />
+            <img src={img6} alt="" />
+          </div>
+
+          {/* Testimonial Text */}
+          <div className="w-full md:w-1/2 p-4">
+      <p className="text-[#202020] font-semibold text-lg md:text-xl leading-relaxed break-words">
+        This software has completely transformed the way we manage our business! The intuitive interface,
+        powerful features, and seamless performance have made a significant impact. It has streamlined our
+        operations, improved efficiency, and enhanced overall productivity.
+      </p>
+    </div>
         </div>
+      </div>
        
       </div>
       
