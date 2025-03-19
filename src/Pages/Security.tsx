@@ -34,7 +34,7 @@ const Security = ({}: Props) => {
       handleGetData();
     }, []);
   return (
-    <div className="m-6 space-y-4">
+    <div className="my-10 mx-4 sm:mx-8 space-y-6">
       <p className="text-[#3b3b3b] text-2xl font-bold">Security Terms</p>
 
       <p className="text-xl font-semibold text-[#383838]">

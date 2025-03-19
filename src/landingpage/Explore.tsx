@@ -36,18 +36,22 @@ const Dashboard = () => {
     </div>
   
     {/* Grid Section */}
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 rounded-md ">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-10 rounded-md ">
       <ModuleCard icons={purchase} title="Purchase" color="bg-[#D6FFEB]" />
       <ModuleCard icons={accounting} title="Accounting" color="bg-[#FFE7FE]" />
       <ModuleCard icons={inventory} title="Inventory" color="bg-[#EBE7FF]" />
       <ModuleCard icons={invoice} title="Invoice" color="bg-[#FFE7E7]" />
-      <ModuleCard icons={reports} title="Report" color="bg-[#CDE9FF]" />
+     
+    </div>
+    
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 rounded-md mt-6">
+   
+    <ModuleCard icons={reports} title="Report" color="bg-[#CDE9FF]" />
       <ModuleCard icons={quotes} title="Quotes" color="bg-[#FFF0E7]" />
       <ModuleCard icons={sales} title="Sales" color="bg-[#E0EEFE]" />
       <ModuleCard icons={pos} title="POS" color="bg-[#D6FFEB]" />
-    </div>
   </div>
-  
+  </div>
   
   );
 };

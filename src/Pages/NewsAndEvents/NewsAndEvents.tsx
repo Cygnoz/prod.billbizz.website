@@ -114,11 +114,11 @@ const NewsAndEvents = ({ }: Props) => {
   const navigate = useNavigate();
   return (
     <div className="grid grid-cols-12">
-      <div className="col-span-8 mt-6 p-6">
+      <div className="lg:col-span-8 col-span-12 lg:mt-6 lg:p-6 p-3 overflow-x-auto">
         {latestNews ? (
           <div
             key={latestNews._id}
-            className="h-[535px] relative"
+            className="h-[335px] sm:w-[1073px] w-[335px] sm:h-[535px]  overflow-x-auto relative overflow-hidden"    
             style={{
               backgroundImage: `url(${latestNews?.image?.[0] || newImg})`,
               backgroundSize: "cover",
@@ -146,14 +146,7 @@ const NewsAndEvents = ({ }: Props) => {
 
               <h1 className="text-4xl font-bold">{latestNews?.title}</h1>
 
-              {/* <div className="flex mt-5 gap-5">
-        <div className="rounded-full h-10 w-10 border-white border backdrop-blur-[60.60px] flex items-center justify-center cursor-pointer">
-          <ArrowrightUp size={25} />
-        </div>
-        <button className="h-10 rounded-3xl px-3 border border-white backdrop-blur-[60.60px]">
-          Read Article
-        </button>
-      </div> */}
+             
             </div>
           </div>
         ) : (
@@ -167,100 +160,106 @@ const NewsAndEvents = ({ }: Props) => {
         </div>
       </div>
 
-      <div className="col-span-4 m-3 pe-4 pt-5">
-        <div className="flex">
-          <h3 className="font-bold text-xl text-black">
-            Recent Events
-          </h3>
-          <div className="ml-auto">
-            <button
-              className="text-[#820000] text-sm"
-              onClick={() => navigate("/news-and-events/view-all")}
-            >
-              View all
-            </button>
+      <div className="lg:col-span-4 col-span-12 m-3 pe-4 pt-5">
+  <div className="flex">
+    <h3 className="font-bold text-xl text-black">Recent Events</h3>
+    <div className="ml-auto">
+      <button
+        className="text-[#820000] text-sm"
+        onClick={() => navigate("/news-and-events/view-all")}
+      >
+        View all
+      </button>
+    </div>
+  </div>
+
+  <div
+    className="h-[244px] relative sm:h-[300px] md:h-[350px] w-[335px] lg:h-[300px] sm:w-[530px]"
+    style={{
+      backgroundImage: `url(${latestEvent?.image[0]})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}
+  >
+    <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#3D0505] to-transparent sm:h-20">
+      <div className="absolute bottom-0 left-0 p-3 text-white sm:p-5">
+        <div className="flex flex-col gap-2">
+          <p className="font-semibold text-base sm:text-lg">
+            {latestEvent?.category?.categoryName || 'News'}
+          </p>
+
+          <div className="bg-[#820000] rounded-3xl w-44 h-7 flex items-center gap-2 px-4 sm:w-52 sm:h-8">
+            <DotIcon color="#FFFFFF" />
+            <p className="text-white text-[10px] sm:text-xs">4 hours ago</p>
           </div>
         </div>
 
-        <div
-          className="h-[244px] relative w-full"
-          style={{
-            backgroundImage: `url(${latestEvent?.image[0]})`,
-            backgroundSize: "cover",
+        <p
+          className="text-sm font-normal sm:text-base"
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(latestEvent?.content),
           }}
-        >
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#3D0505] to-transparent mx-3">
-            <div className="absolute bottom-0 left-0 p-3 text-white pt-5">
-              <div className="items-center gap-2">
-                <p className="font-semibold text-base text-[#FFFFFF]">
-                  {latestEvent?.category.categoryName || "News"}
-                </p>
-                <div className="bg-[#820000] rounded-3xl my-2 w-44 h-7 flex gap-3 items-center px-4">
-                  <DotIcon color="#FFFFFF" />
-                  <p className="text-[#FFFFFF] font-normal text-[10px]">4 hours ago</p>
-                </div>
-              </div>
-              <p
-                className="text-sm text-[#FFFFFF] font-normal"
-                dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(latestEvent?.content),
-                }}
-              />
-            </div>
-          </div>
-        </div>
+        />
+      </div>
+    </div>
+  </div>
 
-        <div className="mx-3 my-4">
-          {thisMonth.length > 0 ? (
-            thisMonth.map((item: any) => {
-              const timeAgo = formatDistanceToNow(new Date(item.createdAt), {
-                addSuffix: true,
-              });
+  <div className="mx-3 my-4 min-h-[300px] max-h-[700px] overflow-y-auto">
+    {thisMonth.length > 0 ? (
+      thisMonth.map((item: any) => {
+        const timeAgo = formatDistanceToNow(new Date(item.createdAt), {
+          addSuffix: true,
+        });
 
-              return (
-                <div key={item._id}>
-                  <div className="grid grid-cols-12 pb-4 mt-4">
-                    <div className="col-span-9 flex items-center">
-                      <div>
-                        <div className="items-center gap-2">
-                          <p className="font-semibold text-sm text-[#393939]">
-                            {item.title}
-                          </p>
-                          <div className="bg-[#EAD1D1] rounded-3xl my-4 w-44 h-7 flex gap-3 items-center px-4">
-                            <DotIcon color="black" />
-                            <p className="text-[#393939] font-normal text-[10px]">{timeAgo}</p>
-                          </div>
-                          {/* <DotIcon color="black" />
-                          <p className="text-black text-[10px]">{timeAgo}</p> */}
-                        </div>
-                        <p
-                          className="text-xs text-[#5F5E5E] font-normal"
-                          dangerouslySetInnerHTML={{
-                            __html: DOMPurify.sanitize(item.content),
-                          }}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-span-3">
-                      {item?.image && item?.image > 50 ? (
-                        <img src={item?.image[0]} className="rounded-lg w-28 h-[118px]" alt="Event" />
-                      )
-                        :
-                        (<img src={defaultImage} className="rounded-lg w-28 h-28" alt="Event" />)}
-                      {/* <img src={item.image[0]} alt="Event" /> */}
+        return (
+          <div key={item._id}>
+            <div className="grid grid-cols-12 pb-4 mt-4">
+              <div className="col-span-9 flex items-center">
+                <div>
+                  <div className="items-center gap-2">
+                    <p className="font-semibold text-sm text-[#393939]">
+                      {item.title}
+                    </p>
+                    <div className="bg-[#EAD1D1] rounded-3xl my-4 w-44 h-7 flex gap-3 items-center px-4">
+                      <DotIcon color="black" />
+                      <p className="text-[#393939] font-normal text-[10px]">{timeAgo}</p>
                     </div>
                   </div>
-                  <hr />
+                  <p
+                    className="text-xs text-[#5F5E5E] font-normal"
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(item.content),
+                    }}
+                  />
                 </div>
-              );
-            })
-          ) : (
-            <div className="flex items-center justify-center py-5 text-red-500">
-              No Posts Available!
+              </div>
+              <div className="col-span-3">
+                {item?.image && item?.image.length > 0 ? (
+                  <img
+                    src={item?.image[0]}
+                    className="rounded-lg w-28 h-[118px]"
+                    alt="Event"
+                  />
+                ) : (
+                  <img
+                    src={defaultImage}
+                    className="rounded-lg w-28 h-28"
+                    alt="Event"
+                  />
+                )}
+              </div>
             </div>
-          )}
-        </div>
+            <hr />
+          </div>
+        );
+      })
+    ) : (
+      <div className="flex items-center justify-center py-5 text-red-500">
+        No Posts Available!
       </div>
+    )}
+  </div>
+</div>
     </div>
   );
 };

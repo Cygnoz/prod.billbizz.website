@@ -24,7 +24,7 @@ const DemoComponent = ({}: Props) => {
       };
   return (
     <div>
-  <div className="relative bg-black text-white p-8 min-h-[359px]">
+  <div className="relative bg-black text-white p-8 min-h-[235px]">
   <img
     src={backgredient}
     alt="Background Gradient"
@@ -36,11 +36,11 @@ const DemoComponent = ({}: Props) => {
     
     {/* Left Section: Heading + Button */}
     <div className="w-full md:w-1/2 space-y-6">
-      <h1 className="text-[48px] font-medium text-[#FFFFFF]">
+      <h1 className="text-[48px] font-medium font-sans text-[#FFFFFF]">
         Let's Stay
         <span className="text-[#C71B1A]"> Connected</span>
       </h1>
-      <p className="text-[#FFFFFF] text-2xl font-medium">Stay Updated with our latest projects and company <br />news by following us on social media</p>
+      <p className="text-[#FFFFFF] text-2xl  font-medium">Stay Updated with our latest projects and company <br />news by following us on social media</p>
 
       {/* Button (Mobile at bottom, Desktop beside content) */}
       <div className="flex md:mt-6">
@@ -72,10 +72,19 @@ const DemoComponent = ({}: Props) => {
       Get in touch
     </p>
     <div className="flex gap-4 my-4 items-center justify-center">
-          <Facebook size={28}/>
-          <Instagram size={28}/>
+    <a href="https://www.facebook.com/cygnotechlabs/" target="_blank" rel="noopener noreferrer">
+    <Facebook size={28}/>
+              </a>
+              <a href="https://www.instagram.com/cygnoz_/" target="_blank" rel="noopener noreferrer">
+              <Instagram size={28}/>
+              </a>
+              <a href="" target="_blank" rel="noopener noreferrer">
+              <YoutubeIcon size={28}/>
+              </a>
+         
+         
           <MailIcon size={28}/>
-          <YoutubeIcon size={28}/>
+          
     </div>
    </div>
   </div>

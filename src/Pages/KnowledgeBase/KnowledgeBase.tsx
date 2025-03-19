@@ -41,7 +41,7 @@ const KnowledgeBase = ({}: Props) => {
           Knowledge Base
         </p>
 
-        <div className="grid grid-cols-3 gap-12 my-8 rounded-xl">
+        <div className="grid lg:grid-cols-3 col-span-12 gap-12 my-8 rounded-xl">
           {data ? (
             data.map((item: any) => (
               <div className="bg-[#FFFFFF] p-5 text-start rounded-xl">

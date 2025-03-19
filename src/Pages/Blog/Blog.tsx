@@ -61,8 +61,8 @@ function Blog({ }: Props) {
   }, []);
 
   return (
-    <div className="mx-10 my-9 grid grid-cols-12">
-      <div className="col-span-12 h-[450px] overflow-y-auto custom-scrollbar">
+    <div className="lg:mx-10  lg:my-9 my-4 grid grid-cols-12 w-full">
+      <div className="col-span-12 lg:h-[450px] mx-3 overflow-y-auto custom-scrollbar w-full">
         <div>
           <h2 className="text-[26px] font-semibold capitalize">
             <span className="text-[#cc1111]">Featured</span>
@@ -123,11 +123,9 @@ function Blog({ }: Props) {
         </div>
       </div>
 
-      {/* <div className="col-span-4 flex ps-24">
-        <Authors />
-      </div> */}
+    
 
-      <div className="col-span-8 bg-[#f6f6f5] -mx-10 -mb-10 mt-8 px-6 py-10">
+      <div className="col-span-8 max-md:col-span-12 bg-[#f6f6f5] lg:-mx-10 mx-3 -mb-10 mt-8 lg:px-6 lg:py-10 h-full">
         <div>
           <h3 className="text-[24px] font-semibold capitalize mb-8">
             <span className="text-transparent bg-clip-text bg-[#CC1111]">
@@ -144,7 +142,7 @@ function Blog({ }: Props) {
           </div>
         </div>
       </div>
-      <div className="col-span-4 ps-24">
+      <div className="col-span-4 max-md:col-span-12 lg:ps-24 lg:mx-3 bg-[#f6f6f5] mt-8 h-full">
         <Categories />
       </div>
     </div>

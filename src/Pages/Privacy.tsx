@@ -4,7 +4,7 @@ import { endpoints } from "../Services/ApiEndpoints";
 
 type Props = {};
 
-function Privacy({ }: Props) {
+function Privacy({}: Props) {
   const [data, setData] = useState([]);
   const { request: getData } = useApi("get", 3001);
 
@@ -12,17 +12,12 @@ function Privacy({ }: Props) {
     try {
       const url = `${endpoints.GET_TERMS}?type=LegalAndPrivacy&project=BillBizz`;
       const { response, error } = await getData(url);
-      console.log('url', url);
-      console.log('res', response);
-      console.log('err', error);
 
       if (!error && response) {
-        console.log(response.data);
-
         setData(response.data.terms);
       }
     } catch (error) {
-      console.log("Error", error);
+      console.error("Error fetching privacy terms:", error);
     }
   };
 
@@ -31,18 +26,20 @@ function Privacy({ }: Props) {
   }, []);
 
   return (
-    <div className="my-10 mx-8 space-y-4">
-      <p className="text-2xl font-bold">Privacy Policy</p>
-      <p className="text-lg font-semibold py-3">Effective Date: [Insert Date]</p>
+    <div className="my-10 mx-4 sm:mx-8 space-y-6">
+      <p className="text-3xl sm:text-4xl font-bold ">Privacy Policy</p>
+      <p className="text-lg sm:text-xl font-semibold py-3">
+        Effective Date: [Insert Date]
+      </p>
 
-      <div className="text-2xl text-[#6d6d6d] space-y-6">
+      <div className="text-lg sm:text-xl text-[#6d6d6d] space-y-8">
         {data.length > 0 ? (
           data.map((item: any, index) => (
-            <div key={item._id}>
-              <p className="font-bold">
+            <div key={item._id} className=" p-4 rounded-lg shadow-sm">
+              <p className="font-bold mb-2">
                 {index + 1}. {item.termTitle}
               </p>
-              <p>{item.termDescription}</p>
+              <p className="leading-relaxed">{item.termDescription}</p>
             </div>
           ))
         ) : (
@@ -50,7 +47,6 @@ function Privacy({ }: Props) {
             No privacy terms available.
           </p>
         )}
-
       </div>
     </div>
   );
