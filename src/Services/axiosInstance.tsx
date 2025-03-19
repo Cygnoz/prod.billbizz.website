@@ -1,7 +1,9 @@
 import axios from "axios";
 
 const BASE_URLS: Record<number, string> = {
-  3001:import.meta.env.VITE_REACT_APP_OCR,
+  3001: import.meta.env.VITE_REACT_APP_LEADS,
+  //  3001: import.meta.env.VITE_REACT_APP_OCR,
+   3003: import.meta.env.VITE_REACT_APP_SUPERADMIN,
 };
 
 const createInstance = (
