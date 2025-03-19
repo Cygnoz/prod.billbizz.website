@@ -121,7 +121,7 @@ function Footer() {
           <p className="text-[#FFFFFF] text-2xl font-medium">Contact</p>
           <div className="flex gap-1 items-center">
          
-            <MailIcon size={48}/>
+            <MailIcon size={18}/>
             <p className="text-[#BEBEBE] text-center text-base font-normal">notify@sewnex.com</p>
           </div>
           <div className="flex gap-1 items-center">
