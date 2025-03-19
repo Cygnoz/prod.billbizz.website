@@ -59,16 +59,16 @@ function NavBar({}: Props) {
             isMenuOpen ? "block" : "hidden"
           } absolute top-14 items-center justify-center bg-white shadow-md rounded-md md:flex md:space-x-6 md:bg-transparent md:shadow-none md:static`}
         >
-          <a href="/" className="block py-2 px-4 text-gray-900 hover:scale-125 transition-transform duration-200">
+          <a href="/" className="block py-2 px-4 text-lg text-[#666363] hover:scale-125 transition-transform duration-200">
             Home
           </a>
-          <a href="/about-us" className="block py-2 px-4 text-gray-900 hover:scale-125 transition-transform duration-200">
+          <a href="/about-us" className="block py-2 px-4 text-lg text-[#666363] hover:scale-125 transition-transform duration-200">
             About Us
           </a>
-          <a href="/" className="block py-2 px-4 text-gray-900 hover:scale-125 transition-transform duration-200">
+          <a href="/" className="block py-2 px-4 text-lg text-[#666363] hover:scale-125 transition-transform duration-200">
             Features
           </a>
-          <a href="/contact-us" className="block py-2 px-4 text-gray-900 hover:scale-125 transition-transform duration-200">
+          <a href="/contact-us" className="block py-2 px-4 text-lg text-[#666363] hover:scale-125 transition-transform duration-200">
             Contact Us
           </a>
         </div>
@@ -81,9 +81,9 @@ function NavBar({}: Props) {
         </button> */}
          <button
           onClick={handleOpenModal}
-          className="flex items-center gap-2 font-bold px-6 py-2 bg-black text-white rounded-full"
+          className="flex items-center gap-2 font-bold px-6 py-2 bg-black text-white text-xl rounded-full"
         >
-          Get early access <img src={arrow} alt="arrow" className="w-[37px] h-[37px]" />
+          Get Free Demo <img src={arrow} alt="arrow" className="w-[37px] h-[37px]" />
         </button>
       </div>
     </nav>

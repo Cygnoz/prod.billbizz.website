@@ -1,5 +1,5 @@
 // import GridCards from "./components/GridCards";
-import cardimg1 from "../assets/images/col1.jpg";
+import cardimg1 from "../assets/images/Frame 427319141.png";
 import cardimg3 from "../assets/images/col2.jpg";
 import card3img from "../assets/images/image.png";
 import card5img from "../assets/images/col22.jpg";
@@ -11,7 +11,7 @@ function ErpFunctionality() {
    <div>
   <div>
     <div className="flex flex-col items-center">
-      <h1 className="text-4xl md:text-5xl text-[#CC1111] font-sans font-bold mb-4">
+      <h1 className="sm:text-6xl md:text-5xl text-[#CC1111] font-sans font-bold mb-4">
         Exploring ERP Functionality
       </h1>
       <p className="text-base md:text-lg font-sans text-[#636363] mt-2 text-center">

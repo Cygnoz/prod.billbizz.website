@@ -161,102 +161,105 @@ const NewsAndEvents = ({ }: Props) => {
       </div>
 
       <div className="lg:col-span-4 col-span-12 m-3 pe-4 pt-5">
-        <div className="flex">
-          <h3 className="font-bold text-xl text-black">
-            Recent Events
-          </h3>
-          <div className="ml-auto">
-            <button
-              className="text-[#820000] text-sm"
-              onClick={() => navigate("/news-and-events/view-all")}
-            >
-              View all
-            </button>
+  <div className="flex">
+    <h3 className="font-bold text-xl text-black">Recent Events</h3>
+    <div className="ml-auto">
+      <button
+        className="text-[#820000] text-sm"
+        onClick={() => navigate("/news-and-events/view-all")}
+      >
+        View all
+      </button>
+    </div>
+  </div>
+
+  <div
+    className="h-[244px] relative sm:h-[300px] md:h-[350px] w-[335px] lg:h-[300px] sm:w-[530px]"
+    style={{
+      backgroundImage: `url(${latestEvent?.image[0]})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}
+  >
+    <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#3D0505] to-transparent sm:h-20">
+      <div className="absolute bottom-0 left-0 p-3 text-white sm:p-5">
+        <div className="flex flex-col gap-2">
+          <p className="font-semibold text-base sm:text-lg">
+            {latestEvent?.category?.categoryName || 'News'}
+          </p>
+
+          <div className="bg-[#820000] rounded-3xl w-44 h-7 flex items-center gap-2 px-4 sm:w-52 sm:h-8">
+            <DotIcon color="#FFFFFF" />
+            <p className="text-white text-[10px] sm:text-xs">4 hours ago</p>
           </div>
         </div>
 
-        <div
-      className="h-[244px] relative sm:h-[300px] md:h-[350px] w-[335px] lg:h-[300px] sm:w-[530px]"
-      style={{
-        backgroundImage: `url(${latestEvent?.image[0]})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
-      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#3D0505] to-transparent sm:h-20">
-        <div className="absolute bottom-0 left-0 p-3 text-white sm:p-5">
-          <div className="flex flex-col gap-2">
-            <p className="font-semibold text-base sm:text-lg">
-              {latestEvent?.category?.categoryName || 'News'}
-            </p>
-
-            <div className="bg-[#820000] rounded-3xl w-44 h-7 flex items-center gap-2 px-4 sm:w-52 sm:h-8">
-              <DotIcon color="#FFFFFF" />
-              <p className="text-white text-[10px] sm:text-xs">4 hours ago</p>
-            </div>
-          </div>
-
-          <p
-            className="text-sm font-normal sm:text-base"
-            dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(latestEvent?.content),
-            }}
-          />
-        </div>
+        <p
+          className="text-sm font-normal sm:text-base"
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(latestEvent?.content),
+          }}
+        />
       </div>
     </div>
+  </div>
 
-        <div className="mx-3 my-4">
-          {thisMonth.length > 0 ? (
-            thisMonth.map((item: any) => {
-              const timeAgo = formatDistanceToNow(new Date(item.createdAt), {
-                addSuffix: true,
-              });
+  <div className="mx-3 my-4 min-h-[300px] max-h-[700px] overflow-y-auto">
+    {thisMonth.length > 0 ? (
+      thisMonth.map((item: any) => {
+        const timeAgo = formatDistanceToNow(new Date(item.createdAt), {
+          addSuffix: true,
+        });
 
-              return (
-                <div key={item._id}>
-                  <div className="grid grid-cols-12 pb-4 mt-4">
-                    <div className="col-span-9 flex items-center">
-                      <div>
-                        <div className="items-center gap-2">
-                          <p className="font-semibold text-sm text-[#393939]">
-                            {item.title}
-                          </p>
-                          <div className="bg-[#EAD1D1] rounded-3xl my-4 w-44 h-7 flex gap-3 items-center px-4">
-                            <DotIcon color="black" />
-                            <p className="text-[#393939] font-normal text-[10px]">{timeAgo}</p>
-                          </div>
-                          {/* <DotIcon color="black" />
-                          <p className="text-black text-[10px]">{timeAgo}</p> */}
-                        </div>
-                        <p
-                          className="text-xs text-[#5F5E5E] font-normal"
-                          dangerouslySetInnerHTML={{
-                            __html: DOMPurify.sanitize(item.content),
-                          }}
-                        />
-                      </div>
-                    </div>
-                    <div className="col-span-3">
-                      {item?.image && item?.image > 50 ? (
-                        <img src={item?.image[0]} className="rounded-lg w-28 h-[118px]" alt="Event" />
-                      )
-                        :
-                        (<img src={defaultImage} className="rounded-lg w-28 h-28" alt="Event" />)}
-                      {/* <img src={item.image[0]} alt="Event" /> */}
+        return (
+          <div key={item._id}>
+            <div className="grid grid-cols-12 pb-4 mt-4">
+              <div className="col-span-9 flex items-center">
+                <div>
+                  <div className="items-center gap-2">
+                    <p className="font-semibold text-sm text-[#393939]">
+                      {item.title}
+                    </p>
+                    <div className="bg-[#EAD1D1] rounded-3xl my-4 w-44 h-7 flex gap-3 items-center px-4">
+                      <DotIcon color="black" />
+                      <p className="text-[#393939] font-normal text-[10px]">{timeAgo}</p>
                     </div>
                   </div>
-                  <hr />
+                  <p
+                    className="text-xs text-[#5F5E5E] font-normal"
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(item.content),
+                    }}
+                  />
                 </div>
-              );
-            })
-          ) : (
-            <div className="flex items-center justify-center py-5 text-red-500">
-              No Posts Available!
+              </div>
+              <div className="col-span-3">
+                {item?.image && item?.image.length > 0 ? (
+                  <img
+                    src={item?.image[0]}
+                    className="rounded-lg w-28 h-[118px]"
+                    alt="Event"
+                  />
+                ) : (
+                  <img
+                    src={defaultImage}
+                    className="rounded-lg w-28 h-28"
+                    alt="Event"
+                  />
+                )}
+              </div>
             </div>
-          )}
-        </div>
+            <hr />
+          </div>
+        );
+      })
+    ) : (
+      <div className="flex items-center justify-center py-5 text-red-500">
+        No Posts Available!
       </div>
+    )}
+  </div>
+</div>
     </div>
   );
 };

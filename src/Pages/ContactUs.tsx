@@ -26,7 +26,7 @@ const ContactUs = () => {
     <div className="m-5 rounded-lg">
       <div className="bg-[#f2f2f2] rounded-2xl px-8 py-6 flex flex-col lg:flex-row items-center lg:items-start">
         <div className="max-w-xl">
-          <h2 className="text-4xl md:text-6xl font-semibold leading-tight">
+          <h2 className="text-4xl md:text-[64px] font-semibold leading-tight">
             We’d Love to <br /> Hear From You
           </h2>
           <p className="text-[#5F5E5E] text-lg md:text-2xl mt-4">

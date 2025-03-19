@@ -61,67 +61,67 @@ function CustomerStories({}: Props) {
       {/* Customer Stories Section */}
       <div className="flex items-center justify-center mt-5">
             <div
-                className="relative h-[614px] w-full max-w-[1206px] flex items-center"
+                className="relative h-[730px] w-full max-w-[1206px] flex flex-col sm:flex-row items-center sm:h-[634px]"
                 style={{
                     backgroundImage: `url(${img1})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                 }}
             >
-
-                {/* Left Floating Card */}
-                <div className="absolute top-10 left-4 sm:top-20 sm:left-10 bg-[#00000033] border border-[#4E4E4E] bg-opacity-50 text-white p-5 rounded-xl w-full max-w-xs">
-                    <h2 className="text-lg font-normal text-[#FFFFFF]">Driving Your Growth</h2>
-                    <p className="text-sm mt-2 text-[#EEEEEE] font-['YDGothic 100 Pro'] font-normal">
-                        Our expertise delivers measurable impact—efficiency, scalability, and
-                        innovation combined into success.
-                    </p>
-                    <div className="mt-3">
-                        <div className="relative h-2 bg-gray-700 rounded-full">
-                            <div className="absolute top-0 left-0 h-2 bg-[#7F5303] rounded-full" style={{ width: "95%" }}></div>
+                <div className="flex flex-col gap-4 w-full px-4 sm:px-0 sm:absolute sm:top-10 mt-4 sm:left-10">
+                    {/* Left Floating Card */}
+                    <div className="bg-black bg-opacity-40 border border-gray-600 text-white p-5 rounded-xl w-full max-w-xs">
+                        <h2 className="text-lg font-normal">Driving Your Growth</h2>
+                        <p className="text-sm mt-2 text-gray-200">
+                            Our expertise delivers measurable impact—efficiency, scalability, and
+                            innovation combined into success.
+                        </p>
+                        <div className="mt-3">
+                            <div className="relative h-2 bg-gray-700 rounded-full">
+                                <div className="absolute top-0 left-0 h-2 bg-red-600 rounded-full" style={{ width: "95%" }}></div>
+                            </div>
+                            <p className="text-right text-sm mt-1">95%</p>
                         </div>
-                        <p className="text-right text-sm mt-1">95%</p>
+                        <p className="text-xs">Customer Success Rate</p>
                     </div>
-                    <p className="text-xs">Customer Success Rate</p>
-                </div>
 
-                {/* Right Floating Card */}
-                <div className="absolute top-10 right-4 sm:top-20 sm:right-10 bg-[#5E5E5E1A] border border-[#4E4E4E] bg-opacity-50 text-white p-5 rounded-xl w-full max-w-xs">
-                    <h2 className="text-lg text-[#FFFFFF] font-normal font-['YDGothic 100 Pro']">Innovative Solutions</h2>
-                    <p className="text-sm mt-2 text-[#EDEDED] font-normal font-['YDGothic 100 Pro']">
-                        Empowering businesses with cutting-edge technology and creative
-                        strategies to stay ahead in the digital age.
-                    </p>
-                </div>
-
-                {/* Bottom Left Card */}
-                <div className="absolute bottom-6 left-4 sm:bottom-8 sm:left-6 w-52 h-48 bg-[#00000040] border border-[#FFFFFFB5] shadow-2xl rounded-xl p-4">
-                    <img className='w-11 h-11 mt-2' src={img2} alt="" />
-                    <div className="text-[#FFFFFF] text-base font-bold my-2 pe-10">
-                        Free Customer Trial
+                    {/* Bottom Left Card */}
+                    <div className="w-52 h-52 bg-black bg-opacity-75 border border-white shadow-2xl mt-14 rounded-xl p-4 ">
+                        <img className="w-11 h-11 mt-2" src={img2} alt="Customer Trial" />
+                        <div className="text-white text-base font-bold my-2 pr-10">
+                            Free Customer Trial
+                        </div>
+                        <div className="text-white text-opacity-65 text-xs">
+                            Experience our product with a free trial! Get full access to premium features and see how it fits your business.
+                        </div>
                     </div>
-                    <div className="text-[#FFFFFFA3] text-[8px] font-normal">
-                        Lorem ipsum dolor sit Lorem ipsum dolor sit ametLorem ipsum dolor
-                        sit Lorem ipsum dolor sit ametA
+
+                    {/* Right Floating Card */}
+                    <div className="bg-gray-600 bg-opacity-20 border border-gray-600 text-white p-5 rounded-xl w-full max-w-xs sm:absolute sm:right-12 sm:top-72">
+                        <h2 className="text-lg font-normal">Innovative Solutions</h2>
+                        <p className="text-sm mt-2 text-gray-300">
+                            Empowering businesses with cutting-edge technology and creative
+                            strategies to stay ahead in the digital age.
+                        </p>
                     </div>
                 </div>
 
                 {/* Search Bar */}
-                <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex items-center border border-[#FFFFFFB5] bg-[#00000040] rounded-full px-4 py-2 shadow-lg w-[80%] max-w-md">
-                    <span className="text-[#FFFFFF85] text-sm font-normal">
+                <div className="mt-4 sm:mt-0  sm:absolute sm:bottom-20 sm:left-1/2 sm:transform sm:-translate-x-1/2 flex items-center border border-white bg-black bg-opacity-25 rounded-full px-4 py-2 shadow-lg w-[80%] max-w-md">
+                    <span className="text-white text-opacity-60 text-sm -mt-4 left-20">
                         <SearchIcon />
                     </span>
                     <input
                         type="text"
-                        placeholder="Why is Sewnex The Best"
-                        className="ml-2 outline-none bg-transparent text-[#FFFFFF85] text-sm font-normal w-full"
+                        placeholder="Why is BillBizz The Best"
+                        className="ml-4 outline-none bg-transparent text-white text-opacity-60 text-sm w-full"
+                        aria-label="Search BillBizz"
                     />
                 </div>
 
             </div>
         </div>
 
-   
         <div className="flex items-center justify-center lg:px-4 md:px-8">
       <div
         className="w-full max-w-[1700px] h-auto p-4 md:p-6 rounded-2xl flex flex-col justify-start items-start gap-4"

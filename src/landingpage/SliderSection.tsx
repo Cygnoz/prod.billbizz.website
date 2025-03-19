@@ -37,7 +37,7 @@ function SliderSection() {
 
       {/* Right Section: Paragraph */}
       <div className="md:w-1/2 mt-6 md:mt-0 px-4">
-        <p className="text-gray-700 text-base md:text-lg">
+        <p className="text-[#5F5E5E] text-lg  md:text-lg">
           Embarking on the ERP journey, whether it's your first foray or a
           strategic migration to the cloud, presents a pivotal opportunity
           to elevate your business operations. A well-chosen ERP system can

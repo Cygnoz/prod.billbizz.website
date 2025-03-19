@@ -7,7 +7,7 @@ import billbizz from "../assets/icons/Billbizz-Logo_White 1.png";
 // import maill from "../assets/images/footer/social/Vector-2.png";
 // import linkedin from "../assets/images/footer/social/Vector-3.png";
 import PhoneIcon from "../assets/icons/PhoneIcon";
-import Mail from "../assets/icons/Mail";
+import MailIcon from "../assets/icons/MailIcon";
 
 function Footer() {
 
@@ -112,16 +112,16 @@ function Footer() {
           </div>
           <p className="text-[#E0E0E0] text-3xl font-medium">BillBizz</p>
         </div>
-        <div className="grid grid-cols-6 px-12 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 px-12 gap-4">
           <div className="col-span-1">
           <p className="text-[#FFFFFF] text-2xl font-medium">Address</p>
           <p className="text-[#BEBEBE] text-base font-normal text-start">Cygonex Innovations Private Limited, NM Arcade, Near All India Radio (AIR), NGO Quarters Kakkanad, Kochi, Kerala, India</p>
           </div>
-          <div className="col-span-1 ms-20">
+          <div className="col-span-1 lg:ms-20">
           <p className="text-[#FFFFFF] text-2xl font-medium">Contact</p>
           <div className="flex gap-1 items-center">
-            {/* <MailIcon size={18} color="#BEBEBE" bg="#BEBEBE"/> */}
-            <Mail size={18} color="#BEBEBE"/>
+         
+            <MailIcon size={48}/>
             <p className="text-[#BEBEBE] text-center text-base font-normal">notify@sewnex.com</p>
           </div>
           <div className="flex gap-1 items-center">
@@ -129,7 +129,7 @@ function Footer() {
             <p className="text-[#BEBEBE] text-center text-base font-normal">+919544431166</p>
           </div>
           </div>
-          <hr className="rotate-90 border-dashed border-[#B00202] w-80 -ms-10 mt-24" />
+          <hr className="lg:rotate-90 lg:border-dashed lg:border-[#B00202] lg:w-80 lg:-ms-10 lg:mt-24" />
           {/* <div className="col-span-1">
           <p className="text-[#232222] text-2xl font-medium mb-1">Site Info</p>
           <p className="my-1 text-[#786D6D] font-normal text-base">Legal Privacy</p>
@@ -160,20 +160,9 @@ function Footer() {
             <li><a href="/news-and-events">News & Events</a></li>
           </ul>
         </div>
-          {/* <div className="col-span-1">
-          <p className="text-[#232222] text-2xl font-medium">About Sewnex</p>
-          <p className="my-1 text-[#786D6D] font-normal text-base">About Us</p>
-          <p className="text-[#786D6D] font-normal text-base">Contact Us</p>
-          <p className="my-1 text-[#786D6D] font-normal text-base">Customer Stories</p>
-          </div>
+        
           <div className="col-span-1">
-          <p className="text-[#232222] text-2xl font-medium">Learn</p>
-          <p className="my-1 text-[#786D6D] font-normal text-base">Blogs</p>
-          <p className="text-[#786D6D] font-normal text-base">Knowledge Base</p>
-          <p className="my-1 text-[#786D6D] font-normal text-base">News & Events</p>
-          </div> */}
-          <div className="col-span-1">
-          <div className="flex gap-4 mt-10">
+          <div className="lg:flex  gap-4 mt-10">
             <img className="w-24 h-16" src={keralastartup} alt="" />
             <img className="w-28 h-14" src={awsstartup} alt="" />
             <img className="w-32 h-14" src={msstartup} alt="" />
@@ -183,18 +172,7 @@ function Footer() {
           </div>
         </div>
 
-  {/* Footer Bottom Bar */}
-  {/* <div className="bg-red-950 flex flex-col md:flex-row justify-between text-center md:text-left h-auto md:h-[38px] p-2">
-    <div className="flex gap-[14px] pt-[7px] ps-[40px]">
-      <img src={fb} alt="Facebook" className="w-[11px] h-[20px]" />
-      <img src={insta} alt="Instagram" className="w-[20px] h-[20px]" />
-      <img src={maill} alt="Email" className="w-[20px] h-[16px]" />
-      <img src={linkedin} alt="LinkedIn" className="w-[20px] h-[19px]" />
-    </div>
-    <div className="pt-[10px] pe-[40px]">
-      <p className="text-[#FFFFFF] text-sm">Billbizz 2024 | All Rights Reserved</p>
-    </div>
-  </div> */}
+ 
 </div>
 
     </>

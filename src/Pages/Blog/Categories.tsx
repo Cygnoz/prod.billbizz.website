@@ -35,13 +35,13 @@ const Categories = ({}: Props) => {
      }, []);
   return (
   <>
-  <p className="text-[21px] mt-10 font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#CC1111] to-[#8F0100] ">
+  <p className="text-[21px] mt-10  font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#CC1111] to-[#8F0100] ">
              Categories
            </p>
         {data.length>0 ? data?.map((item:any)=>( <div>
            
      
-           <div className="flex w-full mt-">
+           <div className="flex w-full mt- p-4 ">
              <p className="relative justify-start text-[#1c1c1c] text-[15px] font-medium font-['Inter'] capitalize leading-snug mt-4">
               {item.categoryName}
              </p>
