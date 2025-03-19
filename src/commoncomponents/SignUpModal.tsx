@@ -178,7 +178,7 @@ const ReusableModal: React.FC<ReusableModalProps> = ({
               <div className="w-full lg:w-2/3 bg-white text-black p-8 rounded-xl">
               <div className="flex gap-2">
               <img src={billbizz} alt="" className="w-[50px] h-[50px] mb-7" />
-              <p className="text-[#232222] text-3xl font-medium mt-2">Sewnex</p>
+              <p className="text-[#232222] text-3xl font-medium mt-2">BillBizz</p>
               </div>
                 <h5 className=" font-bold pb-5 text-xl">Sign Up</h5>
                 <form onSubmit={handleSubmit} className="grid grid-cols-2  text-[#2D3748] gap-6">
