@@ -58,8 +58,8 @@ function Header() {
               {/* <div className="absolute inset-0 rounded-full border-4 border-[#820000]"></div> */}
 
               {/* Inner Circle (Mask for the border) */}
-              <div className="bg-[#232222] w-full h-full rounded-full flex items-center justify-center border-[3px] border-[#820000] relative">
-                <PlayButtonIcon size={50} />
+              <div className="bg-[#820000] w-full h-full rounded-full flex items-center justify-center relative">
+                <PlayButtonIcon bg="#FFFFFF" color="#FFFFFF" size={50} />
               </div>
             </div>
 
