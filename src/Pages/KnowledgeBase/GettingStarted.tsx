@@ -5,6 +5,7 @@ import LandingComponent from "./LandingComponent";
 import { useEffect, useState } from "react";
 import useApi from "../../Hooks/useApi";
 import { endpoints } from "../../Services/ApiEndpoints";
+import Footer from "../../components/Footer";
 
 type Props = {};
 
@@ -60,6 +61,7 @@ function GettingStarted({}: Props) {
           </div>
         </div>)):<div className="text-red-700 flex items-center justify-center my-5">No Articles Avilable !</div>}
       </div>
+      <Footer/>
     </div>
   );
 }

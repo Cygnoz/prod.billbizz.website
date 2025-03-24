@@ -40,7 +40,7 @@ const DemoComponent = ({}: Props) => {
         Let's Stay
         <span className="text-[#C71B1A]"> Connected</span>
       </h1>
-      <p className="text-[#FFFFFF] text-2xl  font-medium">Stay Updated with our latest projects and company <br />news by following us on social media</p>
+      <p className="text-[#FFFFFF] text-2xl font-medium">Stay Updated with our latest projects and company <br />news by following us on social media</p>
 
       {/* Button (Mobile at bottom, Desktop beside content) */}
       <div className="flex md:mt-6">

@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useApi from "../../Hooks/useApi";
 import { endpoints } from "../../Services/ApiEndpoints";
+import Footer from "../../components/Footer";
 
 type Props = {};
 
@@ -78,6 +79,8 @@ const CRM = ({}: Props) => {
             ))}{" "}
         </div>:<div className="flex items-center justify-center text-rose-400 w-full my-10">No Sub Categories Available !</div>}
       </div>
+      <Footer/>
+
     </div>
   );
 };

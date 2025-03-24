@@ -1,6 +1,6 @@
 import DotIcon from "../../assets/icons/DotIcon";
 import NewspaperIcon from "../../assets/icons/NewspaperIcon";
-import newImg from "../../assets/images/Frame 1618873045.png";
+// import newImg from "../../assets/images/Frame 1618873045.png";
 // import ArrowrightUp from "../../components/ArrowRightUp";
 // import newsImg from "../../assets/images/Frame 1618873146.png";
 // import img from "../../assets/images/Frame 1618873150.png";
@@ -120,15 +120,10 @@ const NewsAndEvents = ({ }: Props) => {
             key={latestNews._id}
             className="h-[335px] sm:w-[1073px] w-[335px] sm:h-[535px]  overflow-x-auto relative overflow-hidden"    
             style={{
-              backgroundImage: `url(${latestNews?.image?.[0] || newImg})`,
+              backgroundImage: `url(${latestNews?.image?.[0] || defaultImage})`,
               backgroundSize: "cover",
             }}
           >
-            <div className="absolute top-0 right-0 flex items-center justify-end py-7 px-5">
-              <button className="border border-white h-10 bg-white/0 backdrop-blur-[60.60px] text-white px-2 rounded-3xl">
-                Best Of The Week
-              </button>
-            </div>
 
             <div className="absolute bottom-0 left-0 p-10 text-white">
               <div className="flex items-center gap-2">
@@ -174,9 +169,9 @@ const NewsAndEvents = ({ }: Props) => {
   </div>
 
   <div
-    className="h-[244px] relative sm:h-[300px] md:h-[350px] w-[335px] lg:h-[300px] sm:w-[530px]"
+    className="h-[244px] relative sm:h-[300px] md:h-[350px] w-[300px] lg:h-[300px] sm:w-[480px]"
     style={{
-      backgroundImage: `url(${latestEvent?.image[0]})`,
+      backgroundImage: `url(${latestEvent?.image[0] || defaultImage})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
     }}
@@ -185,12 +180,12 @@ const NewsAndEvents = ({ }: Props) => {
       <div className="absolute bottom-0 left-0 p-3 text-white sm:p-5">
         <div className="flex flex-col gap-2">
           <p className="font-semibold text-base sm:text-lg">
-            {latestEvent?.category?.categoryName || 'News'}
+            {latestEvent?.title || 'N/A'}
           </p>
 
           <div className="bg-[#820000] rounded-3xl w-44 h-7 flex items-center gap-2 px-4 sm:w-52 sm:h-8">
             <DotIcon color="#FFFFFF" />
-            <p className="text-white text-[10px] sm:text-xs">4 hours ago</p>
+            <p className="text-white text-[10px] sm:text-xs">{latestEvent?.category?.categoryName || 'N/A'}</p>
           </div>
         </div>
 
@@ -207,9 +202,9 @@ const NewsAndEvents = ({ }: Props) => {
   <div className="mx-3 my-4 min-h-[300px] max-h-[700px] overflow-y-auto">
     {thisMonth.length > 0 ? (
       thisMonth.map((item: any) => {
-        const timeAgo = formatDistanceToNow(new Date(item.createdAt), {
-          addSuffix: true,
-        });
+        // const timeAgo = formatDistanceToNow(new Date(item.createdAt), {
+        //   addSuffix: true,
+        // });
 
         return (
           <div key={item._id}>
@@ -222,7 +217,7 @@ const NewsAndEvents = ({ }: Props) => {
                     </p>
                     <div className="bg-[#EAD1D1] rounded-3xl my-4 w-44 h-7 flex gap-3 items-center px-4">
                       <DotIcon color="black" />
-                      <p className="text-[#393939] font-normal text-[10px]">{timeAgo}</p>
+                      <p className="text-[#393939] font-normal text-[10px]">{item?.category?.categoryName}</p>
                     </div>
                   </div>
                   <p
@@ -234,7 +229,7 @@ const NewsAndEvents = ({ }: Props) => {
                 </div>
               </div>
               <div className="col-span-3">
-                {item?.image && item?.image.length > 0 ? (
+                {item?.image[0] && item?.image[0].length > 50 ? (
                   <img
                     src={item?.image[0]}
                     className="rounded-lg w-28 h-[118px]"

@@ -7,6 +7,7 @@ import useApi from "../../Hooks/useApi";
 import { useEffect, useState } from "react";
 import { endpoints } from "../../Services/ApiEndpoints";
 import defaultImage from "../../assets/images/noImage.png";
+import DOMPurify from "dompurify";
 
 const ViewANews = () => {
   const navigate = useNavigate();
@@ -66,9 +67,9 @@ const ViewANews = () => {
             </div>
 
             <div className="flex flex-wrap items-center text-gray-500 text-sm mt-2 space-x-3 px-4 sm:px-16">
-              <div className="bg-pink-100 rounded-3xl px-4 py-1 flex items-center gap-2">
+              <div className="bg-[#EAD1D1] rounded-3xl px-4 py-1 flex items-center gap-2">
                 <div className="bg-gray-700 rounded-full w-2 h-2"></div>
-                <p>ERP Software</p>
+                <p>{item?.category?.categoryName}</p>
               </div>
 
               <div className="hidden sm:block bg-gray-500 w-px h-5"></div>
@@ -87,14 +88,20 @@ const ViewANews = () => {
             </div>
 
             <div className="my-6 px-4 py-4">
-              {item?.image && item?.image.length > 50 ? (
-                <img className="w-full max-h-[540px] h-[500px] object-cover" src={item.image} alt="News" />
+              {item?.image[0] && item?.image[0].length > 50 ? (
+               <div className="flex justify-center items-center">
+               <img className="w-[500px] max-h-[540px]  h-[500px] object-cover" src={item?.image[0]} alt="Default" />
+             </div>
               ) : (
                 <div className="flex justify-center items-center">
-                  <img className="w-full max-h-[540px]  h-[500px] object-cover" src={defaultImage} alt="Default" />
+                  <img className="w-[500px] max-h-[540px]  h-[500px] object-cover" src={defaultImage} alt="Default" />
                 </div>
               )}
-              <p className="my-6 leading-relaxed">{item.content}</p>
+              <p className="my-6 leading-relaxed"
+               dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(item.content),
+            }}
+              ></p>
             </div>
 
             <div className="mt-10">

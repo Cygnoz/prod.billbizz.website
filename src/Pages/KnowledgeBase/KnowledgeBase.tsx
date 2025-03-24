@@ -5,6 +5,7 @@ import LandingComponent from "./LandingComponent";
 import { useEffect, useState } from "react";
 import useApi from "../../Hooks/useApi";
 import { endpoints } from "../../Services/ApiEndpoints";
+import Footer from "../../components/Footer";
 type Props = {};
 
 const KnowledgeBase = ({}: Props) => {
@@ -78,6 +79,8 @@ const KnowledgeBase = ({}: Props) => {
           )}
         </div>
       </div>
+
+      <Footer/>
     </div>
   );
 };

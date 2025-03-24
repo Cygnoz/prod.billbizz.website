@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Calendar from "../../assets/icons/Calendar";
 import Clock from "../../assets/icons/Clock";
-import img from "../../assets/images/Frame 1618873045.png";
+// import img from "../../assets/images/Frame 1618873045.png";
 // import Authors from "./Authors";
 import Categories from "./Categories";
 import useApi from "../../Hooks/useApi";
@@ -10,6 +10,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import DOMPurify from "dompurify";
 import ChevronLeft from "../../assets/icons/ChevronLeft";
 // import InstaPost from "./InstaPost";
+import noImage from '../../assets/images/noImage.png'
 
 // const relatedPosts = [
 //   {
@@ -126,7 +127,7 @@ const ViewBlog = () => {
           <div>
             <div
               className="h-[548px] rounded-3xl relative overflow-hidden"
-              style={{ backgroundImage: `url(${img})`, backgroundSize: "cover" }}
+              style={{ backgroundImage: `url(${item?.image[0] || noImage})`, backgroundSize: "cover" }}
             >
               <div onClick={()=>navigate('/blog')} className="p-5 rounded-full cursor-pointer w-12 h-12 border border-[#E7E7E7] cu items-center flex justify-center mt-6 mx-4">
                 <ChevronLeft size={20} color="#E7E7E7"/>
@@ -142,7 +143,7 @@ const ViewBlog = () => {
                  
                 </p>
                 <div className="flex items-center gap-2 text-xs text-white mt-4">
-                  <img src={img} alt="" className="h-[18px] w-[18px] rounded-full" />
+                  <img src={item?.createdBy?.userImage || noImage} alt="" className="h-[18px] w-[18px] rounded-full" />
                   <span>{item?.createdBy?.userName}</span> |
                   <Calendar color="white" /> <span>
                     {new Date(item?.updatedAt).toLocaleDateString("en-US", {
@@ -153,11 +154,11 @@ const ViewBlog = () => {
                   <Clock color="white" /> <span>{getTimeAgo(item?.updatedAt)}</span>
                   <div className="ml-auto flex gap-5">
                     <div className="h-[35px] px-4 bg-white/0 rounded-[20px] border border-white/50 backdrop-blur-[42.60px] flex items-center text-white text-xs">
-                      Customer Management
+                      {item?.category?.categoryName || 'N/A'}
                     </div>
-                    <div className="h-[35px] px-4 bg-white/0 rounded-[20px] border border-white/50 backdrop-blur-[42.60px] flex items-center text-white text-xs">
+                    {/* <div className="h-[35px] px-4 bg-white/0 rounded-[20px] border border-white/50 backdrop-blur-[42.60px] flex items-center text-white text-xs">
                       CRM
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -181,7 +182,7 @@ const ViewBlog = () => {
             <div className="min-w-full flex gap-4">
               {blogData.map((post:any) => (
                 <div key={post._id} className="w-[413px] h-[548px] bg-white rounded-[5px] p-5 flex-shrink-0">
-                  <img className="h-[262px] rounded-[5px]" src={post.image} alt={post.category?.categoryName} />
+                  <img className="h-[262px] rounded-[5px]" src={post.image[0] || noImage} alt={post.category?.categoryName} />
                   <div className="h-5 px-2 py-1 bg-[#f5cf4a] rounded-[3px] inline-flex justify-center items-center gap-2.5">
                     <div className="relative justify-start text-[#666666] text-xs font-normal capitalize leading-3">
                       {post.category?.categoryName}
@@ -191,7 +192,7 @@ const ViewBlog = () => {
                   {post.title}
                   </p>
                   <div className="flex items-center gap-2 text-xs text-[#777777] mt-4">
-                    <img src={img} alt="" className="h-[18px] w-[18px] rounded-full" />
+                    <img src={post?.createdBy?.userImage || noImage} alt="" className="h-[18px] w-[18px] rounded-full" />
                     <span>{post?.createdBy?.userName}</span> |
                     <Calendar /> <span>{new Date(post?.updatedAt).toLocaleDateString("en-US", {
                       month: "2-digit",

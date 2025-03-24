@@ -49,7 +49,7 @@ function ViewEvent({ }: Props) {
 
           <div className="flex flex-wrap justify-between items-center text-gray-500 text-sm mt-2 px-4 sm:px-16">
             <div className="flex flex-wrap space-x-3">
-              <p className="text-gray-700 text-sm font-normal">Venue: <span>{aEvent.location}</span></p>
+              <p className="text-gray-700 text-sm font-normal">Venue: <span>{aEvent.meetingType === "Online" ? "Online" : aEvent.venueName || "N/A"}</span></p>
               <div className="hidden sm:block bg-gray-500 w-px h-5"></div>
               <p className="text-gray-700 text-sm font-normal">Date: <span>{new Date(aEvent?.meetingDate).toLocaleDateString("en-US", { month: "2-digit", day: "2-digit", year: "numeric" })}</span></p>
               <div className="hidden sm:block bg-gray-500 w-px h-5"></div>
@@ -57,18 +57,20 @@ function ViewEvent({ }: Props) {
               <div className="hidden sm:block bg-gray-500 w-px h-5"></div>
               <p className="text-gray-700 text-sm font-normal">End Time: <span>{aEvent.endTime}</span></p>
             </div>
-            <div className="bg-pink-100 rounded-3xl px-4 py-1 flex items-center gap-2 mt-3 sm:mt-0">
+            <div className="bg-[#EAD1D1] rounded-3xl px-4 py-1 flex items-center gap-2 mt-3 sm:mt-0">
               <div className="bg-gray-700 rounded-full w-2 h-2"></div>
-              <p>{aEvent.meetingType}</p>
+              <p>{aEvent?.category?.categoryName}</p>
             </div>
           </div>
 
           <div className="my-6 px-4 py-4">
-            {aEvent?.image && aEvent?.image.length > 50 ? (
-              <img className="w-full max-h-[540px] object-cover" src={aEvent.image} alt="Event" />
+            {aEvent?.image[0] && aEvent?.image[0].length > 50 ? (
+              <div className="flex justify-center">
+              <img className="w-[500px] max-h-[540px] object-cover" src={aEvent?.image[0]} alt="Default" />
+            </div>
             ) : (
               <div className="flex justify-center">
-                <img className="w-full max-h-[540px] object-cover" src={defaultImage} alt="Default" />
+                <img className="w-[500px] max-h-[540px] object-cover" src={defaultImage} alt="Default" />
               </div>
             )}
             <p className="my-6 leading-relaxed">{aEvent.content}</p>

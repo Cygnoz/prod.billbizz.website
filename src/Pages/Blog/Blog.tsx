@@ -10,6 +10,7 @@ import DOMPurify from "dompurify";
 import { formatDistanceToNow } from "date-fns";
 import CardSkeleton from "../../cards/CardSkeltone";
 import Categories from "./Categories";
+import noImage from '../../assets/images/noImage.png'
 
 type Props = {};
 
@@ -61,7 +62,7 @@ function Blog({ }: Props) {
   }, []);
 
   return (
-    <div className="lg:mx-10  lg:my-9 my-4 grid grid-cols-12 w-full">
+    <div className="lg:mx-10 lg:my-9 my-4 grid grid-cols-12 w-full">
       <div className="col-span-12 lg:h-[450px] mx-3 overflow-y-auto custom-scrollbar w-full">
         <div>
           <h2 className="text-[26px] font-semibold capitalize">
@@ -96,13 +97,13 @@ function Blog({ }: Props) {
                       {post.title}
                     </p>
                     <img
-                      src={post.image[0]}
+                      src={post.image[0]|| noImage}
                       alt=""
                       className="w-[401px] h-[229px] rounded-[7px]"
                     />
                     <div className="flex items-center gap-2 text-xs text-[#777777] mt-4">
                       <img
-                        src={post.createdBy.userImage}
+                        src={post.createdBy.userImage || noImage}
                         alt=""
                         className="h-[18px] w-[18px] rounded-full"
                       />
@@ -142,7 +143,7 @@ function Blog({ }: Props) {
           </div>
         </div>
       </div>
-      <div className="col-span-4 max-md:col-span-12 lg:ps-24 lg:mx-3 bg-[#f6f6f5] mt-8 h-full">
+      <div className="col-span-4 max-md:col-span-12 lg:ps-24 lg:mx-6 bg-[#f6f6f5] mt-8 h-full">
         <Categories />
       </div>
     </div>

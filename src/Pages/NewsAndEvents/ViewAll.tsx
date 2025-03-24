@@ -8,7 +8,7 @@ import defaultImage from "../../assets/images/noImage.png";
 
 type Props = {};
 
-const ViewAll = ({}: Props) => {
+const ViewAll = ({ }: Props) => {
   const [newsData, setNewsData] = useState([]);
   const { request: getData } = useApi("get", 3001);
   const [searchTerm, setSearchTerm] = useState("");
@@ -35,6 +35,7 @@ const ViewAll = ({}: Props) => {
   const filteredNewsData = newsData.filter((item: any) =>
     item.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  console.log(filteredNewsData);
 
   return (
     <div className="p-6">
@@ -64,7 +65,7 @@ const ViewAll = ({}: Props) => {
       {/* Event Cards */}
       <div className="mt-6 grid gap-6">
         {filteredNewsData.length > 0 ? (
-          filteredNewsData.map((item: any) => (
+          filteredNewsData.reverse().map((item: any) => (
             <div
               key={item._id}
               onClick={() => navigate(`/news-and-events/view-all/view-event/${item._id}`)}
@@ -74,7 +75,7 @@ const ViewAll = ({}: Props) => {
                 {/* Event Image */}
                 <div className="lg:col-span-2 flex items-center justify-center">
                   <img
-                    src={item?.image && item.image.length > 50 ? item.image : defaultImage}
+                    src={item?.image[0] && item.image[0].length > 50 ? item.image[0] : defaultImage}
                     alt={item?.title || "Event"}
                     className="h-[124px] w-full object-cover"
                   />
@@ -82,7 +83,13 @@ const ViewAll = ({}: Props) => {
 
                 {/* Event Info */}
                 <div className="lg:col-span-10">
-                  <h2 className="text-xl font-semibold my-3">{item?.title}</h2>
+                  <div className="flex flex-wrap justify-between">
+                    <h2 className="text-lg sm:text-xl font-semibold my-2 sm:my-3">{item?.title || 'N/A'}</h2>
+                    <div className="bg-[#EAD1D1] rounded-3xl w-fit sm:w-44 h-6 sm:h-7 flex gap-2 sm:gap-3 items-center px-3 sm:px-4">
+                      <div className="bg-[#393939] rounded-full w-2 h-2"></div>
+                      <p className="text-xs sm:text-sm">{item?.category?.categoryName || 'N/A'}</p>
+                    </div>
+                  </div>
 
                   <div className="flex flex-wrap gap-3 text-sm text-[#393939]">
                     <p>Venue: <span>{item.meetingType === "Online" ? "Online" : item.venueName || "N/A"}</span></p>

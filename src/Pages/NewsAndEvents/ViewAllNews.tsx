@@ -7,6 +7,7 @@ import FilterIcon from "../../assets/icons/FilterIcon";
 import useApi from "../../Hooks/useApi";
 import { endpoints } from "../../Services/ApiEndpoints";
 import defaultImage from "../../assets/images/noImage.png";
+import DOMPurify from "dompurify";
 
 type Props = {};
 
@@ -93,7 +94,7 @@ const ViewAllNews = ({}: Props) => {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-5 border-b mx-3 my-4 pb-4">
               <div className="md:col-span-2 flex items-center justify-center mt-4">
                 <img
-                  src={item?.image && item?.image.length > 50 ? item?.image : defaultImage}
+                  src={item?.image[0] && item?.image[0].length > 50 ? item?.image[0] : defaultImage}
                   alt="News"
                   className="h-[124px] w-full object-cover"
                 />
@@ -104,7 +105,7 @@ const ViewAllNews = ({}: Props) => {
                 <div className="flex flex-wrap items-center text-gray-500 text-sm mt-1 space-x-3">
                   <div className="bg-[#EAD1D1] rounded-3xl w-fit px-4 h-7 flex gap-3 items-center">
                     <div className="bg-[#393939] rounded-full w-2 h-2"></div>
-                    <p>ERP Software</p>
+                    <p>{item?.category?.categoryName}</p>
                   </div>
                   <div className="bg-[#5F5E5E] w-[1px] h-5 hidden md:block"></div>
                   <div className="flex items-center gap-2">
@@ -124,7 +125,11 @@ const ViewAllNews = ({}: Props) => {
                   </div>
                 </div>
 
-                <p className="text-gray-600 text-sm mt-3">{item?.content}</p>
+                <p className="text-gray-600 text-sm mt-3"
+                 dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(item.content),
+              }}
+                ></p>
               </div>
             </div>
           </div>

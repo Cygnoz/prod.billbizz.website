@@ -1,12 +1,14 @@
 import { formatDistanceToNow } from "date-fns";
 import Calendar from "../../assets/icons/Calendar";
 import Clock from "../../assets/icons/Clock";
-import img from "../../assets/images/Ellipse 322.png";
 import DOMPurify from "dompurify";
-
+import noImage from '../../assets/images/noImage.png'
 type Props = { blogData: any };
 
 function RecentlyUploaded({ blogData }: Props) {
+
+  console.log('blogdata',blogData);
+  
   return (
     <div>
       {blogData.lengthh>0?
@@ -22,7 +24,7 @@ function RecentlyUploaded({ blogData }: Props) {
             <div key={index} className="grid grid-cols-12 my-4">
               <div className="col-span-3 flex">
                 <img
-                  src={item?.image[0]}
+                  src={item?.image[0] || noImage}
                   className="w-full h-[180px] rounded-[5px]"
                   alt=""
                 />
@@ -36,7 +38,7 @@ function RecentlyUploaded({ blogData }: Props) {
                 </p>
                 <div className="flex items-center gap-2 text-xs text-[#777777] mt-2">
                   <img
-                    src={img}
+                    src={item?.createdBy.userImage || noImage}
                     alt="User"
                     className="h-[18px] w-[18px] rounded-full"
                   />

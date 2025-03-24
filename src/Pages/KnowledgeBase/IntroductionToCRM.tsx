@@ -8,6 +8,7 @@ import useApi from "../../Hooks/useApi";
 import { endpoints } from "../../Services/ApiEndpoints";
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import Footer from "../../components/Footer";
 
 type Props = {};
 
@@ -124,6 +125,8 @@ const handlePDF = () => {
           </div>
         </div>
       </div>
+
+      <Footer/>
     </div>
   );
 }

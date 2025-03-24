@@ -35,7 +35,7 @@ function Privacy({}: Props) {
       <div className="text-lg sm:text-xl text-[#6d6d6d] space-y-8">
         {data.length > 0 ? (
           data.map((item: any, index) => (
-            <div key={item._id} className=" p-4 rounded-lg shadow-sm">
+            <div key={item._id} className="p-4 rounded-lg shadow-sm">
               <p className="font-bold mb-2">
                 {index + 1}. {item.termTitle}
               </p>
