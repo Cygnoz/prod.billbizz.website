@@ -9,6 +9,7 @@ export const endpoints={
     GET_ARTICLE:`/article`,
     GET_TERMS:'/terms',
     GET_POSTS:'/posts',
+    ADD_CONTACT:'/contactUs',
 
     // Lead
     GET_REGION_AREA: "/areaAndRegion",

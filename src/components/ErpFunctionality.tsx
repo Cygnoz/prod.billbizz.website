@@ -31,6 +31,7 @@ function ErpFunctionality() {
         <div>
           <img
             src={cardimg1}
+            loading="lazy"
             className="cursor-pointer h-auto w-full md:h-[331px] md:w-[402px] transform transition duration-300 ease-in-out hover:scale-105"
             alt="Customer Management"
           />
@@ -38,6 +39,7 @@ function ErpFunctionality() {
         <div>
           <img
             src={cardimg3}
+            loading="lazy"
             className="cursor-pointer h-auto w-full md:h-[232px] md:w-[402px] transform transition duration-300 ease-in-out hover:scale-105"
             alt="Financial Accounting"
           />
@@ -49,6 +51,7 @@ function ErpFunctionality() {
         <div>
           <img
             src={card2img}
+            loading="lazy"
             className="cursor-pointer h-auto w-full md:h-[247px] md:w-[402px] transform transition duration-300 ease-in-out hover:scale-105"
             alt="Recurring Billing"
           />
@@ -56,6 +59,7 @@ function ErpFunctionality() {
         <div>
           <img
             src={card5img}
+            loading="lazy"
             className="cursor-pointer h-auto w-full md:h-[313px] md:w-[402px] transform transition duration-300 ease-in-out hover:scale-105"
             alt="Ecommerce Integration"
           />
@@ -67,6 +71,7 @@ function ErpFunctionality() {
         <div>
           <img
             src={card3img}
+            loading="lazy"
             className="cursor-pointer h-auto w-full md:h-[158px] md:w-[479px] transform transition duration-300 ease-in-out hover:scale-105"
             alt="Payroll Management"
           />
@@ -74,6 +79,7 @@ function ErpFunctionality() {
         <div>
           <img
             src={card6img}
+            loading="lazy"
             className="cursor-pointer h-auto w-full md:h-[399px] md:w-[479px] transform transition duration-300 ease-in-out hover:scale-105"
             alt="Inventory Management"
           />

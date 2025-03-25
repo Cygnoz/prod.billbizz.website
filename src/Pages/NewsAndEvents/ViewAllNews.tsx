@@ -3,7 +3,7 @@ import ChevronLeft from "../../assets/icons/ChevronLeft";
 import Clock from "../../assets/icons/Clock";
 import Calendar from "../../assets/icons/Calendar";
 import { useNavigate } from "react-router-dom";
-import FilterIcon from "../../assets/icons/FilterIcon";
+// import FilterIcon from "../../assets/icons/FilterIcon";
 import useApi from "../../Hooks/useApi";
 import { endpoints } from "../../Services/ApiEndpoints";
 import defaultImage from "../../assets/images/noImage.png";
@@ -69,10 +69,10 @@ const ViewAllNews = ({}: Props) => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <div className="bg-[#FFFFFF] rounded-3xl w-fit h-11 border items-center flex justify-center px-3 gap-2">
+          {/* <div className="bg-[#FFFFFF] rounded-3xl w-fit h-11 border items-center flex justify-center px-3 gap-2">
             <FilterIcon />
             <p className="text-[#565148] text-sm font-normal">News Category</p>
-          </div>
+          </div> */}
           <div className="flex items-center w-full sm:w-80 max-w-sm rounded-[20px] border px-4 py-2">
             <input
               type="text"

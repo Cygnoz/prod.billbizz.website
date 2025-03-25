@@ -25,7 +25,7 @@ const ReusableModal: React.FC<ReusableModalProps> = ({
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    project: "SewNex",
+    project: "BillBizz",
     companyName: "",
     phone: "",
     companyAddress: "",
@@ -171,13 +171,13 @@ const ReusableModal: React.FC<ReusableModalProps> = ({
                 }}
               >
                 <h2 className="text-3xl font-bold">
-                  <img src={future} alt="Future-proof cloud tools" />
+                  <img src={future} loading="lazy" alt="Future-proof cloud tools" />
                 </h2>
               </div>
 
               <div className="w-full lg:w-2/3 bg-white text-black p-8 rounded-xl">
               <div className="flex gap-2">
-              <img src={billbizz} alt="" className="w-[50px] h-[50px] mb-7" />
+              <img src={billbizz} loading="lazy" alt="" className="w-[50px] h-[50px] mb-7" />
               <p className="text-[#232222] text-3xl font-medium mt-2">BillBizz</p>
               </div>
                 <h5 className=" font-bold pb-5 text-xl">Sign Up</h5>
@@ -341,7 +341,7 @@ const ReusableModal: React.FC<ReusableModalProps> = ({
 
                   {/* Sign Up Button */}
                   <div className="col-span-2 flex justify-start mt-4">
-                    <button type="submit" className="bg-[#19A761] text-white px-14 py-2 rounded-2xl hover:bg-green-600">
+                    <button type="submit" className="bg-gradient-to-l from-[#CC1111] to-[#8F0100] text-white px-14 py-2 rounded-2xl">
                       Sign Up
                     </button>
                   </div>

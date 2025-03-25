@@ -17,6 +17,7 @@ function Cards() {
       {/* Image Section */}
       <img
         src={chatbotimg}
+        loading="lazy"
         alt="Billie Chatbot"
         className="w-full sm:w-3/4  max-w-xs md:w-[600px] sm:max-w-sm -mb-8 mt-12 lg:mt-20"
       />
@@ -28,7 +29,7 @@ function Cards() {
           {/* Highlight Box */}
           <div className="inline-flex items-center bg-white px-4 sm:px-6 py-3 mx-5 shadow-lg shadow-[#b5cbff] rounded-full h-auto sm:h-[60px] max-w-full sm:w-[475px]">
             <span className="flex items-center gap-2 font-sans text-[#444040] text-lg sm:text-xl font-semibold">
-              <img src={charmclock} className="h-6 w-6 sm:h-7 sm:w-7" alt="clock icon" />
+              <img src={charmclock} loading="lazy" className="h-6 w-6 sm:h-7 sm:w-7" alt="clock icon" />
               Round-the-clock customer support
             </span>
           </div>
@@ -92,7 +93,7 @@ function Cards() {
           </div>
         </div>
         <div className="w-full md:w-3/4 mt-6 flex justify-center items-center">
-  <img src={card2img} alt="Billie Chatbot" className="w-full md:w-[600px] max-w-lg -mb-8 mt-32" />
+  <img src={card2img} loading="lazy" alt="Billie Chatbot" className="w-full md:w-[600px] max-w-lg -mb-8 mt-32" />
 </div>
 
       </div>
@@ -100,7 +101,7 @@ function Cards() {
       {/* third card */}
 
       <div className="flex flex-col md:flex-row items-center sm:h-[672px] justify-center bg-[radial-gradient(circle,_#FEFEFF_0%,_#FDF6E3_100%)] -mt-14 rounded-xl m-12 ">
-        <img src={card3img} alt="Billie Chatbot" className="w-[600px] h-[480px] me-auto mt-48 pt-10" />
+        <img src={card3img} loading="lazy" alt="Billie Chatbot" className="w-[600px] h-[480px] me-auto mt-48 pt-10" />
         <div className="w-full md:w-1/2 mt-6 md:mt-0 md:ml-8">
           <div className="text-center md:text-left me-8">
             {/* <div className="inline-flex items-center bg-white px-6 py-2 shadow-lg shadow-[#FFE8AD] rounded-full">
@@ -111,7 +112,7 @@ function Cards() {
             </div> */}
             <div className="inline-flex items-center bg-white px-4 sm:px-6 py-3 mx-5 shadow-lg shadow-[#b5cbff] rounded-full h-auto sm:h-[60px] max-w-full sm:w-[359px]">
               <span className="bg-white flex items-center gap-2 font-sans text-[#444040] text-lg sm:text-xl font-semibold">
-                <img src={card4icon} className="h-6 w-6 sm:h-7 sm:w-7" alt="" />
+                <img src={card4icon} loading="lazy" className="h-6 w-6 sm:h-7 sm:w-7" alt="" />
                 E-commerce Integration
               </span>
             </div>
@@ -144,7 +145,7 @@ function Cards() {
           <div className="text-center md:text-left -mt-24">
             <div className="inline-flex items-center bg-white px-4 py-3 mt-14 shadow-lg shadow-[#b5cbff] rounded-full">
               <span className="bg-white flex items-center gap-2 text-[#444040] font-sans font-semibold">
-                <img src={fourthcardicon} className="h-6 w-6" alt="" />
+                <img src={fourthcardicon} loading="lazy" className="h-6 w-6" alt="" />
                 <p className="font-sans">Fraud Detection</p>
               </span>
             </div>

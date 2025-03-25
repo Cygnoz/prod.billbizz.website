@@ -62,7 +62,7 @@ function Blog({ }: Props) {
   }, []);
 
   return (
-    <div className="lg:mx-10 lg:my-9 my-4 grid grid-cols-12 w-full">
+    <div className="lg:mx-10 lg:my-9 my-4 grid grid-cols-12">
       <div className="col-span-12 lg:h-[450px] mx-3 overflow-y-auto custom-scrollbar w-full">
         <div>
           <h2 className="text-[26px] font-semibold capitalize">

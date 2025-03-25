@@ -24,6 +24,7 @@ function Footer() {
           <div className="flex -space-x-2">
           <img
           src={billbizz}
+          loading="lazy"
           alt="BillBizz Logo"
           className="h-[48px] w-[48px] mr-2"
         />
@@ -81,9 +82,9 @@ function Footer() {
         
           <div className="col-span-1">
           <div className="lg:flex  gap-4 mt-10">
-            <img className="w-24 h-16" src={keralastartup} alt="" />
-            <img className="w-28 h-14" src={awsstartup} alt="" />
-            <img className="w-32 h-14" src={msstartup} alt="" />
+            <img loading="lazy" className="w-24 h-16" src={keralastartup} alt="" />
+            <img loading="lazy" className="w-28 h-14" src={awsstartup} alt="" />
+            <img loading="lazy" className="w-32 h-14" src={msstartup} alt="" />
           </div>
           </div>
         </div>

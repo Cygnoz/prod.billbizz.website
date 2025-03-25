@@ -27,6 +27,7 @@ const DemoComponent = ({}: Props) => {
   <div className="relative bg-black text-white p-8 min-h-[235px]">
   <img
     src={backgredient}
+    loading="lazy"
     alt="Background Gradient"
     className="absolute inset-0 w-full h-full object-cover z-0 opacity-50"
   />
@@ -78,7 +79,7 @@ const DemoComponent = ({}: Props) => {
               <a href="https://www.instagram.com/cygnoz_/" target="_blank" rel="noopener noreferrer">
               <Instagram size={28}/>
               </a>
-              <a href="" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.youtube.com/@cygnoz" target="_blank" rel="noopener noreferrer">
               <YoutubeIcon size={28}/>
               </a>
          

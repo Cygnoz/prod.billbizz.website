@@ -20,11 +20,13 @@ const NewsAndEvents = ({ }: Props) => {
   const [thisMonth, setThisMonth] = useState<any>([]);
   const [latestNews, setLatestNews] = useState<any>(null);
   const [latestEvent, setLatestEvent] = useState<any>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const { request: getData } = useApi("get", 3001);
 
   const handleGetBlogData = async () => {
     try {
+      setLoading(true);
       const url = `${endpoints.GET_BLOGS}?postType=News&project=BillBizz`;
 
       const { response, error } = await getData(url);
@@ -62,10 +64,14 @@ const NewsAndEvents = ({ }: Props) => {
     } catch (error) {
       console.error("Error fetching blog data", error);
     }
+    finally {
+      setLoading(false);
+    }
   };
 
   const handlegetEvent = async () => {
     try {
+      setLoading(true);
       const url = `${endpoints.GET_BLOGS}?postType=Events&project=BillBizz`;
 
       const { response, error } = await getData(url);
@@ -102,6 +108,9 @@ const NewsAndEvents = ({ }: Props) => {
     } catch (error) {
       console.error("Error fetching blog data", error);
     }
+    finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -114,8 +123,9 @@ const NewsAndEvents = ({ }: Props) => {
   const navigate = useNavigate();
   return (
     <div className="grid grid-cols-12">
-      <div className="lg:col-span-8 col-span-12 lg:mt-6 lg:p-6 p-3 overflow-x-auto">
-        {latestNews ? (
+      <div className="lg:col-span-8  col-span-12 lg:mt-6 lg:p-6 p-3 overflow-x-auto">
+        {latestNews ?
+        loading?<p>Loading.....</p> : (
           <div
             key={latestNews._id}
             className="h-[335px] sm:w-[1073px] w-[335px] sm:h-[535px]  overflow-x-auto relative overflow-hidden"    
@@ -200,7 +210,8 @@ const NewsAndEvents = ({ }: Props) => {
   </div>
 
   <div className="mx-3 my-4 min-h-[300px] max-h-[700px] overflow-y-auto">
-    {thisMonth.length > 0 ? (
+    {thisMonth.length > 0 ? 
+    loading?<p>Loading.....</p> :(
       thisMonth.map((item: any) => {
         // const timeAgo = formatDistanceToNow(new Date(item.createdAt), {
         //   addSuffix: true,

@@ -31,7 +31,7 @@ const RecentNews = ({ data }: Props) => {
                 <div className="bg-[#393939] rounded-full w-2 h-2"></div>
                 <p>{item?.category?.categoryName}</p>
               </div>
-              <p className="text=[#393939] text-2xl font-semibold">{item?.title}</p>
+              <p className="text-[#393939] text-2xl font-semibold">{item?.title}</p>
             </div>
             )):<div className="text-red-600 flex items-center justify-center my-5">No News Available !</div>}
         </div>

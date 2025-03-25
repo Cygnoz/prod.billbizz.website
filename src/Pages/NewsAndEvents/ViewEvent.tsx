@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import useApi from "../../Hooks/useApi";
 import { endpoints } from "../../Services/ApiEndpoints";
 import defaultImage from "../../assets/images/noImage.png";
+import DOMPurify from "dompurify";
 
 type Props = {};
 
@@ -73,7 +74,11 @@ function ViewEvent({ }: Props) {
                 <img className="w-[500px] max-h-[540px] object-cover" src={defaultImage} alt="Default" />
               </div>
             )}
-            <p className="my-6 leading-relaxed">{aEvent.content}</p>
+            <p className="my-6 leading-relaxed"
+             dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(aEvent?.content),
+          }}
+            ></p>
           </div>
 
           <div className="mt-10">

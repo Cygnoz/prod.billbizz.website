@@ -1,26 +1,54 @@
 import { useState } from "react";
 import bgimg from "../assets/images/contactUs.png";
+import useApi from "../Hooks/useApi";
+import { endpoints } from "../Services/ApiEndpoints";
+import toast from "react-hot-toast";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
+    project: "BillBizz",
     firstName: "",
     lastName: "",
     email: "",
-    phoneNumber: "",
+    phoneNo: "",
     companyName: "",
     companyAddress: "",
-    subject: "General Inquiry",
+    subject: "",
     message: "",
-  });
+  })
 
-  const handleChange = (e: any) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const {request:addContact}=useApi('post',3001)
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    console.log("Form Submitted", formData);
-  };
+  const handleSubmit = async(e: React.FormEvent)=>{
+    
+    try{
+      const {response, error}= await addContact(endpoints.ADD_CONTACT, formData)
+      console.log('res',response);
+      console.log('err',error);
+      console.log('form',formData);
+      if(response && !error){
+        console.log(response.data.message);
+        toast.success(response.data.message)
+        e.preventDefault()
+      }
+      else{
+        console.log(error.response.data.message);
+        toast.error(error.response.data.message)
+      }
+    }
+    catch(error){
+      console.log('error occured',error);
+      
+    }
+  }
 
   return (
     <div className="m-5 rounded-lg">
@@ -52,29 +80,91 @@ const ContactUs = () => {
           <p className="text-gray-600 mb-4">Say something to start a live chat!</p>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {[
-                { label: "First Name", name: "firstName" },
-                { label: "Last Name", name: "lastName" },
-                { label: "Email", name: "email" },
-                { label: "Phone Number", name: "phoneNumber" },
-                { label: "Company Name", name: "companyName" },
-                { label: "Company Address", name: "companyAddress" },
-              ].map((field) => (
-                <div key={field.name} className="w-full">
+               
+                <div  className="w-full">
                   <label className="text-[#820000] text-lg font-semibold block">
-                    {field.label}
+                    First Name
                   </label>
                   <input
                     type="text"
-                    name={field.name}
-                    value={(formData as any)[field.name]}
-                    onChange={handleChange}
-                    placeholder=""
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                    placeholder="Enter First Name"
                     className="my-1 border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
                     required
                   />
                 </div>
-              ))}
+                <div  className="w-full">
+                  <label className="text-[#820000] text-lg font-semibold block">
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                    placeholder="Enter Last Name"
+                    className="my-1 border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
+                    required
+                  />
+                </div>
+                <div  className="w-full">
+                  <label className="text-[#820000] text-lg font-semibold block">
+                   Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="Enter Email"
+                    className="my-1 border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
+                    required
+                  />
+                </div>
+                <div  className="w-full">
+                  <label className="text-[#820000] text-lg font-semibold block">
+                    Phone Number
+                  </label>
+                  <input
+                    type="number"
+                    name="phoneNo"
+                    value={formData.phoneNo}
+                    onChange={handleInputChange}
+                    placeholder="Enter Phone No"
+                    className="my-1 border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
+                    required
+                  />
+                </div>
+                <div  className="w-full">
+                  <label className="text-[#820000] text-lg font-semibold block">
+                    Comapny Name
+                  </label>
+                  <input
+                    type="text"
+                    name="companyName"
+                    value={formData.companyName}
+                    onChange={handleInputChange}
+                    placeholder="Enter Company Name"
+                    className="my-1 border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
+                    required
+                  />
+                </div>
+                <div  className="w-full">
+                  <label className="text-[#820000] text-lg font-semibold block">
+                    Company Address
+                  </label>
+                  <input
+                    type="text"
+                    name="companyAddress"
+                    value={formData.companyAddress}
+                    onChange={handleInputChange}
+                    placeholder="Enter Address"
+                    className="my-1 border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
+                    required
+                  />
+                </div>
             </div>
 
             <div>
@@ -87,7 +177,7 @@ const ContactUs = () => {
                       name="subject"
                       value={subject}
                       checked={formData.subject === subject}
-                      onChange={handleChange}
+                      onChange={handleInputChange}
                     />
                     {subject}
                   </label>
@@ -99,9 +189,10 @@ const ContactUs = () => {
               Message
             </label>
             <textarea
+            typeof="text"
               name="message"
               value={formData.message}
-              onChange={handleChange}
+               onChange={handleInputChange}
               placeholder="Write your message..."
               className="border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
               required
