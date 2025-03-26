@@ -3,8 +3,8 @@ import backgredient from "../assets/images/footer/Left (1).png";
 import ReusableModal from "../commoncomponents/SignUpModal";
 import Facebook from "../assets/icons/Facebook";
 import Instagram from "../assets/icons/Instagram";
-import MailIcon from "../assets/icons/MailIcon";
 import YoutubeIcon from "../assets/icons/YoutubeIcon";
+import Twitter from "../assets/icons/Twitter";
 
 type Props = {}
 
@@ -84,7 +84,9 @@ const DemoComponent = ({}: Props) => {
               </a>
          
          
-          <MailIcon size={28}/>
+              <a href="https://x.com/cygnoz_" target="_blank" rel="noopener noreferrer">
+              <Twitter  color="" size={24} />
+              </a>
           
     </div>
    </div>

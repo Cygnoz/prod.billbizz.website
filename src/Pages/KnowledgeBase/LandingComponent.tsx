@@ -51,7 +51,7 @@ const LandingComponent = ({ data,setData }: Props) => {
               onChange={(e) => setQuery(e.target.value)}
                 type="text"
                 placeholder="Serach your queries here"
-                className=" opacity-25 h-[50px] rounded-l-[50px] text-white p-5 border-collapse w-80 "
+                className=" opacity-25 h-[50px] rounded-l-[50px] text-[#620000] p-5 border-collapse w-80 "
               />{" "}
               <button className="bg-white h-[50px] lg:px-7 rounded-r-[50px] text-[#620000] "   onClick={handleSearch}>
                 Search
@@ -62,7 +62,7 @@ const LandingComponent = ({ data,setData }: Props) => {
 
       {/* Right Image */}
       <div className="hidden lg:flex justify-end items-center">
-        <img src={bgimg} alt="Background" className="h-full w-auto object-cover" />
+        <img src={bgimg} loading="lazy" alt="Background" className="h-full w-auto object-cover" />
       </div>
     </div>
     </div>

@@ -28,7 +28,7 @@ const ContactUs = () => {
   };
 
   const handleSubmit = async(e: React.FormEvent)=>{
-    
+    e.preventDefault()
     try{
       const {response, error}= await addContact(endpoints.ADD_CONTACT, formData)
       console.log('res',response);
@@ -37,7 +37,9 @@ const ContactUs = () => {
       if(response && !error){
         console.log(response.data.message);
         toast.success(response.data.message)
-        e.preventDefault()
+        setTimeout(() => {
+          window.location.reload(); // or navigate('/some-route') if using React Router
+        }, 1000);
       }
       else{
         console.log(error.response.data.message);
@@ -62,7 +64,7 @@ const ContactUs = () => {
           </p>
         </div>
         <div className=" lg:mt-0 lg:ml-auto">
-          <img src={bgimg} alt="" className="w-[400px] mt-6 h-[240px]" />
+          <img src={bgimg} loading="lazy" alt="" className="w-[400px] mt-6 h-[240px]" />
         </div>
       </div>
 
@@ -128,10 +130,16 @@ const ContactUs = () => {
                     Phone Number
                   </label>
                   <input
-                    type="number"
+                    type="text"
                     name="phoneNo"
+                    maxLength={10}
                     value={formData.phoneNo}
-                    onChange={handleInputChange}
+                    onChange={(e) => {
+                      const value = e.target.value.replace(/\D/g, ""); 
+                      if (value.length <= 10) {
+                        handleInputChange(e); 
+                      }
+                    }}
                     placeholder="Enter Phone No"
                     className="my-1 border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
                     required

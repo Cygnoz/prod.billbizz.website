@@ -88,15 +88,10 @@ const ViewANews = () => {
             </div>
 
             <div className="my-6 px-4 py-4">
-              {item?.image[0] && item?.image[0].length > 50 ? (
                <div className="flex justify-center items-center">
-               <img className="w-[500px] max-h-[540px]  h-[500px] object-cover" src={item?.image[0]} alt="Default" />
+               <img className="w-[500px] max-h-[540px]  h-[500px] object-cover" loading="lazy" src={item?.image[0]|| defaultImage} alt="Default" />
              </div>
-              ) : (
-                <div className="flex justify-center items-center">
-                  <img className="w-[500px] max-h-[540px]  h-[500px] object-cover" src={defaultImage} alt="Default" />
-                </div>
-              )}
+             
               <p className="my-6 leading-relaxed"
                dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(item.content),

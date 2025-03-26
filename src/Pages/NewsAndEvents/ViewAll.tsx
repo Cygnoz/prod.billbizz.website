@@ -75,9 +75,10 @@ const ViewAll = ({ }: Props) => {
                 {/* Event Image */}
                 <div className="lg:col-span-2 flex items-center justify-center">
                   <img
-                    src={item?.image[0] && item.image[0].length > 50 ? item.image[0] : defaultImage}
+                    src={item.image[0] || defaultImage}
                     alt={item?.title || "Event"}
                     className="h-[124px] w-full object-cover"
+                    loading="lazy"
                   />
                 </div>
 

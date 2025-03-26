@@ -127,8 +127,9 @@ const NewsAndEvents = ({ }: Props) => {
         {latestNews ?
         loading?<p>Loading.....</p> : (
           <div
+          onClick={()=>navigate(`/news-and-events/view-all-news/view-news/${latestNews._id}`)}
             key={latestNews._id}
-            className="h-[335px] sm:w-[1073px] w-[335px] sm:h-[535px]  overflow-x-auto relative overflow-hidden"    
+            className="h-[335px] sm:w-[1073px] w-[335px] sm:h-[535px]  overflow-x-auto relative overflow-hidden cursor-pointer"    
             style={{
               backgroundImage: `url(${latestNews?.image?.[0] || defaultImage})`,
               backgroundSize: "cover",
@@ -179,7 +180,8 @@ const NewsAndEvents = ({ }: Props) => {
   </div>
 
   <div
-    className="h-[244px] relative sm:h-[300px] md:h-[350px] w-[300px] lg:h-[300px] sm:w-[480px]"
+    onClick={()=>navigate(`/news-and-events/view-all/view-event/${latestEvent._id}`)}
+    className="h-[244px] relative sm:h-[300px] md:h-[350px] w-[300px] lg:h-[300px] sm:w-[480px] cursor-pointer"
     style={{
       backgroundImage: `url(${latestEvent?.image[0] || defaultImage})`,
       backgroundSize: 'cover',
@@ -240,19 +242,14 @@ const NewsAndEvents = ({ }: Props) => {
                 </div>
               </div>
               <div className="col-span-3">
-                {item?.image[0] && item?.image[0].length > 50 ? (
+                
                   <img
-                    src={item?.image[0]}
+                    src={item?.image[0] || defaultImage}
                     className="rounded-lg w-28 h-[118px]"
                     alt="Event"
+                    loading="lazy"
                   />
-                ) : (
-                  <img
-                    src={defaultImage}
-                    className="rounded-lg w-28 h-28"
-                    alt="Event"
-                  />
-                )}
+               
               </div>
             </div>
             <hr />

@@ -10,7 +10,7 @@ function Privacy({}: Props) {
 
   const handleGetData = async () => {
     try {
-      const url = `${endpoints.GET_TERMS}?type=LegalAndPrivacy&project=BillBizz`;
+      const url = `${endpoints.GET_TERMS}?type=LegalPrivacy&project=BillBizz`;
       const { response, error } = await getData(url);
 
       if (!error && response) {
@@ -28,9 +28,9 @@ function Privacy({}: Props) {
   return (
     <div className="my-10 mx-4 sm:mx-8 space-y-6">
       <p className="text-3xl sm:text-4xl font-bold ">Privacy Policy</p>
-      <p className="text-lg sm:text-xl font-semibold py-3">
+      {/* <p className="text-lg sm:text-xl font-semibold py-3">
         Effective Date: [Insert Date]
-      </p>
+      </p> */}
 
       <div className="text-lg sm:text-xl text-[#6d6d6d] space-y-8">
         {data.length > 0 ? (

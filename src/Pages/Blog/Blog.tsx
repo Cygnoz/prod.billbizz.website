@@ -93,19 +93,21 @@ function Blog({ }: Props) {
                       {post?.category?.categoryName}
                     </span>
 
-                    <p className="w-[401px] text-[26px] font-semibold capitalize leading-9 my-4 text-[#222222]">
+                    <p className="w-[401px] truncate text-[26px] font-semibold capitalize leading-9 my-4 text-[#222222]">
                       {post.title}
                     </p>
                     <img
                       src={post.image[0]|| noImage}
                       alt=""
                       className="w-[401px] h-[229px] rounded-[7px]"
+                      loading="lazy"
                     />
                     <div className="flex items-center gap-2 text-xs text-[#777777] mt-4">
                       <img
                         src={post.createdBy.userImage || noImage}
                         alt=""
                         className="h-[18px] w-[18px] rounded-full"
+                        loading="lazy"
                       />
                       <span>{post.createdBy.userName}</span> | <Calendar />{" "}
                       <span>{formattedDate}</span> | <Clock />{" "}

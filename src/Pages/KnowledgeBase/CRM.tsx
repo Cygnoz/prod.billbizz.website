@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import useApi from "../../Hooks/useApi";
 import { endpoints } from "../../Services/ApiEndpoints";
 import Footer from "../../components/Footer";
-
+import noImage from '../../assets/images/noImage.png'
 type Props = {};
 
 const CRM = ({}: Props) => {
@@ -56,7 +56,7 @@ const CRM = ({}: Props) => {
           {
             data.map((item: any, index:number) => (
               <div className="flex bg-white p-2 gap-5 rounded-2xl" key={index}>
-                <img src={item.categoryName.image} alt="" className="rounded-2xl h-24 w-44" />
+                <img src={item.image || noImage} loading="lazy" alt="" className="rounded-2xl h-24 w-44" />
                 <div className="space-y-2">
                   <p className="text-base font-bold">{item?.subCategoryName}</p>
                   <div className="flex gap-5">

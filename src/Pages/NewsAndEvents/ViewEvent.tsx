@@ -65,15 +65,10 @@ function ViewEvent({ }: Props) {
           </div>
 
           <div className="my-6 px-4 py-4">
-            {aEvent?.image[0] && aEvent?.image[0].length > 50 ? (
               <div className="flex justify-center">
-              <img className="w-[500px] max-h-[540px] object-cover" src={aEvent?.image[0]} alt="Default" />
+              <img className="w-[500px] max-h-[540px] object-cover" loading="lazy" src={aEvent?.image[0]|| defaultImage} alt="Default" />
             </div>
-            ) : (
-              <div className="flex justify-center">
-                <img className="w-[500px] max-h-[540px] object-cover" src={defaultImage} alt="Default" />
-              </div>
-            )}
+        
             <p className="my-6 leading-relaxed"
              dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(aEvent?.content),
@@ -82,7 +77,7 @@ function ViewEvent({ }: Props) {
           </div>
 
           <div className="mt-10">
-            <img className="w-full" src={image2} alt="Footer" />
+            <img className="w-full" loading="lazy" src={image2} alt="Footer" />
           </div>
         </div>
       ) : (

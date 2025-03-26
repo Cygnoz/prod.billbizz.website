@@ -26,12 +26,12 @@ const RecentNews = ({ data }: Props) => {
           {data.length>0 ?
             data.length > 0 && data.reverse().map((item: any, index: number) => (
               <div  key={index} className="bg-[#FFFFFF] border border-[#E8E8EA] rounded-xl p-4 w-96 mt-4">
-              <img src={item.image[0] || noImage} className="" alt="" />
+              <img src={item.image[0] || noImage} loading="lazy" className="" alt="" />
               <div className="bg-[#EAD1D1] rounded-3xl w-44 h-7 my-4 flex gap-3 items-center px-4">
                 <div className="bg-[#393939] rounded-full w-2 h-2"></div>
                 <p>{item?.category?.categoryName}</p>
               </div>
-              <p className="text-[#393939] text-2xl font-semibold">{item?.title}</p>
+              <p className="text-[#393939] text-2xl font-semibold w-[370px] truncate">{item?.title}</p>
             </div>
             )):<div className="text-red-600 flex items-center justify-center my-5">No News Available !</div>}
         </div>

@@ -45,6 +45,7 @@ function RecentlyUploaded({ blogData }: Props) {
                 src={item?.image[0] || noImage}
                 className="w-full h-[180px] rounded-[5px]"
                 alt="Blog"
+                loading="lazy"
               />
             </div>
             <div className="ps-4 col-span-9">
@@ -59,6 +60,7 @@ function RecentlyUploaded({ blogData }: Props) {
                   src={item?.createdBy?.userImage || noImage}
                   alt="User"
                   className="h-[18px] w-[18px] rounded-full"
+                  loading="lazy"
                 />
                 <span>{item?.createdBy?.userName || "Anonymous"}</span> |
                 <Calendar /> <span>{formattedDate}</span> |

@@ -51,7 +51,7 @@ const AboutUs = ({}: Props) => {
 
 
     <div className="mx-4 sm:mx-12 md:mx-24 lg:mx-36 ">
-          <img src={img2} alt="" className="w-full h-auto max-h-[460px] object-cover" />
+          <img src={img2} loading="lazy" alt="" className="w-full h-auto max-h-[460px] object-cover" />
         </div>
      
   <div className="lg:h-[840px] lg:mt-16"  style={{
@@ -77,6 +77,7 @@ const AboutUs = ({}: Props) => {
             <img
               src={feature.image}
               alt={feature.title}
+              loading="lazy"
               className="rounded-t-2xl object-cover w-full h-full"
             />
           </div>
@@ -106,7 +107,7 @@ const AboutUs = ({}: Props) => {
           </p>
         </div>
         <div className="my-14">
-          <img src={img7} alt="" className="w-full" />
+          <img src={img7} loading="lazy" alt="" className="w-full" />
         </div>
   </div>
 

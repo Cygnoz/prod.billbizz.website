@@ -118,10 +118,11 @@ const handlePDF = () => {
         <hr />
         <div className="px-5 grid grid-cols-12 my-10 gap-4 prinding-div">
           <div className="col-span-5">
-          {data?.content}
+          <p className="text-[#4B5C79B5] text-xl sm:text-2xl font-semibold">What is {data.title} ?</p>
+          <p className="text-[#303F58] text-sm font-medium my-2">{data?.content}</p>
           </div>
           <div className="col-span-7 flex items-center justify-center">
-            <img src={data?.image|| data?.image?.image[0]} alt="" />
+            <img src={data?.image|| data?.image?.image[0]} loading="lazy" alt="" />
           </div>
         </div>
       </div>

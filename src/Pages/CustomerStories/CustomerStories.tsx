@@ -20,21 +20,25 @@ function CustomerStories({}: Props) {
               src={img}
               alt=""
               className="w-10 h-10 rounded-full border-2 border-white"
+              loading="lazy"
             />
             <img
               src={img}
               alt=""
               className="w-10 h-10 rounded-full border-2 border-white"
+              loading="lazy"
             />
             <img
               src={img}
               alt=""
               className="w-10 h-10 rounded-full border-2 border-white"
+              loading="lazy"
             />
             <img
               src={img}
               alt=""
               className="w-10 h-10 rounded-full border-2 border-white"
+              loading="lazy"
             />
             <div className="w-10 h-10 flex items-center justify-center bg-blue-200 text-black text-sm font-medium rounded-full border-2 border-white">
               +50
@@ -87,7 +91,7 @@ function CustomerStories({}: Props) {
 
                     {/* Bottom Left Card */}
                     <div className="w-52 h-52 bg-black bg-opacity-75 border border-white shadow-2xl mt-14 rounded-xl p-4 ">
-                        <img className="w-11 h-11 mt-2" src={img2} alt="Customer Trial" />
+                        <img className="w-11 h-11 mt-2" loading="lazy" src={img2} alt="Customer Trial" />
                         <div className="text-white text-base font-bold my-2 pr-10">
                             Free Customer Trial
                         </div>
@@ -166,12 +170,12 @@ function CustomerStories({}: Props) {
       <div className="flex flex-col md:flex-row ">
         {/* Left Image */}
         <div className="bg-black w-full md:w-56 flex-shrink-0">
-          <img src={img4} alt="" className="w-full" />
+          <img src={img4} loading="lazy" alt="" className="w-full" />
         </div>
 
         {/* Center Image */}
         <div className="flex items-center -ms-0 md:-ms-10 flex-shrink-0 my-4 md:my-0">
-          <img src={img5} alt="" />
+          <img src={img5} loading="lazy" alt="" />
         </div>
 
         {/* Text Content */}
@@ -189,9 +193,9 @@ function CustomerStories({}: Props) {
 
           {/* Stars */}
           <div className="flex items-center ms-4 ">
-            <img src={img6} alt="" />
-            <img src={img6} alt="" />
-            <img src={img6} alt="" />
+            <img src={img6} loading="lazy" alt="" />
+            <img src={img6} loading="lazy" alt="" />
+            <img src={img6} loading="lazy" alt="" />
           </div>
 
           {/* Testimonial Text */}

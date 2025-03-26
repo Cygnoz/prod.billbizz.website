@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Modal from "@mui/material/Modal";
-import Fade from "@mui/material/Fade";
+// import Fade from "@mui/material/Fade";
 import signupbg from "../assets/images/signupBG.png";
 import future from "../assets/images/Future-proof cloud tools for your evolving needs.png";
 import billbizz from "../assets/icons/Billbizz-Logo_White 1.png";
 import { endpoints } from "../Services/ApiEndpoints";
 import useApi from "../Hooks/useApi";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import ChevronDown from "../assets/icons/ChevronDown";
 
 
@@ -134,7 +134,20 @@ const ReusableModal: React.FC<ReusableModalProps> = ({
 
   useEffect(() => {
     getAreaRegion()
+    setFormData({
+      firstName: "",
+      lastName: "",
+      project: "BillBizz",
+      companyName: "",
+      phone: "",
+      companyAddress: "",
+      email: "",
+      country: "",
+      regionId: "",
+      areaId: "",
+    })
   }, [])
+
 
   useEffect(() => {
     if (formData.regionId) {
@@ -150,207 +163,220 @@ const ReusableModal: React.FC<ReusableModalProps> = ({
   console.log("op", options.area)
   return (
     <Modal open={open} onClose={onClose} closeAfterTransition>
-      <Fade in={open}>
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-10 ">
-          <div className="w-[1320px] h-[]720px bg-slate-200 relative rounded-xl">
-            <div className="flex">
-              {/* Close Button */}
-              <button
-                onClick={onClose}
-                className="absolute top-4 right-4 text-black font-bold text-2xl rounded-lg p-2  hover:bg-gray-100 focus:outline-none"
-              >
-                ✕
-              </button>
+      {/* <Fade in={open}> */}
+      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-10 p-4 sm:p-0">
+        <div className="w-full max-w-[90%] sm:max-w-[1320px] bg-slate-200 relative rounded-xl">
+          <div className="flex flex-col sm:flex-row">
+            {/* Close Button */}
+            <button
+              onClick={onClose}
+              className="absolute top-4 right-4 text-black font-bold text-2xl rounded-lg p-2 hover:bg-gray-100 focus:outline-none"
+            >
+              ✕
+            </button>
 
-              <div
-                className="w-full lg:w-1/3 p-8 flex items-center rounded-l-xl"
-                style={{
-                  backgroundImage: `url(${signupbg})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                <h2 className="text-3xl font-bold">
-                  <img src={future} loading="lazy" alt="Future-proof cloud tools" />
-                </h2>
+            {/* Left Image Section */}
+            <div
+              className="w-full sm:w-1/3 p-6 sm:p-8 flex items-center rounded-t-xl sm:rounded-l-xl sm:rounded-none"
+              style={{
+                backgroundImage: `url(${signupbg})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold">
+                <img src={future} loading="lazy" alt="Future-proof cloud tools" />
+              </h2>
+            </div>
+
+            {/* Right Form Section */}
+            <div className="w-full sm:w-2/3 bg-white text-black p-6 sm:p-8 rounded-xl sm:rounded-none">
+              <div className="flex gap-2 items-center">
+                <img src={billbizz} loading="lazy" alt="" className="w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] mb-4" />
+                <p className="text-[#232222] text-2xl sm:text-3xl font-medium">BillBizz</p>
               </div>
 
-              <div className="w-full lg:w-2/3 bg-white text-black p-8 rounded-xl">
-              <div className="flex gap-2">
-              <img src={billbizz} loading="lazy" alt="" className="w-[50px] h-[50px] mb-7" />
-              <p className="text-[#232222] text-3xl font-medium mt-2">BillBizz</p>
-              </div>
-                <h5 className=" font-bold pb-5 text-xl">Sign Up</h5>
-                <form onSubmit={handleSubmit} className="grid grid-cols-2  text-[#2D3748] gap-6">
-                  {/* First Name */}
-                  <div className="col-span-1 max-[530px]:col-span-2">
-                    <label className="block text-sm font-medium">
-                      First name <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="firstName"
-                      value={formData.firstName}
+              <h5 className="font-bold pb-3 sm:pb-5 text-lg sm:text-xl">Sign Up</h5>
+
+              <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 text-[#2D3748]">
+                {/* First Name */}
+                <div>
+                  <label className="block text-sm font-medium">
+                    First name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                    className="w-full p-2 sm:p-3 border border-[#D1D1D1] rounded-md"
+                  />
+                </div>
+
+                {/* Last Name */}
+                <div>
+                  <label className="block text-sm font-medium">
+                    Last name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                    className="w-full p-2 sm:p-3 border border-[#D1D1D1] rounded-md"
+                  />
+                </div>
+
+                {/* Company Name */}
+                <div>
+                  <label className="block text-sm font-medium">Company Name</label>
+                  <input
+                    type="text"
+                    name="companyName"
+                    value={formData.companyName}
+                    onChange={handleInputChange}
+                    className="w-full p-2 sm:p-3 border border-[#D1D1D1] rounded-md"
+                  />
+                </div>
+
+                {/* Mobile Number */}
+                <div>
+                  <label className="block text-sm font-medium">
+                    Mobile Number <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="phone"
+                    value={formData.phone}
+                    maxLength={10}
+                    onChange={(e) => {
+                      const value = e.target.value.replace(/\D/g, "");
+                      if (value.length <= 10) {
+                        handleInputChange(e);
+                      }
+                    }}
+                    className="w-full p-2 sm:p-3 border border-[#D1D1D1] rounded-md"
+                  />
+                </div>
+
+                {/* Company Address */}
+                <div className="sm:col-span-2">
+                  <label className="block text-sm font-medium">Company Address</label>
+                  <input
+                    type="text"
+                    name="companyAddress"
+                    value={formData.companyAddress}
+                    onChange={handleInputChange}
+                    className="w-full p-2 sm:p-3 border border-[#D1D1D1] rounded-md"
+                  />
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label className="block text-sm font-medium">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full p-2 sm:p-3 border border-[#D1D1D1] rounded-md"
+                  />
+                </div>
+
+                {/* Country Dropdown */}
+                <div>
+                  <label className="block text-sm font-medium">
+                    Country <span className="text-red-500">*</span>
+                  </label>
+                  <div className="relative">
+                    <select
+                      name="country"
+                      value={formData.country}
                       onChange={handleInputChange}
-                      className="w-full p-2 border-[#D1D1D1] border rounded-md"
-                    />
-                  </div>
-
-                  {/* Last Name */}
-                  <div className="col-span-1 max-[530px]:col-span-2">
-                    <label className="block text-sm font-medium">
-                      Last name <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      className="w-full p-2 border-[#D1D1D1] border rounded-md"
-                    />
-                  </div>
-
-                  {/* Company Name */}
-                  <div className="col-span-1 max-[530px]:col-span-2">
-                    <label className="block text-sm font-medium">Company Name</label>
-                    <input
-                      type="text"
-                      name="companyName"
-                      value={formData.companyName}
-                      onChange={handleInputChange}
-                      className="w-full p-2 border-[#D1D1D1] border rounded-md"
-                    />
-                  </div>
-
-                  {/* Mobile Number */}
-                  <div className="col-span-1 max-[530px]:col-span-2">
-                    <label className="block text-sm font-medium">
-                      Mobile Number <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="number"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="w-full p-2 border-[#D1D1D1] border rounded-md"
-                    />
-                  </div>
-
-                  {/* Company Address */}
-                  <div className="col-span-2">
-                    <label className="block text-sm font-medium">
-                      Company Address
-                    </label>
-                    <input
-                      type="text"
-                      name="companyAddress"
-                      value={formData.companyAddress}
-                      onChange={handleInputChange}
-                      className="w-full p-2 border-[#D1D1D1] border rounded-md"
-                    />
-                  </div>
-
-                  {/* Email */}
-                  <div className="col-span-1 max-[530px]:col-span-2">
-                    <label className="block text-sm font-medium">Email</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full p-2 border-[#D1D1D1] border rounded-md"
-                    />
-                  </div>
-
-                  {/* Country Dropdown */}
-                  <div className="col-span-1 max-[530px]:col-span-2">
-                    <label className="block text-sm font-medium">
-                      Country <span className="text-red-500">*</span>
-                    </label>
-                    <div className="relative">
-                      <select
-                        name="country"
-                        value={formData.country}
-                        onChange={handleInputChange}
-                        className="block w-full h-9 px-3 pr-8 text-sm border border-[#D1D1D1] rounded-md appearance-none"
-                      >
-                        <option value="">Select</option>
-                        {options.country.map((option) => (
-                          <option key={option.value} value={option.value}>
-                            {option.label}
-                          </option>
-                        ))}
-                      </select>
-                      <div className="absolute inset-y-0 right-2 flex items-center pointer-events-none">
-                        <ChevronDown color="gray" />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Region Dropdown */}
-                  <div className="col-span-1 max-[530px]:col-span-2">
-                    <label className="block text-sm font-medium">
-                      Region <span className="text-red-500">*</span>
-                    </label>
-                    <div className="relative">
-                      <select
-                        name="regionId"
-                        value={formData.regionId}
-                        onChange={handleInputChange}
-                        className="block w-full h-9 px-3 pr-8 text-sm border border-[#D1D1D1] rounded-md appearance-none"
-                      >
-                        <option value="">Select Region</option>
-                        {options.region.map((option) => (
-                          <option key={option.value} value={option.value}>
-                            {option.label}
-                          </option>
-                        ))}
-                      </select>
-                      <div className="absolute inset-y-0 right-2 flex items-center pointer-events-none">
-                        <ChevronDown color="gray" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-span-1 max-[530px]:col-span-2">
-                    <label className="block text-sm font-medium">
-                      Area<span className="text-red-500">*</span>
-                    </label>
-                    <div className="relative">
-                      <select
-                        name="areaId"
-                        value={formData.areaId}
-                        onChange={handleInputChange}
-                        className="block w-full h-9 px-3 pr-8 text-sm border border-[#D1D1D1] rounded-md appearance-none"
-                      >
-                        <option value="">
-                          {formData?.regionId === "" ? "Select Region" : "Select Area"}
+                      className="block w-full h-9 px-3 pr-8 text-sm border border-[#D1D1D1] rounded-md appearance-none"
+                    >
+                      <option value="">Select</option>
+                      {options.country.map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
                         </option>
-                        {formData.regionId &&
-                          options?.filteredArea.map((option) => (
-                            <option key={option.value} value={option.value}>
-                              {option.label}
-                            </option>
-                          ))}
-                      </select>
-                      <div className="absolute inset-y-0 right-2 flex items-center pointer-events-none">
-                        <ChevronDown color="gray" />
-                      </div>
+                      ))}
+                    </select>
+                    <div className="absolute inset-y-0 right-2 flex items-center pointer-events-none">
+                      <ChevronDown color="gray" />
                     </div>
+                  </div>
+                </div>
 
+                {/* Region Dropdown */}
+                <div>
+                  <label className="block text-sm font-medium">
+                    Region <span className="text-red-500">*</span>
+                  </label>
+                  <div className="relative">
+                    <select
+                      name="regionId"
+                      value={formData.regionId}
+                      onChange={handleInputChange}
+                      className="block w-full h-9 px-3 pr-8 text-sm border border-[#D1D1D1] rounded-md appearance-none"
+                    >
+                      <option value="">Select Region</option>
+                      {options.region.map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="absolute inset-y-0 right-2 flex items-center pointer-events-none">
+                      <ChevronDown color="gray" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Area Dropdown */}
+                <div>
+                  <label className="block text-sm font-medium">
+                    Area<span className="text-red-500">*</span>
+                  </label>
+                  <div className="relative">
+                    <select
+                      name="areaId"
+                      value={formData.areaId}
+                      onChange={handleInputChange}
+                      className="block w-full h-9 px-3 pr-8 text-sm border border-[#D1D1D1] rounded-md appearance-none"
+                    >
+                      <option value="">
+                        {formData?.regionId === "" ? "Select Region" : "Select Area"}
+                      </option>
+                      {formData.regionId &&
+                        options?.filteredArea.map((option) => (
+                          <option key={option.value} value={option.value}>
+                            {option.label}
+                          </option>
+                        ))}
+                    </select>
+                    <div className="absolute inset-y-0 right-2 flex items-center pointer-events-none">
+                      <ChevronDown color="gray" />
+                    </div>
                   </div>
 
-                  {/* Sign Up Button */}
-                  <div className="col-span-2 flex justify-start mt-4">
-                    <button type="submit" className="bg-gradient-to-l from-[#CC1111] to-[#8F0100] text-white px-14 py-2 rounded-2xl">
-                      Sign Up
-                    </button>
-                  </div>
-                </form>
-              </div>
+                </div>
+
+                {/* Sign Up Button */}
+                <div className="sm:col-span-2 flex justify-start mt-4">
+                  <button type="submit" className="bg-gradient-to-l from-[#CC1111] to-[#8F0100] text-white px-10 py-2 sm:px-14 rounded-2xl">
+                    Sign Up
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
-      </Fade>
+        <Toaster reverseOrder={false} />
+      </div>
+
+
+      {/* </Fade> */}
     </Modal>
   );
 };

@@ -37,9 +37,9 @@ const Security = ({}: Props) => {
     <div className="my-10 mx-4 sm:mx-8 space-y-6">
       <p className="text-[#3b3b3b] text-2xl font-bold">Security Terms</p>
 
-      <p className="text-xl font-semibold text-[#383838]">
+      {/* <p className="text-xl font-semibold text-[#383838]">
         Last Update : [Insert Date]
-      </p>
+      </p> */}
       <div className="text-2xl text-[#6d6d6d] space-y-6">
         {data.length > 0 ? (
             data.map((item:any, index:number) => (

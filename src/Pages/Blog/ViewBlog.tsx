@@ -126,24 +126,24 @@ const ViewBlog = () => {
         {viewBlog?.map((item: any) => (
           <div>
             <div
-              className="h-[548px] rounded-3xl relative overflow-hidden"
-              style={{ backgroundImage: `url(${item?.image[0] || noImage})`, backgroundSize: "cover" }}
+              className="h-[350px] sm:h-[548px] rounded-3xl relative overflow-hidden"
+              style={{ backgroundImage: `url(${item?.image[0] || noImage})`, backgroundSize: "cover", backgroundPosition:'center' }}
             >
-              <div onClick={()=>navigate('/blog')} className="p-5 rounded-full cursor-pointer w-12 h-12 border border-[#E7E7E7] cu items-center flex justify-center mt-6 mx-4">
+              <div onClick={()=>navigate('/blog')} className="p-3 sm:p-5 rounded-full cursor-pointer w-10 sm:w-12 h-10 sm:h-12 border border-[#E7E7E7] flex items-center justify-center mt-4 sm:mt-6 mx-3 sm:mx-4">
                 <ChevronLeft size={20} color="#E7E7E7"/>
               </div>
-              <div className="bg-white/10 backdrop-blur-md w-full px-8 py-8 absolute inset-x-0 bottom-0 border-t border-2 rounded-b-3xl border-white">
-                <p className="text-white text-[28px] font-semibold leading-10">
+              <div className="bg-white/10 backdrop-blur-md w-full px-6 sm:px-8 py-6 sm:py-8 absolute inset-x-0 bottom-2 sm:bottom-4 border-x-0 border-y border-2 rounded-b-3xl border-white">
+                <p className="text-white text-lg sm:text-[28px] font-semibold leading-tight sm:leading-10">
                   {item.title}
                 </p>
-                <p className="text-white/60 text-sm font-semibold leading-10"
+                <p className="text-white/60 text-xs sm:text-sm font-semibold leading-tight sm:leading-10 mt-2"
                  dangerouslySetInnerHTML={{
                   __html: DOMPurify.sanitize(item?.content),
                 }}>
                  
                 </p>
-                <div className="flex items-center gap-2 text-xs text-white mt-4">
-                  <img src={item?.createdBy?.userImage || noImage} alt="" className="h-[18px] w-[18px] rounded-full" />
+                <div className="flex flex-wrap items-center gap-2 text-xs text-white mt-3 sm:mt-4">
+                  <img src={item?.createdBy?.userImage || noImage} loading="lazy" alt="" className="h-[18px] w-[18px] rounded-full" />
                   <span>{item?.createdBy?.userName}</span> |
                   <Calendar color="white" /> <span>
                     {new Date(item?.updatedAt).toLocaleDateString("en-US", {
@@ -152,8 +152,8 @@ const ViewBlog = () => {
                       year: "numeric",
                     })}</span> |
                   <Clock color="white" /> <span>{getTimeAgo(item?.updatedAt)}</span>
-                  <div className="ml-auto flex gap-5">
-                    <div className="h-[35px] px-4 bg-white/0 rounded-[20px] border border-white/50 backdrop-blur-[42.60px] flex items-center text-white text-xs">
+                  <div className="ml-auto flex gap-3 sm:gap-5">
+                    <div className="h-[30px] sm:h-[35px] px-3 sm:px-4 bg-white/0 rounded-[20px] border border-white/50 backdrop-blur-[42.60px] flex items-center text-white text-xs">
                       {item?.category?.categoryName || 'N/A'}
                     </div>
                     {/* <div className="h-[35px] px-4 bg-white/0 rounded-[20px] border border-white/50 backdrop-blur-[42.60px] flex items-center text-white text-xs">
@@ -163,8 +163,11 @@ const ViewBlog = () => {
                 </div>
               </div>
             </div>
-            <p className="text-[#666666] text-[15px] font-normal leading-snug mt-4">
-              Small businesses often struggle with managing invoices, tracking expenses, and ensuring timely payments. A smart billing system like Bill Bizz simplifies these processes by automating invoicing, reducing errors, and providing real-time financial insights...
+            <p className="text-[#666666] text-sm sm:text-[15px] font-normal leading-snug mt-3 sm:mt-4"
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(item?.content),
+            }}>
+             
             </p>
           </div>
         ))}
@@ -178,12 +181,12 @@ const ViewBlog = () => {
               Post
             </span>
           </div>
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto flex flex-col sm:flex-row gap-4">
             <div className="min-w-full flex gap-4">
               {blogData.map((post:any) => (
-                <div key={post._id} className="w-[413px] h-[548px] bg-white rounded-[5px] p-5 flex-shrink-0">
-                  <img className="h-[262px] rounded-[5px]" src={post.image[0] || noImage} alt={post.category?.categoryName} />
-                  <div className="h-5 px-2 py-1 bg-[#f5cf4a] rounded-[3px] inline-flex justify-center items-center gap-2.5">
+                <div key={post._id} className="w-full sm:w-[413px] h-auto sm:h-[548px] bg-white rounded-[5px] p-3 sm:p-5 flex-shrink-0">
+                  <img className="w-full h-auto sm:h-[262px] rounded-[5px]" src={post.image[0] || noImage} loading="lazy" alt={post.category?.categoryName} />
+                  <div className="h-5 px-2 py-1 bg-[#f5cf4a] rounded-[3px] inline-flex justify-center items-center gap-2.5 mt-2">
                     <div className="relative justify-start text-[#666666] text-xs font-normal capitalize leading-3">
                       {post.category?.categoryName}
                     </div>
@@ -192,7 +195,7 @@ const ViewBlog = () => {
                   {post.title}
                   </p>
                   <div className="flex items-center gap-2 text-xs text-[#777777] mt-4">
-                    <img src={post?.createdBy?.userImage || noImage} alt="" className="h-[18px] w-[18px] rounded-full" />
+                    <img src={post?.createdBy?.userImage || noImage} loading="lazy" alt="" className="h-[18px] w-[18px] rounded-full" />
                     <span>{post?.createdBy?.userName}</span> |
                     <Calendar /> <span>{new Date(post?.updatedAt).toLocaleDateString("en-US", {
                       month: "2-digit",
@@ -216,23 +219,9 @@ const ViewBlog = () => {
 
 
       </div>
-      <div className="col-span-4 flex flex-col px-6 ms-6">
+      <div className="col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-4 flex flex-col px-1 sm:px-2">
         <Categories />
-        {/* <InstaPost /> */}
-        {/* <div className="mt-5">
-        <div className="flex items-center justify-between my-4">
-       
-        <div className="flex items-center w-full max-w-sm rounded-[20px] border px-4 py-2">
-          <input
-            type="text"
-            placeholder="Search"
-            className="w-full outline-none bg-transparent pl-2"
-          />
-<SearchIcon/>
-        </div>
-      </div>  
-          <Authors />
-        </div> */}
+        
       </div>
     </div>
   );

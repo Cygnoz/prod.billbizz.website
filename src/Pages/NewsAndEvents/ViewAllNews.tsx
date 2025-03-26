@@ -94,9 +94,10 @@ const ViewAllNews = ({}: Props) => {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-5 border-b mx-3 my-4 pb-4">
               <div className="md:col-span-2 flex items-center justify-center mt-4">
                 <img
-                  src={item?.image[0] && item?.image[0].length > 50 ? item?.image[0] : defaultImage}
+                  src={item?.image[0] ||defaultImage}
                   alt="News"
                   className="h-[124px] w-full object-cover"
+                  loading="lazy"
                 />
               </div>
 
