@@ -12,12 +12,13 @@ const ViewAll = ({ }: Props) => {
   const [newsData, setNewsData] = useState([]);
   const { request: getData } = useApi("get", 3001);
   const [searchTerm, setSearchTerm] = useState("");
-
+  const [loading, setLoading] = useState<boolean>(true);
   const navigate = useNavigate();
 
   const handleGetNewsData = async () => {
     try {
-      const url = `${endpoints.GET_BLOGS}?postType=Events&project=BillBizz`;
+      setLoading(true);
+      const url = `${endpoints.GET_BLOGS}?postType=Events&project=BillBizz&postStatus=Published`;
       const { response, error } = await getData(url);
 
       if (!error && response) {
@@ -25,6 +26,9 @@ const ViewAll = ({ }: Props) => {
       }
     } catch (error) {
       console.error("Error fetching data:", error);
+    }
+    finally {
+      setLoading(false); 
     }
   };
 
@@ -65,6 +69,7 @@ const ViewAll = ({ }: Props) => {
       {/* Event Cards */}
       <div className="mt-6 grid gap-6">
         {filteredNewsData.length > 0 ? (
+          loading? <p>Loading...</p>:
           filteredNewsData.reverse().map((item: any) => (
             <div
               key={item._id}

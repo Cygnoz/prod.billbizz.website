@@ -7,9 +7,10 @@ type Props = {};
 const Categories = ({}: Props) => {
      const [data, setData] = useState([]);
      const { request: getData } = useApi("get", 3001);
-   
+     const [loading, setLoading] = useState<boolean>(true);
      const handleGetData = async () => {
        try {
+        setLoading(true);
          const url = `${endpoints.GET_CATEGORIES}?categoryType=Blogs&project=BillBizz`;
          const { response, error } = await getData(url);
           console.log('url',url);
@@ -26,6 +27,9 @@ const Categories = ({}: Props) => {
        } catch (error) {
          console.log("Error", error);
        }
+       finally {
+        setLoading(false);
+      }
      };
    
      console.log("Blog Data", data);
@@ -39,7 +43,8 @@ const Categories = ({}: Props) => {
              Categories
            </p>
        <div className="overflow-y-auto max-h-96 w-full">
-       {data.length>0 ? data?.map((item:any)=>( 
+       {data.length>0 ?
+       loading?<p>Loading...</p>: data?.map((item:any)=>( 
          <div className=""> 
          <div className="flex w-full p-4">
            <p className="relative justify-start text-[#1c1c1c] text-[15px] font-medium font-['Inter'] capitalize leading-snug mt-4">

@@ -11,9 +11,11 @@ type Props = {};
 const KnowledgeBase = ({}: Props) => {
   const [data, setData] = useState([]);
   const { request: getData } = useApi("get", 3001);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const handleGetData = async () => {
     try {
+      setLoading(true); 
       const url = `${endpoints.GET_CATEGORIES}?categoryType=KnowledgeBase&project=BillBizz`;
       const { response, error } = await getData(url);
 
@@ -22,6 +24,9 @@ const KnowledgeBase = ({}: Props) => {
       }
     } catch (error) {
       console.log("Error", error);
+    }
+    finally {
+      setLoading(false); 
     }
   };
 
@@ -44,6 +49,7 @@ const KnowledgeBase = ({}: Props) => {
 
         <div className="grid lg:grid-cols-3 col-span-12 gap-12 my-8 rounded-xl">
           {data ? (
+            loading? <p>Loading...</p>:
             data.map((item: any) => (
               <div className="bg-[#FFFFFF] p-5 text-start rounded-xl">
                 <p className="flex items-center gap-2 text-base font-bold">

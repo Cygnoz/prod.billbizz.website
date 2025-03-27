@@ -13,9 +13,11 @@ const CRM = ({}: Props) => {
   const [data, setData] = useState<any>([]);
   const { request: getData } = useApi("get", 3001);
   const { id } = useParams();
+  const [loading, setLoading] = useState<boolean>(true);
 
   const handleGetData = async () => {
     try {
+      setLoading(true);
       const url = `${endpoints.GET_SUBCATEGORY}?categoryName=${id}&project=BillBizz`;
       const { response, error } = await getData(url);
       console.log('url',url);
@@ -28,6 +30,9 @@ const CRM = ({}: Props) => {
       }
     } catch (error) {
       console.log("Error", error);
+    }
+    finally {
+      setLoading(false); 
     }
   };
 
@@ -52,7 +57,9 @@ const CRM = ({}: Props) => {
           </span>{" "}
           <ChevronRight color="#4B5C79" /> {data[0]?.categoryName?.categoryName}
         </p>
-      {data.length>0 ?  <div className="grid grid-cols-2 gap-4 my-4">
+      {data.length>0 ?  
+      loading?<p>Loading</p>:
+      <div className="grid grid-cols-2 gap-4 my-4">
           {
             data.map((item: any, index:number) => (
               <div className="flex bg-white p-2 gap-5 rounded-2xl" key={index}>

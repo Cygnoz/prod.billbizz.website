@@ -14,9 +14,10 @@ const ViewANews = () => {
   const { id } = useParams();
   const [aNews, setANews] = useState<any[]>([]);
   const { request: getNews } = useApi("get", 3001);
-
+  const [loading, setLoading] = useState<boolean>(true);
   const handleAGetNews = async () => {
     try {
+      setLoading(true); 
       const url = `${endpoints.GET_POSTS}/${id}`;
       const { response, error } = await getNews(url);
 
@@ -28,6 +29,9 @@ const ViewANews = () => {
       }
     } catch (error) {
       console.error("Error occurred", error);
+    }
+    finally {
+      setLoading(false); 
     }
   };
 
@@ -52,6 +56,7 @@ const ViewANews = () => {
   return (
     <div className="p-4 sm:p-6">
       {aNews.length > 0 ? (
+        loading? <p>Loading...</p>:
         aNews.map((item: any) => (
           <div key={item.id}>
             <div className="flex gap-4 items-center">

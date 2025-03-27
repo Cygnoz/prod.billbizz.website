@@ -15,12 +15,13 @@ const ViewAllNews = ({}: Props) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [allNewsData, setAllNewsData] = useState([]);
   const { request: allNews } = useApi("get", 3001);
-
+  const [loading, setLoading] = useState<boolean>(true);
   const navigate = useNavigate();
 
   const handleGetAllNews = async () => {
     try {
-      const url = `${endpoints.GET_BLOGS}?postType=News&project=BillBizz`;
+      setLoading(true); 
+      const url = `${endpoints.GET_BLOGS}?postType=News&project=BillBizz&postStatus=Published`;
       const { response, error } = await allNews(url);
 
       if (response && !error) {
@@ -30,6 +31,9 @@ const ViewAllNews = ({}: Props) => {
       }
     } catch (err) {
       console.error("Error occurred", err);
+    }
+    finally {
+      setLoading(false); 
     }
   };
 
@@ -85,6 +89,7 @@ const ViewAllNews = ({}: Props) => {
       </div>
 
       {allNewsData.length > 0 ? (
+        loading?<p>Loading...</p>:
         filteredNews.map((item: any) => (
           <div
             key={item._id}

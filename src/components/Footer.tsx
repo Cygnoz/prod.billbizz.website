@@ -41,7 +41,7 @@ function Footer() {
           <div className="flex gap-1 items-center">
          
             <MailIcon size={18}/>
-            <p className="text-[#BEBEBE] text-center text-base font-normal">notify@sewnex.com</p>
+            <p className="text-[#BEBEBE] text-center text-base font-normal">notify@billbizz.com</p>
           </div>
           <div className="flex gap-1 items-center">
             <PhoneIcon   size={18} color="#BEBEBE"/>

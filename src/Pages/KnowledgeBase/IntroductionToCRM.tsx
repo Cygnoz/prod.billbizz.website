@@ -16,6 +16,7 @@ function IntroductionToCRM({}: Props) {
 
   const [data, setData] = useState<any>([]);
   const { request: getData } = useApi("get", 3001);
+  
   const { id } = useParams();
 
   const handleGetData = async () => {

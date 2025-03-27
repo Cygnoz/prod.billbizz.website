@@ -17,7 +17,7 @@ const ContactUs = () => {
     message: "",
   })
 
-  const {request:addContact}=useApi('post',3001)
+  const { request: addContact } = useApi('post', 3001)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -27,28 +27,28 @@ const ContactUs = () => {
     }));
   };
 
-  const handleSubmit = async(e: React.FormEvent)=>{
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    try{
-      const {response, error}= await addContact(endpoints.ADD_CONTACT, formData)
-      console.log('res',response);
-      console.log('err',error);
-      console.log('form',formData);
-      if(response && !error){
+    try {
+      const { response, error } = await addContact(endpoints.ADD_CONTACT, formData)
+      console.log('res', response);
+      console.log('err', error);
+      console.log('form', formData);
+      if (response && !error) {
         console.log(response.data.message);
         toast.success(response.data.message)
         setTimeout(() => {
           window.location.reload(); // or navigate('/some-route') if using React Router
         }, 1000);
       }
-      else{
+      else {
         console.log(error.response.data.message);
         toast.error(error.response.data.message)
       }
     }
-    catch(error){
-      console.log('error occured',error);
-      
+    catch (error) {
+      console.log('error occured', error);
+
     }
   }
 
@@ -74,7 +74,7 @@ const ContactUs = () => {
             Drop us a <br /> message— <br />
             <span className="text-[#750707]">we’re here to <br /> help</span>
           </h3>
-         
+
         </div>
 
         <div className="bg-[#F7E7CE] p-6 rounded-lg shadow-md">
@@ -82,54 +82,54 @@ const ContactUs = () => {
           <p className="text-gray-600 mb-4">Say something to start a live chat!</p>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-               
-                <div  className="w-full">
-                  <label className="text-[#820000] text-lg font-semibold block">
-                    First Name
-                  </label>
-                  <input
-                    type="text"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                    placeholder="Enter First Name"
-                    className="my-1 border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
-                    required
-                  />
-                </div>
-                <div  className="w-full">
-                  <label className="text-[#820000] text-lg font-semibold block">
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                    placeholder="Enter Last Name"
-                    className="my-1 border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
-                    required
-                  />
-                </div>
-                <div  className="w-full">
-                  <label className="text-[#820000] text-lg font-semibold block">
-                   Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Enter Email"
-                    className="my-1 border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
-                    required
-                  />
-                </div>
-                <div  className="w-full">
-                  <label className="text-[#820000] text-lg font-semibold block">
-                    Phone Number
-                  </label>
-                  <input
+
+              <div className="w-full">
+                <label className="text-[#820000] text-lg font-semibold block">
+                  First Name
+                </label>
+                <input
+                  type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleInputChange}
+                  placeholder="Enter First Name"
+                  className="my-1 border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
+                  required
+                />
+              </div>
+              <div className="w-full">
+                <label className="text-[#820000] text-lg font-semibold block">
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleInputChange}
+                  placeholder="Enter Last Name"
+                  className="my-1 border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
+                  required
+                />
+              </div>
+              <div className="w-full">
+                <label className="text-[#820000] text-lg font-semibold block">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="Enter Email"
+                  className="my-1 border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
+                  required
+                />
+              </div>
+              <div className="w-full">
+                <label className="text-[#820000] text-lg font-semibold block">
+                  Phone Number
+                </label>
+                {/* <input
                     type="text"
                     name="phoneNo"
                     maxLength={10}
@@ -143,36 +143,59 @@ const ContactUs = () => {
                     placeholder="Enter Phone No"
                     className="my-1 border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
                     required
-                  />
-                </div>
-                <div  className="w-full">
-                  <label className="text-[#820000] text-lg font-semibold block">
-                    Comapny Name
-                  </label>
-                  <input
-                    type="text"
-                    name="companyName"
-                    value={formData.companyName}
-                    onChange={handleInputChange}
-                    placeholder="Enter Company Name"
-                    className="my-1 border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
-                    required
-                  />
-                </div>
-                <div  className="w-full">
-                  <label className="text-[#820000] text-lg font-semibold block">
-                    Company Address
-                  </label>
-                  <input
-                    type="text"
-                    name="companyAddress"
-                    value={formData.companyAddress}
-                    onChange={handleInputChange}
-                    placeholder="Enter Address"
-                    className="my-1 border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
-                    required
-                  />
-                </div>
+                  /> */}
+                <input
+                  type="text"
+                  name="phoneNo"
+                  maxLength={10}
+                  value={formData.phoneNo}
+                  onChange={(e) => {
+                    const numericValue = e.target.value.replace(/\D/g, ""); // Keep only digits
+
+                    if (numericValue.length <= 10) {
+                      // Create a new event-like object with the filtered value
+                      handleInputChange({
+                        target: {
+                          name: e.target.name,
+                          value: numericValue,
+                        },
+                      } as React.ChangeEvent<HTMLInputElement>);
+                    }
+                  }}
+                  placeholder="Enter Phone No"
+                  className="my-1 border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
+                  required
+                />
+
+              </div>
+              <div className="w-full">
+                <label className="text-[#820000] text-lg font-semibold block">
+                  Comapny Name
+                </label>
+                <input
+                  type="text"
+                  name="companyName"
+                  value={formData.companyName}
+                  onChange={handleInputChange}
+                  placeholder="Enter Company Name"
+                  className="my-1 border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
+                  required
+                />
+              </div>
+              <div className="w-full">
+                <label className="text-[#820000] text-lg font-semibold block">
+                  Company Address
+                </label>
+                <input
+                  type="text"
+                  name="companyAddress"
+                  value={formData.companyAddress}
+                  onChange={handleInputChange}
+                  placeholder="Enter Address"
+                  className="my-1 border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
+                  required
+                />
+              </div>
             </div>
 
             <div>
@@ -197,10 +220,10 @@ const ContactUs = () => {
               Message
             </label>
             <textarea
-            typeof="text"
+              typeof="text"
               name="message"
               value={formData.message}
-               onChange={handleInputChange}
+              onChange={handleInputChange}
               placeholder="Write your message..."
               className="border-b border-[#820000] text-[#820000] text-sm font-normal bg-[#F7E7CE] focus:ring-0 focus:outline-none w-full p-2"
               required

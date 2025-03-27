@@ -7,9 +7,10 @@ type Props = {};
 function TermsandConditions({}: Props) {
   const [data, setData] = useState([]);
   const { request: getData } = useApi("get", 3001);
-
+  const [loading, setLoading] = useState<boolean>(true);
   const handleGetData = async () => {
     try {
+      setLoading(true); 
       const url = `${endpoints.GET_TERMS}?type=TermsAndConditions&project=BillBizz`;
       const { response, error } = await getData(url);
       console.log('url',url);
@@ -21,6 +22,9 @@ function TermsandConditions({}: Props) {
       }
     } catch (error) {
       console.log("Error", error);
+    }
+    finally {
+      setLoading(false); 
     }
   };
 
@@ -47,6 +51,7 @@ function TermsandConditions({}: Props) {
       </p>
 
       {data.length > 0 ? (
+        loading?<p>Loading...</p>:
   data.map((item: any) => (
     <div className="" key={item.id}>
       <p className="text-2xl font-semibold poppins-semibold">

@@ -12,12 +12,14 @@ type Props = {};
 function GettingStarted({}: Props) {
   const [data, setData] = useState<any>([]);
   const { request: getData } = useApi("get", 3001);
+  const [loading, setLoading] = useState<boolean>(true);
   const location =useLocation()
   console.log(location.state)
   const {id}=useParams()
 
   const handleGetData = async () => {
     try {
+      setLoading(true); 
       const url = `${endpoints.GET_ARTICLE}?subCategoryId=${id}&project=BillBizz`;
       const { response, error } = await getData(url);
 
@@ -26,6 +28,9 @@ function GettingStarted({}: Props) {
       }
     } catch (error) {
       console.log("Error", error);
+    }
+    finally {
+      setLoading(false); 
     }
   };
 
@@ -49,7 +54,9 @@ function GettingStarted({}: Props) {
           </div>
         </div>
 
-       {data.length>0? data.map((item:any)=>( <div className="bg-white p-4 mt-4 flex  gap-4 rounded-md" onClick={()=>(navigate(`/knowledge-base/${data[0]?.category?.categoryName}/${data[0]?.subCategory?.subCategoryName}/${item._id}`))}>
+       {data.length>0?
+       loading?<p>Loading....</p>:
+       data.map((item:any)=>( <div className="bg-white p-4 mt-4 flex  gap-4 rounded-md" onClick={()=>(navigate(`/knowledge-base/${data[0]?.category?.categoryName}/${data[0]?.subCategory?.subCategoryName}/${item._id}`))}>
           <div className="rounded-full  bg-[#CCCCCC] flex items-center justify-center w-[60px] h-[60px] cursor-pointer">
             <CopyIcon />
           </div>

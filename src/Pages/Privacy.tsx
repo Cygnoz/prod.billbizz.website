@@ -7,9 +7,10 @@ type Props = {};
 function Privacy({}: Props) {
   const [data, setData] = useState([]);
   const { request: getData } = useApi("get", 3001);
-
+  const [loading, setLoading] = useState<boolean>(true);
   const handleGetData = async () => {
     try {
+      setLoading(true);
       const url = `${endpoints.GET_TERMS}?type=LegalPrivacy&project=BillBizz`;
       const { response, error } = await getData(url);
 
@@ -18,6 +19,9 @@ function Privacy({}: Props) {
       }
     } catch (error) {
       console.error("Error fetching privacy terms:", error);
+    }
+    finally {
+      setLoading(false); 
     }
   };
 
@@ -34,6 +38,7 @@ function Privacy({}: Props) {
 
       <div className="text-lg sm:text-xl text-[#6d6d6d] space-y-8">
         {data.length > 0 ? (
+          loading?<p>Loading...</p>:
           data.map((item: any, index) => (
             <div key={item._id} className="p-4 rounded-lg shadow-sm">
               <p className="font-bold mb-2">

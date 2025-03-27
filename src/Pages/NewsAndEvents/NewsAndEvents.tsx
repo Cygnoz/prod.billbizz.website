@@ -27,7 +27,7 @@ const NewsAndEvents = ({ }: Props) => {
   const handleGetBlogData = async () => {
     try {
       setLoading(true);
-      const url = `${endpoints.GET_BLOGS}?postType=News&project=BillBizz`;
+      const url = `${endpoints.GET_BLOGS}?postType=News&project=BillBizz&postStatus=Published`;
 
       const { response, error } = await getData(url);
       console.log('url', url);
@@ -72,7 +72,7 @@ const NewsAndEvents = ({ }: Props) => {
   const handlegetEvent = async () => {
     try {
       setLoading(true);
-      const url = `${endpoints.GET_BLOGS}?postType=Events&project=BillBizz`;
+      const url = `${endpoints.GET_BLOGS}?postType=Events&project=BillBizz&postStatus=Published`;
 
       const { response, error } = await getData(url);
       console.log('ur', url);

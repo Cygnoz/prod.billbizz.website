@@ -14,9 +14,10 @@ function ViewEvent({ }: Props) {
   const [aEvent, setAEvent] = useState<any>(null);
   const { request: getEvent } = useApi("get", 3001);
   const { id } = useParams();
-
+  const [loading, setLoading] = useState<boolean>(true);
   const handleAGetEvent = async () => {
     try {
+      setLoading(true); 
       const url = `${endpoints.GET_POSTS}/${id}`;
       const { response, error } = await getEvent(url);
 
@@ -27,6 +28,9 @@ function ViewEvent({ }: Props) {
       }
     } catch (error) {
       console.error("Error occurred", error);
+    
+    } finally {
+      setLoading(false); 
     }
   };
 
@@ -37,6 +41,7 @@ function ViewEvent({ }: Props) {
   return (
     <div>
       {aEvent ? (
+        loading? <p>Loading</p>:
         <div className="p-4 sm:p-6">
           <div className="flex gap-4 items-center">
             <div

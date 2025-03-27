@@ -7,9 +7,10 @@ type Props = {};
 const Security = ({}: Props) => {
    const [data, setData] = useState([]);
     const { request: getData } = useApi("get", 3001);
-  
+    const [loading, setLoading] = useState<boolean>(true);
     const handleGetData = async () => {
       try {
+        setLoading(true); 
         const url = `${endpoints.GET_TERMS}?type=Security&project=BillBizz`;
         const { response, error } = await getData(url);
         console.log('url',url);
@@ -27,6 +28,9 @@ const Security = ({}: Props) => {
       } catch (error) {
         console.log("Error", error);
       }
+      finally {
+        setLoading(false); 
+      }
     };
   
   
@@ -42,6 +46,7 @@ const Security = ({}: Props) => {
       </p> */}
       <div className="text-2xl text-[#6d6d6d] space-y-6">
         {data.length > 0 ? (
+          loading?<p>Loading...</p>:
             data.map((item:any, index:number) => (
               <div key={item._id}>
                 <p className="font-bold">{index + 1}. {item.termTitle}</p>

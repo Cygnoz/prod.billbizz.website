@@ -1,10 +1,10 @@
 import { useState } from "react";
 import backgredient from "../assets/images/footer/Left (1).png";
 import ReusableModal from "../commoncomponents/SignUpModal";
-import Facebook from "../assets/icons/Facebook";
 import Instagram from "../assets/icons/Instagram";
 import YoutubeIcon from "../assets/icons/YoutubeIcon";
 import Twitter from "../assets/icons/Twitter";
+import FaceBook from "../assets/icons/Facebook";
 
 type Props = {}
 
@@ -74,7 +74,7 @@ const DemoComponent = ({}: Props) => {
     </p>
     <div className="flex gap-4 my-4 items-center justify-center">
     <a href="https://www.facebook.com/cygnotechlabs/" target="_blank" rel="noopener noreferrer">
-    <Facebook size={28}/>
+    <FaceBook size={28}/>
               </a>
               <a href="https://www.instagram.com/cygnoz_/" target="_blank" rel="noopener noreferrer">
               <Instagram size={28}/>

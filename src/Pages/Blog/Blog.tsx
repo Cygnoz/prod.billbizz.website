@@ -19,12 +19,13 @@ function Blog({ }: Props) {
   const [thisMonth, setThisMonth] = useState<any>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const { request: getData } = useApi("get", 3001);
+  
   const navigate = useNavigate();
 
   const handleGetBlogData = async () => {
     try {
       setLoading(true);
-      const url = `${endpoints.GET_BLOGS}?postType=Blogs&project=BillBizz`;
+      const url = `${endpoints.GET_BLOGS}?postType=Blogs&project=BillBizz&postStatus=Published`;
       const { response, error } = await getData(url);
       console.log('url',url);
       console.log('res',response);

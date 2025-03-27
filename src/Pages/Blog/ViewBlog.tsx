@@ -77,9 +77,11 @@ const ViewBlog = () => {
   const { id } = useParams()
   const navigate = useNavigate()
   const { request: getABlog } = useApi('get', 3001)
+  const [loading, setLoading] = useState<boolean>(true);
 
   const handleViewBlog = async () => {
     try {
+      setLoading(true);
       const url = `${endpoints.GET_POSTS}/${id}`;
       const { response, error } = await getABlog(url);
 
@@ -98,6 +100,10 @@ const ViewBlog = () => {
     } catch (err) {
       console.log('error occurred', err);
     }
+    finally {
+      setLoading(false); // Set loading to false after API call completes
+    }
+    
   };
 
   useEffect(() => {
@@ -123,7 +129,8 @@ const ViewBlog = () => {
   return (
     <div className="grid grid-cols-12 gap-4 m-7">
       <div className="col-span-8">
-        {viewBlog?.map((item: any) => (
+        {loading
+        ?<p>Loading...</p>:viewBlog?.map((item: any) => (
           <div>
             <div
               className="h-[350px] sm:h-[548px] rounded-3xl relative overflow-hidden"
