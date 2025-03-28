@@ -188,7 +188,7 @@ const ViewBlog = () => {
               Post
             </span>
           </div>
-          <div className="overflow-x-auto flex flex-col sm:flex-row gap-4">
+          <div className="overflow-x-auto scrollbar-hidden flex flex-col sm:flex-row gap-4">
             <div className="min-w-full flex gap-4">
               {blogData.map((post:any) => (
                 <div key={post._id} className="w-full sm:w-[413px] h-auto sm:h-[548px] bg-white rounded-[5px] p-3 sm:p-5 flex-shrink-0">

@@ -132,7 +132,7 @@ const NewsAndEvents = ({ }: Props) => {
             className="h-[335px] sm:w-[1073px] w-[335px] sm:h-[535px]  overflow-x-auto relative overflow-hidden cursor-pointer"    
             style={{
               backgroundImage: `url(${latestNews?.image?.[0] || defaultImage})`,
-              backgroundSize: "cover",
+              backgroundSize: "cover", backgroundPosition:'center'
             }}
           >
 

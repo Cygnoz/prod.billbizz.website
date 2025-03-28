@@ -19,7 +19,7 @@ function Blog({ }: Props) {
   const [thisMonth, setThisMonth] = useState<any>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const { request: getData } = useApi("get", 3001);
-  
+
   const navigate = useNavigate();
 
   const handleGetBlogData = async () => {
@@ -27,13 +27,13 @@ function Blog({ }: Props) {
       setLoading(true);
       const url = `${endpoints.GET_BLOGS}?postType=Blogs&project=BillBizz&postStatus=Published`;
       const { response, error } = await getData(url);
-      console.log('url',url);
-      console.log('res',response);
-      console.log('err',error);
-      
+      console.log('url', url);
+      console.log('res', response);
+      console.log('err', error);
+
       if (!error && response) {
         console.log(response.data);
-        
+
         const allPosts = response.data.data;
 
         const currentMonth = new Date().getMonth();
@@ -84,21 +84,23 @@ function Blog({ }: Props) {
                 );
 
                 return (
-                  <div key={index} onClick={() => navigate(`/blog/view/${post._id}`, { state: { blog: blogData } })}  className="cursor-pointer">
+                  <div key={index} onClick={() => navigate(`/blog/view/${post._id}`, { state: { blog: blogData } })} className="cursor-pointer">
                     <span
                       className={`h-5 px-2 py-1 rounded-[3px] inline-flex text-xs font-normal capitalize leading-3 ${Math.random() < 0.5
-                          ? "bg-[#f5cf4a] text-[#666666]"
-                          : "bg-gradient-to-l from-[#cc1111] to-[#8f0100] text-white"
+                        ? "bg-[#f5cf4a] text-[#666666]"
+                        : "bg-gradient-to-l from-[#cc1111] to-[#8f0100] text-white"
                         }`}
                     >
                       {post?.category?.categoryName}
                     </span>
 
-                    <p className="w-[401px] truncate text-[26px] font-semibold capitalize leading-9 my-4 text-[#222222]">
+                    <p className="w-[401px] min-h-[100px] max-h-[100px] text-[26px] font-semibold capitalize leading-9 my-4 text-[#222222] overflow-hidden line-clamp-3">
                       {post.title}
                     </p>
+
+
                     <img
-                      src={post.image[0]|| noImage}
+                      src={post.image[0] || noImage}
                       alt=""
                       className="w-[401px] h-[229px] rounded-[7px]"
                       loading="lazy"
@@ -115,11 +117,13 @@ function Blog({ }: Props) {
                       <span>{timeAgo}</span>
                     </div>
                     <p
-                      className="mt-4 text-[15px] text-[#555555] leading-snug"
+                      className="mt-4 text-[15px] text-[#555555] w-[400px] leading-snug break-words"
                       dangerouslySetInnerHTML={{
                         __html: DOMPurify.sanitize(post.content),
                       }}
                     />
+
+
                   </div>
                 );
               })}
@@ -127,7 +131,7 @@ function Blog({ }: Props) {
         </div>
       </div>
 
-    
+
 
       <div className="col-span-8 max-md:col-span-12 bg-[#f6f6f5] lg:-mx-10 mx-3 -mb-10 mt-8 lg:px-6 lg:py-10 h-full">
         <div>

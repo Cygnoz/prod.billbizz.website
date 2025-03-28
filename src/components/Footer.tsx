@@ -2,12 +2,8 @@ import awsstartup from "../assets/images/footer/aws.svg";
 import msstartup from "../assets/images/footer/ms.svg";
 import keralastartup from "../assets/images/keralaStartup.png";
 import billbizz from "../assets/icons/Billbizz-Logo_White 1.png";
-// import fb from "../assets/images/footer/social/Vector.png";
-// import insta from "../assets/images/footer/social/Vector-1.png";
-// import maill from "../assets/images/footer/social/Vector-2.png";
-// import linkedin from "../assets/images/footer/social/Vector-3.png";
-import PhoneIcon from "../assets/icons/PhoneIcon";
-import MailIcon from "../assets/icons/MailIcon";
+// import PhoneIcon from "../assets/icons/PhoneIcon";
+// import MailIcon from "../assets/icons/MailIcon";
 
 function Footer() {
 
@@ -40,11 +36,11 @@ function Footer() {
           <p className="text-[#FFFFFF] text-2xl font-medium">Contact</p>
           <div className="flex gap-1 items-center">
          
-            <MailIcon size={18}/>
+            {/* <MailIcon size={18}/> */}
             <p className="text-[#BEBEBE] text-center text-base font-normal">notify@billbizz.com</p>
           </div>
           <div className="flex gap-1 items-center">
-            <PhoneIcon   size={18} color="#BEBEBE"/>
+            {/* <PhoneIcon   size={18} color="#BEBEBE"/> */}
             <p className="text-[#BEBEBE] text-center text-base font-normal">+919544421166</p>
           </div>
           </div>
