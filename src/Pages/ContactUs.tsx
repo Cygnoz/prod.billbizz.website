@@ -2,7 +2,7 @@ import { useState } from "react";
 import bgimg from "../assets/images/contactUs.png";
 import useApi from "../Hooks/useApi";
 import { endpoints } from "../Services/ApiEndpoints";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -28,29 +28,27 @@ const ContactUs = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      const { response, error } = await addContact(endpoints.ADD_CONTACT, formData)
-      console.log('res', response);
-      console.log('err', error);
-      console.log('form', formData);
-      if (response && !error) {
-        console.log(response.data.message);
-        toast.success(response.data.message)
+      const result = await addContact(endpoints.ADD_CONTACT, formData);
+  
+      console.log("Result:", result); // Debugging log
+  
+      if (result?.response && !result?.error) {
+        const successMessage = result.response.data?.message || "Message sent successfully!";
+        toast.success(successMessage, { duration: 3000 }); // Ensure toast displays
         setTimeout(() => {
           window.location.reload(); // or navigate('/some-route') if using React Router
         }, 1000);
+      } else {
+        const errorMessage = result?.error?.response?.data?.message || "Something went wrong.";
+        toast.error(errorMessage, { duration: 3000 });
       }
-      else {
-        console.log(error.response.data.message);
-        toast.error(error.response.data.message)
-      }
+    } catch (error: any) {
+      console.error("Error occurred:", error);
+      toast.error(error?.message || "An unexpected error occurred.", { duration: 3000 });
     }
-    catch (error) {
-      console.log('error occured', error);
-
-    }
-  }
+  };
 
   return (
     <div className="m-5 rounded-lg">
@@ -239,6 +237,7 @@ const ContactUs = () => {
           </form>
         </div>
       </div>
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 };
